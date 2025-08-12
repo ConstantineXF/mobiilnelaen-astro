@@ -1,0 +1,83 @@
+---
+// Файл: src/components/Header.astro
+// Финальная версия с собственным мобильным меню
+---
+<header class="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-slate-200">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="/" class="text-2xl font-bold text-slate-800">
+      Mobiilne<span class="text-cyan-500">Laen</span>.ee
+    </a>
+
+    {/* Меню для больших экранов */}
+    <nav class="hidden lg:flex items-center gap-x-5 text-sm font-medium">
+      <a href="/" class="text-slate-600 hover:text-cyan-500">Avaleht</a>
+      <a href="/kiirlaen" class="text-slate-600 hover:text-cyan-500">Kiirlaenud</a>
+      <a href="/krediidikonto" class="text-slate-600 hover:text-cyan-500">Krediidikonto</a>
+      <a href="/krediidiliin" class="text-slate-600 hover:text-cyan-500">Krediidiliin</a>
+      <a href="/sms-laen" class="text-slate-600 hover:text-cyan-500">SMS laen</a>
+      <a href="/vaikelaen" class="text-slate-600 hover:text-cyan-500">Väikelaen</a>
+      <a href="/autolaen" class="text-slate-600 hover:text-cyan-500">Autolaen</a>
+      <a href="/krediitkaart" class="text-slate-600 hover:text-cyan-500">Krediitkaart</a>
+    </nav>
+
+    {/* Кнопка "Бургер" для мобильных экранов */}
+    <div class="lg:hidden">
+      <button id="menu-open-btn" aria-label="Ava menüü">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+{/* САМА ВЫЕЗЖАЮЩАЯ ПАНЕЛЬ И ФОН (изначально скрыты) */}
+<div id="menu-overlay" class="fixed inset-0 bg-black/60 z-40 hidden"></div>
+<div id="mobile-menu" class="fixed top-0 left-0 h-full w-3/4 max-w-xs bg-white z-50 p-6 transform -translate-x-full transition-transform duration-300 ease-in-out">
+  <div class="flex justify-between items-center mb-8">
+    <span class="text-xl font-bold">Menüü</span>
+    <button id="menu-close-btn" aria-label="Sulge menüü">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <nav class="grid gap-6 text-lg font-medium">
+    <a href="/" class="text-slate-800 hover:text-cyan-600">Avaleht</a>
+    <a href="/kiirlaen" class="text-slate-800 hover:text-cyan-600">Kiirlaenud</a>
+    <a href="/krediidikonto" class="text-slate-800 hover:text-cyan-600">Krediidikonto</a>
+    <a href="/krediidiliin" class="text-slate-800 hover:text-cyan-600">Krediidiliin</a>
+    <a href="/sms-laen" class="text-slate-800 hover:text-cyan-600">SMS laen</a>
+    <a href="/vaikelaen" class="text-slate-800 hover:text-cyan-600">Väikelaen</a>
+    <a href="/autolaen" class="text-slate-800 hover:text-cyan-600">Autolaen</a>
+    <a href="/krediitkaart" class="text-slate-800 hover:text-cyan-600">Krediitkaart</a>
+  </nav>
+</div>
+
+
+<script is:inline>
+  function initMobileMenu() {
+    const openBtn = document.getElementById('menu-open-btn');
+    const closeBtn = document.getElementById('menu-close-btn');
+    const overlay = document.getElementById('menu-overlay');
+    const menu = document.getElementById('mobile-menu');
+
+    function openMenu() {
+      if (menu && overlay) {
+        overlay.classList.remove('hidden');
+        menu.classList.remove('-translate-x-full');
+      }
+    }
+
+    function closeMenu() {
+      if (menu && overlay) {
+        overlay.classList.add('hidden');
+        menu.classList.add('-translate-x-full');
+      }
+    }
+
+    openBtn?.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+    overlay?.addEventListener('click', closeMenu);
+  }
+
+  // Запускаем при загрузке и переходах
+  document.addEventListener('astro:page-load', initMobileMenu);
+  initMobileMenu(); // Запускаем также при первой загрузке
+</script>

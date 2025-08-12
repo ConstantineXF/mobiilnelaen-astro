@@ -1,0 +1,52 @@
+---
+// Полный код для файла: src/components/Card.astro
+
+// Получаем данные о предложении, переданные со страницы
+const { offerData } = Astro.props;
+---
+
+{/* Самый главный div. Обратите внимание на добавленные атрибуты:
+  - data-offer-card: помечает эту карточку для нашего скрипта
+  - data-max-amount: хранит максимальную сумму
+  - data-max-term: хранит максимальный срок
+*/}
+<div 
+  class="bg-white border border-slate-200 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
+  data-offer-card
+  data-max-amount={offerData.maxAmount}
+  data-max-term={offerData.maxTerm}
+>
+  {/* Основной контент карточки */}
+  <div class="p-6 flex-grow">
+    <h3 class="text-xl font-bold text-slate-800">{offerData.providerName}</h3>
+    <a href={`/${offerData.loanType}`} class="text-sm font-semibold text-cyan-600 mt-1 hover:text-cyan-700 hover:underline transition-colors">
+  {offerData.loanType}
+</a>
+
+    <div class="text-sm text-slate-600 mt-4 space-y-2">
+      {/* Условное отображение: показываем поле, только если для него есть данные */}
+      {offerData.maxAmount && <p>Summa kuni: <span class="font-bold">{offerData.maxAmount} €</span></p>}
+      {offerData.maxTerm && <p>Tähtaeg kuni: <span class="font-bold">{offerData.maxTerm} kuud</span></p>}
+      {offerData.interestRate && <p>Intress: <span class="font-bold">{offerData.interestRate}</span></p>}
+    </div>
+
+    {/* Условное отображение списка особенностей */}
+    {offerData.features && offerData.features.length > 0 && (
+      <ul class="mt-4 text-xs text-slate-500 list-disc list-inside space-y-1">
+        {offerData.features.map((feature: string) => <li>{feature}</li>)}
+      </ul>
+    )}
+  </div>
+
+  {/* Нижняя часть карточки с кнопкой */}
+  <div class="bg-slate-50 p-4 mt-auto border-t border-slate-100">
+<a 
+href={`/go/${offerData.slug}`} 
+  target="_blank" 
+  rel="nofollow noopener noreferrer" 
+  class="bg-cyan-500 text-white text-center font-bold py-2 px-4 rounded-lg w-full block group-hover:bg-cyan-600 transition-colors duration-300"
+>
+  Lähemalt..
+</a>
+  </div>
+</div>

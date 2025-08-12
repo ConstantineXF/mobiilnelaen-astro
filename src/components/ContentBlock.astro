@@ -1,0 +1,15 @@
+---
+// Файл: src/components/ContentBlock.astro
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+<section class="container mx-auto px-4 py-12">
+  <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-md">
+    <h2 class="text-2xl font-bold text-slate-800 mb-4">{title}</h2>
+    <div class="prose prose-slate max-w-none">
+      <slot /> {/* Сюда мы будем вставлять уникальный текст для каждой страницы */}
+    </div>
+  </div>
+</section>

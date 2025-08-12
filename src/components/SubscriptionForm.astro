@@ -1,0 +1,25 @@
+---
+// Файл: src/components/SubscriptionForm.astro
+---
+<section class="bg-slate-800 text-white py-16">
+  <div class="container mx-auto px-4 text-center">
+    <h3 class="text-3xl font-bold">Liitu meie uudiskirjaga!</h3>
+    <p class="opacity-80 mt-2 mb-8 max-w-xl mx-auto">Saa esimesena teada parimatest personaalsetest laenupakkumistest, finantsnõuannetest ja kampaaniatest.</p>
+    <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
+      <label for="email-subscription" class="sr-only">E-post</label>
+      <input 
+        id="email-subscription" 
+        type="email" 
+        placeholder="Sinu e-posti aadress" 
+        required 
+        class="w-full flex-grow rounded-md p-3 text-slate-900 border-2 border-transparent focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
+      />
+      <button 
+        type="submit" 
+        class="bg-cyan-500 text-white font-bold py-3 px-6 rounded-md hover:bg-cyan-600 transition-colors shadow-lg hover:shadow-cyan-500/50"
+      >
+        Liitu
+      </button>
+    </form>
+  </div>
+</section>

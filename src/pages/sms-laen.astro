@@ -1,0 +1,47 @@
+---
+// Файл: src/pages/sms-laen.astro
+import { client as sanityClient } from '../lib/sanity';
+import MainLayout from '../layouts/MainLayout.astro';
+import Card from '../components/Card.astro';
+import FaqSection from '../components/FaqSection.astro';
+import ContentBlock from '../components/ContentBlock.astro';
+import SmartCalculator from '../components/SmartCalculator.tsx';
+import InteractiveCost from '../components/InteractiveCost.tsx';
+import Voting from '../components/Voting.tsx';
+
+const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
+const pageOffers = allOffers.filter(offer => offer.loanType === 'sms-laen');
+---
+<MainLayout title="SMS laen - Kiire laen sõnumi teel">
+  <div class="container mx-auto px-4 py-8 md:py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-extrabold text-slate-800">SMS laen</h1>
+      <p class="text-slate-500 mt-2">Uuri lähemalt SMS laenude kohta ja leia sobiv pakkuja.</p>
+    </div>
+
+    {pageOffers.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {pageOffers.map(offer => <Card offerData={offer} />)}
+      </div>
+    ) : (
+      <p class="text-center bg-blue-100 text-blue-800 p-4 rounded-md">Sellele tüübile vastavaid laenupakkumisi hetkel ei leitud.</p>
+    )}
+  </div>
+
+  <ContentBlock title="Mis on SMS laen?">
+    <p>SMS laen oli aastaid tagasi populaarne viis kiiresti väikest summat laenata, saates laenutaotluse lihtsalt sõnumi teel. Tänapäeval on tehnoloogia arenenud ning enamik laenuandjaid on üle läinud turvalisematele ja mugavamatele veebipõhistele iseteeninduskeskkondadele ja mobiilirakendustele. Kuigi klassikaline SMS laen on muutumas harulduseks, elab selle põhimõte – kiirus ja mugavus – edasi moodsates mobiilsetes laenulahendustes.</p>
+  </ContentBlock>
+<Voting client:load voteId="sms-laen-votes" />
+  <section class="py-16 bg-slate-100">
+    <div class="container mx-auto px-4">
+      <SmartCalculator client:load allOffers={allOffers} defaultCategory="sms-laen" />
+    </div>
+  </section>
+
+  <InteractiveCost client:load />
+
+  <FaqSection 
+    title="Korduma kippuvad küsimused SMS laenude kohta" 
+    category="sms-laen" 
+  />
+</MainLayout>

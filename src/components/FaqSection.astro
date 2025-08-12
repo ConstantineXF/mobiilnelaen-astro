@@ -1,0 +1,56 @@
+---
+// Полный и правильный код для файла: src/components/FaqSection.astro
+import { client as sanityClient } from '../lib/sanity';
+import FaqAccordion from './FaqAccordion.tsx';
+
+interface Props {
+  category: string;
+  title: string;
+}
+const { category, title } = Astro.props;
+
+// 1. Запрашиваем из Sanity вопросы ТОЛЬКО для указанной категории
+const faqs = await sanityClient.fetch(
+  `*[_type == "faqItem" && category == $category]`, 
+  { category }
+);
+
+// 2. Готовим данные для Schema.org в формате JSON-LD
+// Этот блок создает объект, который мы потом превратим в текст
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq: any) => {
+    // Для каждого вопроса создаем свою структуру
+    return {
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        // Собираем текст из всех блоков ответа в одну строку
+        "text": faq.answer.map((block: any) => 
+          block.children.map((child: any) => child.text).join('')
+        ).join('\\n\\n') // разделяем параграфы переносом строки
+      }
+    }
+  })
+};
+---
+
+<section class="container mx-auto px-4 py-12 max-w-4xl">
+  <h2 class="text-3xl font-extrabold text-center mb-10">{title}</h2>
+
+  {faqs && faqs.length > 0 ? (
+    <FaqAccordion client:visible items={faqs} />
+  ) : (
+    <p class="text-center text-slate-500">Selle kategooria jaoks küsimusi ei leitud.</p>
+  )}
+</section>
+
+{/* 3. Вставляем "спрятанный" JSON-LD код для поисковых систем.
+  Браузер его не отображает, но Google его видит и считывает.
+  Мы используем set:html, чтобы правильно вставить сгенерированный JSON.
+*/}
+{faqs && faqs.length > 0 && (
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+)}

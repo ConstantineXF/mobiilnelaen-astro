@@ -1,0 +1,68 @@
+---
+// Файл: src/components/LiveFeed.astro
+---
+<div class="bg-white py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-extrabold text-center mb-2">Värsked taotlused üle Eesti</h2>
+    <p class="text-center text-slate-500 mb-10">Meie platvormi kasutatakse aktiivselt iga päev.</p>
+    <div id="feed-container" class="max-w-2xl mx-auto space-y-3">
+      {/* Этот блок будет наполняться скриптом */}
+    </div>
+  </div>
+</div>
+
+<script>
+  const feedData = [
+    { amount: 2300, status: 'Ootel', device: 'iPhone 15 Pro', city: 'Tallinn' },
+    { amount: 5000, status: 'Heaks kiidetud', device: 'Android', city: 'Tartu' },
+    { amount: 800, status: 'Ootel', device: 'iPhone 12', city: 'Pärnu' },
+    { amount: 15000, status: 'Heaks kiidetud', device: 'Samsung Galaxy', city: 'Narva' },
+    { amount: 3500, status: 'Ootel', device: 'iPhone 14', city: 'Rakvere' },
+    { amount: 1200, status: 'Heaks kiidetud', device: 'Xiaomi', city: 'Viljandi' },
+    { amount: 7500, status: 'Heaks kiidetud', device: 'iPhone 15', city: 'Kuressaare' },
+    { amount: 400, status: 'Ootel', device: 'Android', city: 'Võru' },
+    { amount: 9000, status: 'Heaks kiidetud', device: 'Samsung Fold', city: 'Maardu' },
+  ];
+
+  const container = document.getElementById('feed-container');
+  let currentIndex = 0;
+
+  function addFeedItem() {
+    if (!container) return;
+
+    const item = feedData[currentIndex];
+    const statusClass = item.status === 'Heaks kiidetud' ? 'text-green-600' : 'text-amber-600';
+
+    const newItem = document.createElement('div');
+    newItem.className = 'bg-slate-50 border border-slate-200 p-3 rounded-lg flex justify-between items-center text-sm transition-all duration-500 opacity-0 translate-y-4';
+    newItem.innerHTML = `
+      <div>
+        <span class="font-bold">${item.amount} €</span> - 
+        <span class="font-semibold ${statusClass}">${item.status}</span>
+      </div>
+      <div class="text-right text-xs text-slate-500">
+        <p>${item.city}</p>
+        <p>Seade: ${item.device}</p>
+      </div>
+    `;
+
+    container.prepend(newItem);
+
+    // Плавное появление
+    setTimeout(() => {
+      newItem.style.opacity = '1';
+      newItem.style.transform = 'translateY(0)';
+    }, 100);
+
+    // Удаляем старые, чтобы лента не была бесконечной
+    if (container.children.length > 4) {
+      container.lastElementChild?.remove();
+    }
+
+    currentIndex = (currentIndex + 1) % feedData.length;
+  }
+
+  // Запускаем ленту
+  setInterval(addFeedItem, 3000); // Добавляем новый элемент каждые 3 секунды
+  addFeedItem(); // Добавляем первый сразу
+</script>

@@ -1,0 +1,73 @@
+---
+// Файл: src/components/Modals.astro
+// Финальная версия с полным текстом
+---
+<div id="modal-privacy" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+  <div class="bg-white text-black p-6 rounded-lg max-w-3xl w-full max-h-[80vh] flex flex-col">
+    <div class="flex justify-between items-center mb-4 flex-shrink-0">
+      <h2 class="text-2xl font-bold">Privaatsuspoliitika</h2>
+      <button onclick="closeModal('privacy')" class="text-3xl font-bold leading-none">&times;</button>
+    </div>
+    <div class="text-left space-y-4 text-slate-700 overflow-y-auto pr-4">
+      <p class="text-sm">Kehtiv alates: 12. august 2025</p>
+      
+      <h3 class="font-bold text-lg pt-2">1. Milliseid andmeid me kogume?</h3>
+      <p class="text-sm">Kogume isikuandmeid, mida esitate meile vabatahtlikult meie veebilehe funktsioonide kaudu. Need andmed hõlmavad:</p>
+      <ul class="list-disc list-inside text-sm space-y-1 pl-4">
+        <li><b>Laenutaotluse vormilt:</b> Teie poolt sisestatud soovitud laenusumma, igakuine netosissetulek, soovitud laenu tüüp ja teie e-posti aadress. Me ei kogu ega salvesta teie nime, isikukoodi ega telefoninumbrit.</li>
+        <li><b>Uudiskirjaga liitumisel:</b> Teie e-posti aadress.</li>
+        <li><b>Automaatselt kogutavad andmed:</b> Kasutame küpsiseid, et koguda anonüümset tehnilist teavet teie seadme ja veebilehe kasutuse kohta (nt IP-aadress, brauseri tüüp, külastuse aeg), et parandada meie teenuse kvaliteeti ja turvalisust.</li>
+      </ul>
+
+      <h3 class="font-bold text-lg pt-2">2. Kuidas me teie andmeid kasutame?</h3>
+      <p class="text-sm">Teie andmeid kasutatakse rangelt sihtotstarbeliselt:</p>
+      <ul class="list-disc list-inside text-sm space-y-1 pl-4">
+        <li><b>Laenutaotluse töötlemine:</b> Teie poolt laenutaotluse vormis esitatud andmeid (summa, sissetulek, laenu tüüp, e-post) kasutatakse <b>ainult ühel eesmärgil</b>: teie päringu turvaliseks edastamiseks meie finantspartneritele, et leida teile sobivaim laenupakkumine. Meie ei tee laenuotsuseid ega salvesta neid andmeid pärast edastamist.</li>
+        <li><b>Personaalsed pakkumised (uudiskiri):</b> Kui olete liitunud meie uudiskirjaga, kasutame teie e-posti aadressi, et saata teile parimaid ja personaalseid laenupakkumisi, finantsnõuandeid ja teavet kampaaniate kohta.</li>
+      </ul>
+
+      <h3 class="font-bold text-lg pt-2">3. Andmete jagamine ja turvalisus</h3>
+      <p class="text-sm">Me ei müü, rendi ega jaga teie isikuandmeid kolmandate osapooltega, välja arvatud laenutaotluse edastamiseks teie nõusolekul meie partner-krediidiandjatele ning seadusega ettenähtud juhtudel. Kasutame kaasaegseid turvameetmeid, et kaitsta teie andmeid volitamata juurdepääsu eest.</p>
+
+      <h3 class="font-bold text-lg pt-2">4. Teie õigused</h3>
+      <p class="text-sm">Teil on õigus igal ajal taotleda juurdepääsu oma isikuandmetele, mida me ajutiselt töötleme. Uudiskirjast saate loobuda igal hetkel, klõpsates iga saadetud kirja jaluses oleval lingil.</p>
+    </div>
+  </div>
+</div>
+
+<div id="modal-terms" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 p-4 backdrop-blur-sm">
+  <div class="bg-white text-black p-6 rounded-lg max-w-3xl w-full max-h-[80vh] flex flex-col">
+    <div class="flex justify-between items-center mb-4 flex-shrink-0">
+      <h2 class="text-2xl font-bold">Kasutustingimused</h2>
+      <button onclick="closeModal('terms')" class="text-3xl font-bold leading-none">&times;</button>
+    </div>
+    <div class="text-left space-y-4 text-slate-700 overflow-y-auto pr-4">
+       <h3 class="font-bold text-lg pt-2">1. Teenuse Kirjeldus</h3>
+       <p class="text-sm">MobiilneLaen.ee on sõltumatu ja informatiivne võrdlusportaal. Meie eesmärk on pakkuda kasutajatele ajakohast teavet Eestis tegutsevate litsentseeritud krediidiandjate pakkumiste kohta. <b>MobiilneLaen.ee ei ole laenuandja, laenuvahendaja ega finantsnõustaja ning ei väljasta laene.</b></p>
+
+       <h3 class="font-bold text-lg pt-2">2. Laenutaotluse protsess</h3>
+       <p class="text-sm">Veebilehel on kasutajal võimalik täita laenutaotluse vorm. Nõustudes tingimustega, annab kasutaja meile loa edastada need andmed turvaliselt meie partner-krediidiandjatele. See ei garanteeri laenu saamist. Lõplik laenuotsus, leping ja rahade väljamaksmine toimub alati otse kasutaja ja konkreetse laenuandja vahel. Meie ei ole selle protsessi osapool.</p>
+
+       <h3 class="font-bold text-lg pt-2">3. Uudiskirja teenus</h3>
+       <p class="text-sm">Kasutajal on võimalus liituda meie uudiskirjaga, et saada personaalseid ja parimaid laenupakkumisi. Teenus on vabatahtlik ja sellest on võimalik igal ajal loobuda.</p>
+
+       <h3 class="font-bold text-lg pt-2">4. Vastutuse Piirang</h3>
+       <p class="text-sm">Kogu veebilehel esitatud teave (intressimäärad, näidiskalkulatsioonid jne) on informatiivsel eesmärgil ja võib aja jooksul muutuda. Me anname endast parima info ajakohastamiseks, kuid ei vastuta selle täpsuse eest. Kasutaja kohustub enne lepingu sõlmimist alati tutvuma laenuandja lõplike tingimustega tema enda veebilehel.</p>
+
+       <h3 class="font-bold text-lg pt-2">5. Intellektuaalne Omand</h3>
+       <p class="text-sm">Kogu veebilehe sisu, sealhulgas tekstid, disain ja logo, on MobiilneLaen.ee omand ja kaitstud autoriõigusega. Sisu kopeerimine ja levitamine ilma kirjaliku loata on keelatud.</p>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function openModal(name) {
+    const modal = document.getElementById('modal-' + name);
+    if (modal) modal.style.display = 'flex';
+  }
+
+  function closeModal(name) {
+    const modal = document.getElementById('modal-' + name);
+    if (modal) modal.style.display = 'none';
+  }
+</script>

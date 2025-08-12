@@ -1,0 +1,51 @@
+---
+// Файл: src/components/ApplicationForm.astro
+---
+<section id="taotlus" class="bg-slate-100 py-16">
+  <div class="container mx-auto px-4 max-w-2xl">
+    <div class="bg-white p-8 rounded-xl shadow-xl border border-slate-200">
+      <div class="text-center">
+        <h2 class="text-3xl font-extrabold text-slate-900 mb-2">Soovid personaalset pakkumist?</h2>
+        <p class="text-slate-500 mb-8">Täida väljad ja aitame leida sulle parima lahenduse.</p>
+      </div>
+      <form class="space-y-6 text-left">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="amount-req" class="block text-sm font-medium text-slate-700 mb-1">Soovitud laenusumma (€)</label>
+            <input type="number" id="amount-req" placeholder="Nt: 3000" required class="w-full p-3 border border-slate-300 rounded-md transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 focus:outline-none" />
+          </div>
+          <div>
+            <label for="income-req" class="block text-sm font-medium text-slate-700 mb-1">Igakuine netosissetulek (€)</label>
+            <input type="number" id="income-req" placeholder="Nt: 1500" required class="w-full p-3 border border-slate-300 rounded-md transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 focus:outline-none" />
+          </div>
+        </div>
+        <div>
+          <label for="type-req" class="block text-sm font-medium text-slate-700 mb-1">Soovitud laenu tüüp</label>
+          <select id="type-req" required class="w-full p-3 border border-slate-300 rounded-md transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 focus:outline-none bg-white">
+            <option value="" disabled selected>Vali tüüp...</option>
+            <option value="kiirlaen">Kiirlaen</option>
+            <option value="väikelaen">Väikelaen</option>
+            <option value="krediidikonto">Krediidikonto</option>
+            <option value="autolaen">Autolaen</option>
+          </select>
+        </div>
+        <div>
+          <label for="email-req" class="block text-sm font-medium text-slate-700 mb-1">Sinu e-posti aadress</label>
+          <input type="email" id="email-req" placeholder="nimi@email.com" required class="w-full p-3 border border-slate-300 rounded-md transition-colors focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 focus:outline-none" />
+        </div>
+        <div class="pt-2">
+          <label class="flex items-center">
+            <input type="checkbox" required class="h-4 w-4 rounded border-gray-300 text-cyan-600 focus:ring-cyan-500" />
+                <span class="ml-3 text-sm text-slate-600">
+      Nõustun 
+      <a href="#" onclick="openModal('terms'); event.preventDefault();" class="underline hover:text-cyan-600">kasutustingimuste</a> ja 
+      <a href="#" onclick="openModal('privacy'); event.preventDefault();" class="underline hover:text-cyan-600">privaatsuspoliitikaga</a>.
+    </span></label>
+        </div>
+        <button type="submit" class="w-full bg-cyan-500 text-white font-bold py-3 rounded-lg text-lg hover:bg-cyan-600 transition-all duration-300 shadow-lg hover:shadow-cyan-500/50 transform hover:scale-105 mt-4">
+          Saada päring
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

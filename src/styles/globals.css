@@ -1,0 +1,130 @@
+/* Файл: src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 210 40% 9.8%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 210 40% 9.8%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 210 40% 45.1%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 210 40% 9.8%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 40% 91.4%;
+    --input: 210 40% 89.8%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 9.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 11.8%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 11.8%;
+    --muted-foreground: 210 40% 65.1%;
+    --accent: 210 40% 11.8%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 210 40% 11.8%;
+    --input: 210 40% 11.8%;
+    --ring: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Добавьте этот код в конец файла globals.css */
+
+/* Стиль для самого выпадающего контейнера */
+[data-radix-select-content] {
+  background-color: white;
+  border-radius: 0.75rem; /* Более мягкие скругления */
+  border: 1px solid #e2e8f0; /* slate-200 */
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 0.5rem;
+}
+
+
+[data-radix-select-item] {
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+[data-radix-select-item]:hover, [data-radix-select-item][data-highlighted] {
+  background-color: #ecfeff; 
+  color: #0891b2; 
+  outline: none;
+}
+
+.custom-slider-dark::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 20px; height: 20px;
+  background: #67e8f9; /* cyan-300 */ border-radius: 50%; cursor: pointer;
+}
+.custom-slider-dark::-moz-range-thumb {
+  width: 20px; height: 20px; background: #67e8f9; border-radius: 50%; cursor: pointer;
+}
+
+
+[data-radix-dialog-overlay] {
+  background-color: hsl(var(--foreground) / 0.1); 
+  backdrop-filter: blur(4px); 
+}
+
+[data-radix-dialog-content] {
+  background-color: hsl(var(--background)); 
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.2), 0 8px 10px -6px rgb(0 0 0 / 0.2);
+}
+
+
+[data-radix-dialog-content] {
+  background-color: white !important; 
+}
+
+[data-radix-dialog-description] p {
+  color: black !important; 
+}
+
+[data-radix-dialog-title] {
+  color: black !important; 
+}
+
+
+[data-radix-dialog-content][side="left"] {
+  background-color: white !important; 
+}
+
+[data-radix-dialog-content][side="left"] a {
+  color: #1e293b !important; 
+}

@@ -1,0 +1,51 @@
+---
+// Файл: src/components/CookieConsent.astro
+// Наша собственная, простая и надежная реализация
+---
+<div id="cookie-banner" class="fixed bottom-0 right-0 m-4 p-6 bg-slate-800 text-white rounded-lg shadow-2xl max-w-md hidden z-50">
+  <h3 class="text-lg font-bold">See veebileht kasutab küpsiseid</h3>
+  <p class="text-sm opacity-80 mt-2">
+    Kasutame küpsiseid, et pakkuda teile parimat võimalikku kasutuskogemust ja analüüsida liiklust. Jätkates kasutamist, nõustute meie küpsiste kasutamisega.
+  </p>
+  <div class="mt-4 flex gap-4">
+    <button id="accept-cookies-btn" class="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded-md transition-colors">Nõustun</button>
+    <button id="decline-cookies-btn" class="flex-1 bg-slate-700 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-md transition-colors">Keeldun</button>
+  </div>
+</div>
+
+<script is:inline>
+  function runCookieBanner() {
+    const COOKIE_NAME = 'mobiilnelaen-consent';
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies-btn');
+    const declineBtn = document.getElementById('decline-cookies-btn');
+
+    // Проверяем, есть ли уже cookie
+    if (document.cookie.includes(COOKIE_NAME)) {
+      return; // Если есть, ничего не делаем
+    }
+
+    // Если cookie нет, показываем баннер
+    if (banner) {
+      banner.style.display = 'block';
+    }
+
+    // Функция для установки cookie
+    function setCookie(value) {
+      const expires = new Date();
+      expires.setFullYear(expires.getFullYear() + 1); // Срок действия - 1 год
+      document.cookie = `${COOKIE_NAME}=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+      if (banner) {
+        banner.style.display = 'none';
+      }
+    }
+
+    // Назначаем события на кнопки
+    acceptBtn?.addEventListener('click', () => setCookie('accepted'));
+    declineBtn?.addEventListener('click', () => setCookie('declined'));
+  }
+
+  // Запускаем при загрузке и переходах
+  document.addEventListener('astro:page-load', runCookieBanner);
+  runCookieBanner(); // Запускаем также при первой загрузке
+</script>

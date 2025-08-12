@@ -1,0 +1,113 @@
+---
+// Файл: src/components/LoanFilter.astro
+---
+<div id="filter-section" class="bg-white p-6 md:p-8 rounded-xl shadow-xl border border-slate-200 mb-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div class="relative pt-6">
+      <label for="amount-slider" class="block font-bold text-slate-800 text-lg mb-2">Laenusumma</label>
+      <div id="amount-tooltip" class="absolute bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg -top-2 left-1/2 after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-slate-900">12750 €</div>
+      <input id="amount-slider" type="range" min="500" max="25000" step="100" value="12750" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer mt-4 custom-slider">
+      <div class="flex justify-between text-sm text-slate-500 mt-2">
+        <span>500 €</span>
+        <span>25000 €</span>
+      </div>
+    </div>
+    <div class="relative pt-6">
+      <label for="term-slider" class="block font-bold text-slate-800 text-lg mb-2">Laenuperiood</label>
+      <div id="term-tooltip" class="absolute bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg -top-2 left-1/2 after:content-[''] after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-slate-900">63 kuud</div>
+      <input id="term-slider" type="range" min="6" max="120" step="1" value="63" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer mt-4 custom-slider">
+      <div class="flex justify-between text-sm text-slate-500 mt-2">
+        <span>6 kuud</span>
+        <span>120 kuud</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Этот скрипт будет работать в браузере клиента
+  const amountSlider = document.getElementById('amount-slider') as HTMLInputElement;
+  const termSlider = document.getElementById('term-slider') as HTMLInputElement;
+  const amountTooltip = document.getElementById('amount-tooltip') as HTMLElement;
+  const termTooltip = document.getElementById('term-tooltip') as HTMLElement;
+
+  // Функция для обновления подсказки
+  function updateTooltip(slider: HTMLInputElement, tooltip: HTMLElement, unit: string) {
+    if (!slider || !tooltip) return;
+    const value = slider.value;
+    const min = Number(slider.min);
+    const max = Number(slider.max);
+    const percent = (Number(value) - min) / (max - min);
+
+    const tooltipWidth = tooltip.offsetWidth;
+    const thumbWidth = 24; // Ширина ползунка из CSS
+
+    // Рассчитываем позицию так, чтобы центр подсказки был над центром ползунка
+    const newPosition = percent * (slider.offsetWidth - thumbWidth) + (thumbWidth / 2) - (tooltipWidth / 2);
+
+    tooltip.style.left = `${newPosition}px`;
+    tooltip.innerHTML = `${value} ${unit}`;
+  }
+
+  // Функция для фильтрации (остается без изменений)
+  function filterLoans() {
+      const amount = parseInt(amountSlider.value);
+      const term = parseInt(termSlider.value);
+      const allCards = document.querySelectorAll('[data-offer-card]');
+      allCards.forEach(card => {
+          const cardElement = card as HTMLElement;
+          const maxAmount = parseInt(cardElement.dataset.maxAmount || '0');
+          const maxTerm = parseInt(cardElement.dataset.maxTerm || '0');
+          const shouldShow = maxAmount >= amount && maxTerm >= term;
+          cardElement.style.display = shouldShow ? 'flex' : 'none';
+      });
+  };
+
+  // Добавляем слушателей событий
+  amountSlider.addEventListener('input', () => {
+    filterLoans();
+    updateTooltip(amountSlider, amountTooltip, '€');
+  });
+  termSlider.addEventListener('input', () => {
+    filterLoans();
+    updateTooltip(termSlider, termTooltip, 'kuud');
+  });
+
+  // Инициализация при загрузке страницы
+  function initializeFilters() {
+    // Устанавливаем начальное положение
+    filterLoans();
+    updateTooltip(amountSlider, amountTooltip, '€');
+    updateTooltip(termSlider, termTooltip, 'kuud');
+  }
+
+  // Запускаем при первой загрузке
+  initializeFilters();
+  // Запускаем повторно при переходах между страницами в Astro
+  document.addEventListener('astro:page-load', initializeFilters);
+</script>
+
+<style>
+  .custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #06b6d4; /* cyan-500 */
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    margin-top: -8px; /* Центрируем ползунок относительно дорожки */
+  }
+
+  .custom-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #06b6d4; /* cyan-500 */
+    border-radius: 50%;
+    cursor: pointer;
+    border: 4px solid white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+</style>

@@ -1,0 +1,48 @@
+---
+// Файл: src/pages/väikelaen.astro
+import { client as sanityClient } from '../lib/sanity';
+import MainLayout from '../layouts/MainLayout.astro';
+import Card from '../components/Card.astro';
+import FaqSection from '../components/FaqSection.astro';
+import ContentBlock from '../components/ContentBlock.astro';
+import SmartCalculator from '../components/SmartCalculator.tsx';
+import InteractiveCost from '../components/InteractiveCost.tsx';
+import Voting from '../components/Voting.tsx';
+
+const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
+const pageOffers = allOffers.filter(offer => offer.loanType === 'väikelaen');
+---
+
+<MainLayout title="Väikelaenud - Paindlik lahendus sinu unistuste jaoks">
+  <div class="container mx-auto px-4 py-8 md:py-12">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-extrabold text-slate-800">Väikelaen</h1>
+      <p class="text-slate-500 mt-2">Leia parim väikelaen oma eesmärkide elluviimiseks.</p>
+    </div>
+
+    {pageOffers.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {pageOffers.map(offer => <Card offerData={offer} />)}
+      </div>
+    ) : (
+      <p class="text-center bg-blue-100 text-blue-800 p-4 rounded-md">Sellele tüübile vastavaid laenupakkumisi hetkel ei leitud.</p>
+    )}
+  </div>
+<Voting client:load voteId="väikelaen-votes" />
+  <ContentBlock title="Mis on väikelaen?">
+    <p>Väikelaen on tagatiseta laenutoode, mida saab kasutada mistahes eesmärgil – olgu selleks koduremont, auto ostmine, reisimine või mõni muu suurem väljaminek. Fikseeritud intressimäär ja kindel kuumakse annavad sulle finantskindluse kogu laenuperioodiks, muutes selle populaarseks ja usaldusväärseks finantseerimisviisiks.</p>
+  </ContentBlock>
+
+  <section class="py-16 bg-slate-100">
+    <div class="container mx-auto px-4">
+      <SmartCalculator client:load allOffers={allOffers} defaultCategory="väikelaen" />
+    </div>
+  </section>
+
+  <InteractiveCost client:load />
+
+  <FaqSection 
+    title="Korduma kippuvad küsimused väikelaenude kohta" 
+    category="väikelaen" 
+  />
+</MainLayout>

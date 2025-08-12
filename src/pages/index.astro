@@ -1,0 +1,51 @@
+---
+// ПОЛНЫЙ КОД для файла: src/pages/index.astro
+import { client as sanityClient } from '../lib/sanity';
+import MainLayout from '../layouts/MainLayout.astro';
+import Card from '../components/Card.astro';
+import Hero from '../components/Hero.astro';
+import LoanFilter from '../components/LoanFilter.astro';
+import FaqSection from '../components/FaqSection.astro';
+import SmartCalculator from '../components/SmartCalculator.tsx';
+import ApplicationForm from '../components/ApplicationForm.astro';
+import SubscriptionForm from '../components/SubscriptionForm.astro';
+import Testimonials from '../components/Testimonials.astro';
+import LiveFeed from '../components/LiveFeed.astro';
+import Stats from '../components/Stats.astro';
+
+const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
+---
+
+<MainLayout title="Mobiilne Laen | Parimad laenupakkumised Eestis">
+  
+  <Hero />
+
+  <div id="laenud" class="container mx-auto px-4 py-8 md:py-12">
+    <LoanFilter client:load />
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      {allOffers.map(offer => (
+        <Card offerData={offer} />
+      ))}
+    </div>
+  </div>
+
+
+  <section class="py-16 bg-slate-100">
+    <div class="container mx-auto px-4">
+
+      <SmartCalculator client:load allOffers={allOffers} />
+    </div>
+  </section>
+<LiveFeed />
+<Testimonials />
+  <FaqSection 
+    title="Korduma kippuvad küsimused" 
+    category="mobiilne-laen" 
+  />
+
+  <ApplicationForm />
+  <SubscriptionForm />
+<Stats />
+</MainLayout>
