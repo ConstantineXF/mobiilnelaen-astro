@@ -1,0 +1,39 @@
+---
+// Десктоп-фишка «Ava telefonis»: QR текущей страницы, сгенерированный на этапе сборки.
+import QRCode from 'qrcode';
+
+const url = new URL(Astro.url.pathname, 'https://mobiilnelaen.ee').href;
+const qrSvg = await QRCode.toString(url, {
+  type: 'svg',
+  margin: 1,
+  color: { dark: '#0f172a', light: '#ffffff' },
+});
+---
+
+<div
+  id="qr-open"
+  class="hidden lg:flex fixed bottom-5 right-5 z-50 flex-col items-center gap-2 bg-white border border-slate-200 shadow-xl rounded-2xl p-4 w-44"
+>
+  <button id="qr-close" aria-label="Sulge" class="absolute top-2 right-2 text-slate-300 hover:text-slate-500">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+  <div class="w-28 h-28 [&>svg]:w-full [&>svg]:h-full" set:html={qrSvg} />
+  <p class="text-xs font-semibold text-slate-700 text-center leading-tight flex items-center gap-1">
+    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-500"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>
+    Ava telefonis
+  </p>
+</div>
+
+<script is:inline>
+  (function () {
+    var box = document.getElementById('qr-open');
+    var close = document.getElementById('qr-close');
+    if (!box || !close) return;
+    // CSS уже показывает блок только на десктопе (hidden lg:flex); прячем при dismiss инлайном
+    if (sessionStorage.getItem('qr-dismissed') === '1') box.style.display = 'none';
+    close.addEventListener('click', function () {
+      sessionStorage.setItem('qr-dismissed', '1');
+      box.style.display = 'none';
+    });
+  })();
+</script>

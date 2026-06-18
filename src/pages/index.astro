@@ -13,6 +13,9 @@ import SubscriptionForm from '../components/SubscriptionForm.astro';
 import Testimonials from '../components/Testimonials.astro';
 import LiveFeed from '../components/LiveFeed.astro';
 import Stats from '../components/Stats.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import ApplySteps from '../components/ApplySteps.astro';
+import MobileCta from '../components/MobileCta.astro';
 
 const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
 ---
@@ -25,15 +28,23 @@ const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, provide
   <Hero />
   <DeviceBadge />
 
+  <div class="container mx-auto px-4 mt-6">
+    <TrustBadges />
+  </div>
+
   <div id="laenud" class="container mx-auto px-4 py-8 md:py-12">
     <LoanFilter />
 
     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
+
       {allOffers.map(offer => (
         <Card offerData={offer} />
       ))}
     </div>
+  </div>
+
+  <div class="container mx-auto px-4 pb-4">
+    <ApplySteps />
   </div>
 
 
@@ -53,4 +64,6 @@ const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, provide
   <ApplicationForm />
   <SubscriptionForm />
 <Stats />
+
+  <MobileCta href="#laenud" label="Vaata pakkumisi" />
 </MainLayout>

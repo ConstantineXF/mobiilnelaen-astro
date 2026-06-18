@@ -1,0 +1,58 @@
+---
+// Баннер «Lisa avaekraanile» — появляется, когда браузер позволяет установить PWA.
+---
+<div
+  id="pwa-install"
+  class="hidden fixed left-1/2 -translate-x-1/2 bottom-4 z-[60] w-[calc(100%-1.5rem)] max-w-md
+         items-center gap-3 bg-white border border-slate-200 shadow-xl rounded-2xl px-4 py-3"
+>
+  <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 shrink-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>
+  </span>
+  <div class="min-w-0 flex-1">
+    <p class="text-sm font-bold text-slate-800 leading-tight">Lisa avaekraanile</p>
+    <p class="text-xs text-slate-500 leading-tight">Ava MobiilneLaen otse nagu äpp</p>
+  </div>
+  <button id="pwa-install-btn" class="bg-cyan-500 hover:bg-cyan-600 text-white text-sm font-bold px-3.5 py-2 rounded-lg transition-colors shrink-0">
+    Lisa
+  </button>
+  <button id="pwa-install-close" aria-label="Sulge" class="text-slate-400 hover:text-slate-600 shrink-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  </button>
+</div>
+
+<script is:inline>
+  (function () {
+    var deferred = null;
+    var bar = document.getElementById('pwa-install');
+    var btn = document.getElementById('pwa-install-btn');
+    var close = document.getElementById('pwa-install-close');
+    if (!bar || !btn || !close) return;
+
+    if (localStorage.getItem('pwa-dismissed') === '1') return;
+
+    function show() { bar.classList.remove('hidden'); bar.classList.add('flex'); }
+    function hide() { bar.classList.add('hidden'); bar.classList.remove('flex'); }
+
+    window.addEventListener('beforeinstallprompt', function (e) {
+      e.preventDefault();
+      deferred = e;
+      show();
+    });
+
+    btn.addEventListener('click', async function () {
+      if (!deferred) return;
+      deferred.prompt();
+      try { await deferred.userChoice; } catch (_) {}
+      deferred = null;
+      hide();
+    });
+
+    close.addEventListener('click', function () {
+      localStorage.setItem('pwa-dismissed', '1');
+      hide();
+    });
+
+    window.addEventListener('appinstalled', function () { hide(); });
+  })();
+</script>

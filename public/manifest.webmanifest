@@ -1,0 +1,20 @@
+{
+  "name": "MobiilneLaen.ee — laenude võrdlus",
+  "short_name": "MobiilneLaen",
+  "description": "Võrdle Eesti laene otse nutiseadmest: kiirlaen, väikelaen, krediidikonto ja krediitkaart.",
+  "lang": "et",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8fafc",
+  "theme_color": "#06b6d4",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
