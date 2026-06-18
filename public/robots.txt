@@ -1,0 +1,6 @@
+# MobiilneLaen.ee
+User-agent: *
+Allow: /
+Disallow: /go/
+
+Sitemap: https://mobiilnelaen.ee/sitemap-index.xml

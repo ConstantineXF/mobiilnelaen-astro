@@ -5,6 +5,9 @@ const kiirlaen: LoanTypeContent = {
   loanType: 'kiirlaen',
   navLabel: 'Kiirlaen',
 
+  seoText:
+    'Otsid kiirlaenu, mille saaks vormistada kohe ja otse telefonist? MobiilneLaen.ee koondab Eesti kiirlaenud ühele lehele, et saaksid mugavalt nutiseadmest võrrelda intresse, summasid ja KKM-i ning valida soodsaima kiirlaenu juba mõne minutiga.',
+
   metaTitle: 'Kiirlaen 2026 — võrdle kiirlaene ja taotle kohe | MobiilneLaen.ee',
   metaDescription:
     'Vajad raha kiiresti? Võrdle Eesti kiirlaene ühel lehel: summad 100–10 000 €, vastus minutitega, raha samal päeval. Vaata intresse, tingimusi ja KKM-i.',

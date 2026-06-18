@@ -1,0 +1,18 @@
+# MobiilneLaen.ee
+
+> Eesti laenude võrdlusportaal, mis on optimeeritud mobiilseks kasutamiseks. Võrdleme tagatiseta tarbimislaene ja krediiditooteid ühel lehel: summad, intressid, krediidi kulukuse määr (KKM), tingimused ja nõuded. Kogu protsess on mõeldud taotlemiseks otse nutiseadmest (Smart-ID / Mobiil-ID).
+
+Sisu on eesti keeles. Iga laenutüübi leht sisaldab pakkumiste võrdlust, plusse ja miinuseid, tingimusi ja nõudeid, laenukalkulaatorit ning korduma kippuvaid küsimusi (KKK). Laenupakkumised pärinevad partneritelt; väljuvad lingid on /go/ kaudu (nofollow).
+
+## Laenutüüpide lehed
+- [Kiirlaen](https://mobiilnelaen.ee/kiirlaen): kiire tagatiseta laen, vastus minutitega, raha samal päeval.
+- [Väikelaen](https://mobiilnelaen.ee/vaikelaen): suurem tarbimislaen pikema tähtaja ja madalama KKM-iga.
+- [Krediidikonto](https://mobiilnelaen.ee/krediidikonto): uuenev krediidilimiit, intress ainult kasutatud summalt.
+- [Krediidiliin](https://mobiilnelaen.ee/krediidiliin): paindlik püsiv krediidilimiit.
+- [SMS-laen](https://mobiilnelaen.ee/sms-laen): väike kiirlaen, taotlus internetis.
+- [Autolaen](https://mobiilnelaen.ee/autolaen): laen auto ostuks, tagatiseta või tagatisega.
+- [Krediitkaart](https://mobiilnelaen.ee/krediitkaart): püsiv limiit ja intressivaba periood.
+
+## Märkused
+- Iga laen on finantskohustus. Sisu on informatiivne, mitte finantsnõustamine.
+- Vastutustundlik laenamine: võrdle alati KKM-i alusel ja hinda oma maksevõimet.

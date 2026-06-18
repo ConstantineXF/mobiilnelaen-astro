@@ -31,6 +31,8 @@ export interface LoanTypeContent {
   // — SEO head —
   metaTitle: string;
   metaDescription: string;
+  /** Вводный абзац сразу после H1: прямые ВЧ-вхождения + мобильный угол, НЕ определение термина. HTML допустим. */
+  seoText: string;
 
   // — Hero —
   h1: string;

@@ -5,6 +5,9 @@ const smsLaen: LoanTypeContent = {
   loanType: 'sms-laen',
   navLabel: 'SMS-laen',
 
+  seoText:
+    'Vajad SMS-laenu kohe ja otse mobiilist? Võrdle Eesti SMS-laenu pakkujaid ühel lehel — MobiilneLaen.ee näitab summad, tingimused ja KKM-i, et leiaksid kiire SMS-laenu otse nutiseadmest mõne minutiga.',
+
   metaTitle: 'SMS-laen 2026 — kiire väikelaen kohe | MobiilneLaen.ee',
   metaDescription:
     'SMS-laen on väike kiirlaen, mille taotled tänapäeval internetis Smart-ID-ga mõne minutiga. Võrdle tingimusi, summasid ja KKM-i ning laena vastutustundlikult.',

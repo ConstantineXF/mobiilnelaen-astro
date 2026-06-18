@@ -1,0 +1,15 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/väikelaen",
+      "destination": "/vaikelaen",
+      "statusCode": 301
+    },
+    {
+      "source": "/v%C3%A4ikelaen",
+      "destination": "/vaikelaen",
+      "statusCode": 301
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const links = [
+  { href: '/kiirlaen', label: 'Kiirlaen' },
+  { href: '/vaikelaen', label: 'Väikelaen' },
+  { href: '/krediidikonto', label: 'Krediidikonto' },
+  { href: '/krediidiliin', label: 'Krediidiliin' },
+  { href: '/sms-laen', label: 'SMS-laen' },
+  { href: '/autolaen', label: 'Autolaen' },
+  { href: '/krediitkaart', label: 'Krediitkaart' },
+];
+---
+
+<MainLayout title="Lehte ei leitud (404) | MobiilneLaen.ee" noindex={true}>
+  <section class="container mx-auto px-4 py-20 md:py-28 text-center max-w-2xl">
+    <p class="text-7xl md:text-8xl font-extrabold text-cyan-500">404</p>
+    <h1 class="mt-4 text-2xl md:text-3xl font-extrabold text-slate-800">
+      Seda lehte ei leitud
+    </h1>
+    <p class="mt-3 text-slate-500">
+      Otsitud leht on kolinud või seda pole olemas. Liigu edasi avalehele või vali laenutüüp.
+    </p>
+
+    <a
+      href="/"
+      class="inline-block mt-8 bg-cyan-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-cyan-600 transition-colors shadow-lg"
+    >
+      Tagasi avalehele
+    </a>
+
+    <nav class="mt-10 flex flex-wrap justify-center gap-2.5">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            class="px-4 py-2 text-sm font-medium bg-white border border-slate-200 rounded-full text-slate-700 hover:border-cyan-400 hover:text-cyan-600 transition-colors"
+          >
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+  </section>
+</MainLayout>

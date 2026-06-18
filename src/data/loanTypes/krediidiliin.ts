@@ -5,6 +5,9 @@ const krediidiliin: LoanTypeContent = {
   loanType: 'krediidiliin',
   navLabel: 'Krediidiliin',
 
+  seoText:
+    'Otsid krediidiliini, mis on alati käepärast otse telefonis? MobiilneLaen.ee koondab Eesti krediidiliini pakkumised, et saaksid nutiseadmest võrrelda limiite, intresse ja KKM-i ning valida endale sobivaima paindliku krediidiliini.',
+
   metaTitle: 'Krediidiliin 2026 — paindlik krediidilimiit | MobiilneLaen.ee',
   metaDescription:
     'Krediidiliin annab püsiva krediidilimiidi, millest võtad raha vajaduse järgi ja maksad intressi vaid kasutatud osalt. Võrdle pakkujaid, intresse ja KKM-i.',

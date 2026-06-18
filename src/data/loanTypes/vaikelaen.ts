@@ -5,6 +5,9 @@ const vaikelaen: LoanTypeContent = {
   loanType: 'väikelaen',
   navLabel: 'Väikelaen',
 
+  seoText:
+    'Vajad väikelaenu suurema ostu, remondi või reisi jaoks? Võrdle Eesti väikelaene otse mobiilist — MobiilneLaen.ee aitab leida soodsaima väikelaenu madalaima KKM-i ja kindla kuumaksega, ilma et peaksid arvuti taha istuma.',
+
   metaTitle: 'Väikelaen 2026 — võrdle ja taotle soodsalt | MobiilneLaen.ee',
   metaDescription:
     'Väikelaen suuremateks plaanideks: summad kuni 20 000 €, periood kuni 84 kuud, tagatiseta. Võrdle pakkujaid KKM-i alusel ja leia kindla kuumaksega laen.',
