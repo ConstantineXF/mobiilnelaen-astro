@@ -1,0 +1,42 @@
+---
+// Хлебные крошки + BreadcrumbList JSON-LD (микроразметка).
+interface Crumb {
+  name: string;
+  href: string;
+}
+interface Props {
+  items: Crumb[];
+}
+const { items } = Astro.props as Props;
+const SITE_URL = 'https://mobiilnelaen.ee';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((c, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: c.name,
+    item: new URL(c.href, SITE_URL).href,
+  })),
+};
+---
+
+<nav aria-label="Breadcrumb" class="container mx-auto px-4 pt-4">
+  <ol class="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-slate-500">
+    {
+      items.map((c, i) => (
+        <li class="flex items-center gap-x-1.5">
+          {i > 0 && <span class="text-slate-300" aria-hidden="true">/</span>}
+          {i < items.length - 1 ? (
+            <a href={c.href} class="hover:text-cyan-600 transition-colors">{c.name}</a>
+          ) : (
+            <span class="text-slate-700 font-medium" aria-current="page">{c.name}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

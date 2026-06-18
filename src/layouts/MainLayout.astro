@@ -7,30 +7,71 @@ import Modals from '../components/Modals.astro';
 
 interface Props {
   title: string;
+  description?: string;
+  /** Абсолютный или относительный canonical; по умолчанию — текущий URL без query. */
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
 }
 
-const { title } = Astro.props;
+const SITE_URL = 'https://mobiilnelaen.ee';
+
+const {
+  title,
+  description = 'Mobiilne Laen — võrdle Eesti parimaid laenupakkumisi ühel lehel: kiirlaen, väikelaen, krediidikonto ja krediitkaart.',
+  canonical,
+  image = '/og-default.jpg',
+  noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonical ?? Astro.url.pathname, SITE_URL).href;
+const imageUrl = new URL(image, SITE_URL).href;
 ---
 
 <!doctype html>
 <html lang="et">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Mobiilne Laen - leia parimad laenupakkumised Eestis" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    {/* Внутри <head> в файле MainLayout.astro */}
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MobiilneLaen.ee" />
+    <meta property="og:locale" content="et_EE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    {/* Fonts */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    {/* Дополнительные теги/схемы из страниц */}
+    <slot name="head" />
   </head>
   <body class="bg-slate-50 text-slate-900">
     <Header />
     <main>
-      <slot /> </main>
+      <slot />
+    </main>
     <Footer />
-     <CookieConsent />
-     <Modals />
+    <CookieConsent />
+    <Modals />
   </body>
 </html>

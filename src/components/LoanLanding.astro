@@ -1,0 +1,126 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import TableOfContents from './TableOfContents.astro';
+import ProsCons from './ProsCons.astro';
+import LoanFacts from './LoanFacts.astro';
+import LoanFaq from './LoanFaq.astro';
+import Card from './Card.astro';
+import SmartCalculator from './SmartCalculator.tsx';
+import Voting from './Voting.tsx';
+import type { LoanTypeContent } from '../data/loanTypes/types';
+
+interface Props {
+  content: LoanTypeContent;
+  offers: any[];
+  allOffers: any[];
+}
+const { content, offers, allOffers } = Astro.props as Props;
+
+// Оглавление: фиксированные секции + динамические H2
+const toc = [
+  { id: 'pakkumised', label: 'Laenupakkumised' },
+  { id: 'ulevaade', label: `Mis on ${content.navLabel.toLowerCase()}?` },
+  { id: 'plussid-miinused', label: 'Plussid ja miinused' },
+  { id: 'tingimused', label: 'Tingimused ja nõuded' },
+  ...content.sections.map((s) => ({ id: s.id, label: s.title })),
+  { id: 'kalkulaator', label: 'Laenukalkulaator' },
+  { id: 'kkk', label: 'Korduma kippuvad küsimused' },
+];
+
+const breadcrumbs = [
+  { name: 'Avaleht', href: '/' },
+  { name: content.navLabel, href: `/${content.slug}` },
+];
+---
+
+<MainLayout title={content.metaTitle} description={content.metaDescription}>
+  <Breadcrumbs items={breadcrumbs} />
+
+  {/* Hero */}
+  <header class="bg-gradient-to-br from-cyan-600 to-blue-700 text-white">
+    <div class="container mx-auto px-4 py-12 md:py-16 max-w-5xl text-center">
+      <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">{content.h1}</h1>
+      <p class="mt-4 text-base md:text-lg text-cyan-50/90 max-w-2xl mx-auto">{content.lead}</p>
+      <dl class="mt-8 grid grid-cols-3 gap-3 md:gap-6 max-w-2xl mx-auto">
+        {
+          content.highlights.map((h) => (
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl px-2 py-3 md:px-4 md:py-4">
+              <dt class="text-lg md:text-2xl font-extrabold">{h.value}</dt>
+              <dd class="text-[11px] md:text-sm text-cyan-50/80 mt-1">{h.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </header>
+
+  <div class="container mx-auto px-4 py-8 md:py-12 max-w-5xl space-y-12">
+    {/* Оглавление */}
+    <TableOfContents items={toc} />
+
+    {/* Предложения партнёров */}
+    <section id="pakkumised" class="scroll-mt-24">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6">Laenupakkumised</h2>
+      {
+        offers.length > 0 ? (
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {offers.map((offer) => <Card offerData={offer} />)}
+          </div>
+        ) : (
+          <p class="bg-blue-50 text-blue-800 p-4 rounded-lg">
+            Sellele tüübile vastavaid laenupakkumisi hetkel ei leitud.
+          </p>
+        )
+      }
+    </section>
+
+    {/* Обзор / Что это */}
+    <section id="ulevaade" class="scroll-mt-24">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">
+        Mis on {content.navLabel.toLowerCase()}?
+      </h2>
+      <div class="prose prose-slate max-w-none">
+        {content.intro.map((p) => <p set:html={p} />)}
+      </div>
+    </section>
+
+    {/* Плюсы и минусы */}
+    <section id="plussid-miinused" class="scroll-mt-24">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6">
+        {content.navLabel} — plussid ja miinused
+      </h2>
+      <ProsCons pros={content.pros} cons={content.cons} />
+    </section>
+
+    {/* Условия и требования */}
+    <section id="tingimused" class="scroll-mt-24">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6">Tingimused ja nõuded</h2>
+      <LoanFacts conditions={content.conditions} requirements={content.requirements} />
+    </section>
+
+    {/* Дополнительные H2-секции */}
+    {
+      content.sections.map((s) => (
+        <section id={s.id} class="scroll-mt-24">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">{s.title}</h2>
+          <div class="prose prose-slate max-w-none">
+            {s.body.map((p) => <p set:html={p} />)}
+          </div>
+        </section>
+      ))
+    }
+
+    {/* Калькулятор */}
+    <section id="kalkulaator" class="scroll-mt-24">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6">Laenukalkulaator</h2>
+      <SmartCalculator client:visible allOffers={allOffers} defaultCategory={content.loanType} />
+    </section>
+
+    {/* Голосование */}
+    <Voting client:visible voteId={`${content.slug}-votes`} />
+  </div>
+
+  {/* FAQ */}
+  <LoanFaq title={`Korduma kippuvad küsimused — ${content.navLabel.toLowerCase()}`} items={content.faq} />
+</MainLayout>

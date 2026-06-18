@@ -1,48 +1,12 @@
 ---
-// Файл: src/pages/kiirlaen.astro
 import { client as sanityClient } from '../lib/sanity';
-import MainLayout from '../layouts/MainLayout.astro';
-import Card from '../components/Card.astro';
-import FaqSection from '../components/FaqSection.astro';
-import ContentBlock from '../components/ContentBlock.astro';
-import SmartCalculator from '../components/SmartCalculator.tsx';
-import InteractiveCost from '../components/InteractiveCost.tsx';
-import Voting from '../components/Voting.tsx';
+import LoanLanding from '../components/LoanLanding.astro';
+import content from '../data/loanTypes/kiirlaen';
 
-const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
-const pageOffers = allOffers.filter(offer => offer.loanType === 'kiirlaen');
+const allOffers = await sanityClient.fetch(
+  `*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`
+);
+const offers = allOffers.filter((o: any) => o.loanType === content.loanType);
 ---
 
-<MainLayout title="Kiirlaenud Eestis - Kiire ja mugav laen">
-  <div class="container mx-auto px-4 py-8 md:py-12">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-extrabold text-slate-800">Kiirlaenud</h1>
-      <p class="text-slate-500 mt-2">Leia parim kiirlaenupakkumine kohe!</p>
-    </div>
-
-    {pageOffers.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {pageOffers.map(offer => <Card offerData={offer} />)}
-      </div>
-    ) : (
-      <p class="text-center bg-blue-100 text-blue-800 p-4 rounded-md">Sellele tüübile vastavaid laenupakkumisi hetkel ei leitud.</p>
-    )}
-  </div>
-
-  <ContentBlock title="Mis on kiirlaen?">
-    <p>Kiirlaen on lühiajaline tagatiseta laen, mis on mõeldud ootamatute ja kiireloomuliste kulutuste katmiseks. Selle peamised eelised on taotlemise kiirus ja lihtsus – sageli saab raha kätte juba 15 minuti jooksul. Kiirlaenud on ideaalsed, kui vajad väiksemat summat lühikeseks perioodiks.</p>
-  </ContentBlock>
-<Voting client:load voteId="kiirlaen-votes" />
-  <section class="py-16 bg-slate-100">
-    <div class="container mx-auto px-4">
-      <SmartCalculator client:load allOffers={allOffers} defaultCategory="kiirlaen" />
-    </div>
-  </section>
-
-  <InteractiveCost client:load />
-
-  <FaqSection 
-    title="Korduma kippuvad küsimused kiirlaenude kohta" 
-    category="kiirlaen" 
-  />
-</MainLayout>
+<LoanLanding content={content} offers={offers} allOffers={allOffers} />
