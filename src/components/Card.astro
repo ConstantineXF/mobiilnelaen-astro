@@ -3,6 +3,13 @@
 
 // Получаем данные о предложении, переданные со страницы
 const { offerData } = Astro.props;
+
+// Маршруты сайта в ASCII (väikelaen → /vaikelaen), поэтому нормализуем эстонские буквы
+const typeSlug = (offerData.loanType || '')
+  .replace(/ä/g, 'a')
+  .replace(/õ/g, 'o')
+  .replace(/ö/g, 'o')
+  .replace(/ü/g, 'u');
 ---
 
 {/* Самый главный div. Обратите внимание на добавленные атрибуты:
@@ -19,7 +26,7 @@ const { offerData } = Astro.props;
   {/* Основной контент карточки */}
   <div class="p-6 flex-grow">
     <h3 class="text-xl font-bold text-slate-800">{offerData.providerName}</h3>
-    <a href={`/${offerData.loanType}`} class="text-sm font-semibold text-cyan-600 mt-1 hover:text-cyan-700 hover:underline transition-colors">
+    <a href={`/${typeSlug}`} class="text-sm font-semibold text-cyan-600 mt-1 hover:text-cyan-700 hover:underline transition-colors">
   {offerData.loanType}
 </a>
 
