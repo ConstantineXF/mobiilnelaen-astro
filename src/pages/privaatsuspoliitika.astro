@@ -1,0 +1,47 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Avaleht', href: '/' },
+  { name: 'Privaatsuspoliitika', href: '/privaatsuspoliitika' },
+];
+---
+
+<MainLayout
+  title="Privaatsuspoliitika | MobiilneLaen.ee"
+  description="MobiilneLaen.ee privaatsuspoliitika: milliseid andmeid kogume, kuidas neid kasutame, andmete jagamine ja sinu õigused."
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <article class="container mx-auto px-4 py-10 max-w-3xl">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800 text-center">Privaatsuspoliitika</h1>
+    <p class="text-center text-slate-400 text-sm mt-2">Kehtiv alates: 12. august 2025</p>
+
+    <div class="prose prose-slate max-w-none mt-8">
+      <h2>1. Milliseid andmeid me kogume?</h2>
+      <p>Kogume isikuandmeid, mida esitate meile vabatahtlikult meie veebilehe funktsioonide kaudu. Need andmed hõlmavad:</p>
+      <ul>
+        <li><strong>Laenutaotluse vormilt:</strong> teie sisestatud soovitud laenusumma, igakuine netosissetulek, soovitud laenu tüüp ja e-posti aadress. Me ei kogu ega salvesta teie nime, isikukoodi ega telefoninumbrit.</li>
+        <li><strong>Uudiskirjaga liitumisel:</strong> teie e-posti aadress.</li>
+        <li><strong>Automaatselt kogutavad andmed:</strong> kasutame küpsiseid, et koguda anonüümset tehnilist teavet teie seadme ja veebilehe kasutuse kohta (nt IP-aadress, brauseri tüüp, külastuse aeg), et parandada teenuse kvaliteeti ja turvalisust.</li>
+      </ul>
+
+      <h2>2. Kuidas me teie andmeid kasutame?</h2>
+      <p>Teie andmeid kasutatakse rangelt sihtotstarbeliselt:</p>
+      <ul>
+        <li><strong>Laenutaotluse töötlemine:</strong> vormis esitatud andmeid (summa, sissetulek, laenu tüüp, e-post) kasutatakse ainult teie päringu turvaliseks edastamiseks meie finantspartneritele, et leida sobivaim laenupakkumine. Me ei tee laenuotsuseid ega salvesta neid andmeid pärast edastamist.</li>
+        <li><strong>Personaalsed pakkumised (uudiskiri):</strong> kui olete uudiskirjaga liitunud, kasutame teie e-posti aadressi, et saata parimaid pakkumisi, finantsnõuandeid ja teavet kampaaniate kohta.</li>
+      </ul>
+
+      <h2>3. Andmete jagamine ja turvalisus</h2>
+      <p>Me ei müü, rendi ega jaga teie isikuandmeid kolmandate osapooltega, välja arvatud laenutaotluse edastamiseks teie nõusolekul meie partner-krediidiandjatele ning seadusega ettenähtud juhtudel. Kasutame kaasaegseid turvameetmeid, et kaitsta teie andmeid volitamata juurdepääsu eest.</p>
+
+      <h2>4. Teie õigused</h2>
+      <p>Teil on õigus igal ajal taotleda juurdepääsu oma isikuandmetele, mida me töötleme, samuti nõuda nende parandamist või kustutamist. Uudiskirjast saate loobuda igal hetkel, klõpsates iga kirja jaluses oleval lingil.</p>
+
+      <h2>5. Kontakt</h2>
+      <p>Privaatsust puudutavate küsimustega võtke ühendust: <a href="mailto:Info@mobiilnelaen.ee">Info@mobiilnelaen.ee</a>.</p>
+    </div>
+  </article>
+</MainLayout>

@@ -1,0 +1,40 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Avaleht', href: '/' },
+  { name: 'Kasutustingimused', href: '/kasutustingimused' },
+];
+---
+
+<MainLayout
+  title="Kasutustingimused | MobiilneLaen.ee"
+  description="MobiilneLaen.ee kasutustingimused: teenuse kirjeldus, laenutaotluse protsess, vastutuse piirang ja intellektuaalne omand."
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <article class="container mx-auto px-4 py-10 max-w-3xl">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800 text-center">Kasutustingimused</h1>
+
+    <div class="prose prose-slate max-w-none mt-8">
+      <h2>1. Teenuse kirjeldus</h2>
+      <p>MobiilneLaen.ee on sõltumatu ja informatiivne võrdlusportaal. Meie eesmärk on pakkuda kasutajatele ajakohast teavet Eestis tegutsevate litsentseeritud krediidiandjate pakkumiste kohta. <strong>MobiilneLaen.ee ei ole laenuandja, laenuvahendaja ega finantsnõustaja ning ei väljasta laene.</strong></p>
+
+      <h2>2. Laenutaotluse protsess</h2>
+      <p>Veebilehel saab kasutaja täita laenutaotluse vormi. Tingimustega nõustudes annab kasutaja meile loa edastada need andmed turvaliselt meie partner-krediidiandjatele. See ei garanteeri laenu saamist. Lõplik laenuotsus, leping ja rahade väljamaksmine toimub alati otse kasutaja ja konkreetse laenuandja vahel. Meie ei ole selle protsessi osapool.</p>
+
+      <h2>3. Uudiskirja teenus</h2>
+      <p>Kasutajal on võimalus liituda meie uudiskirjaga, et saada personaalseid ja parimaid laenupakkumisi. Teenus on vabatahtlik ja sellest saab igal ajal loobuda.</p>
+
+      <h2>4. Vastutuse piirang</h2>
+      <p>Kogu veebilehel esitatud teave (intressimäärad, näidiskalkulatsioonid jne) on informatiivsel eesmärgil ja võib aja jooksul muutuda. Anname endast parima info ajakohastamiseks, kuid ei vastuta selle täpsuse eest. Kasutaja kohustub enne lepingu sõlmimist alati tutvuma laenuandja lõplike tingimustega tema enda veebilehel.</p>
+
+      <h2>5. Intellektuaalne omand</h2>
+      <p>Kogu veebilehe sisu, sealhulgas tekstid, disain ja logo, on MobiilneLaen.ee omand ja kaitstud autoriõigusega. Sisu kopeerimine ja levitamine ilma kirjaliku loata on keelatud.</p>
+
+      <h2>6. Vastutustundlik laenamine</h2>
+      <p>Iga laen on finantskohustus. Enne laenuotsuse tegemist tutvu põhjalikult lepingutingimustega, hinda oma maksevõimet ja vajadusel pea nõu asjatundjaga.</p>
+    </div>
+  </article>
+</MainLayout>

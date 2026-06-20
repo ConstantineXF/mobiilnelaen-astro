@@ -5,21 +5,61 @@
   <div class="container mx-auto px-4 text-center">
     <h3 class="text-3xl font-bold">Liitu meie uudiskirjaga!</h3>
     <p class="opacity-80 mt-2 mb-8 max-w-xl mx-auto">Saa esimesena teada parimatest personaalsetest laenupakkumistest, finantsnõuannetest ja kampaaniatest.</p>
-    <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
+    <form id="subscription-form" class="max-w-md mx-auto flex flex-col sm:flex-row gap-2">
       <label for="email-subscription" class="sr-only">E-post</label>
-      <input 
-        id="email-subscription" 
-        type="email" 
-        placeholder="Sinu e-posti aadress" 
-        required 
+      <input
+        id="email-subscription"
+        name="email"
+        type="email"
+        placeholder="Sinu e-posti aadress"
+        required
         class="w-full flex-grow rounded-md p-3 text-slate-900 border-2 border-transparent focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all"
       />
-      <button 
-        type="submit" 
-        class="bg-cyan-500 text-white font-bold py-3 px-6 rounded-md hover:bg-cyan-600 transition-colors shadow-lg hover:shadow-cyan-500/50"
+      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+      <button
+        type="submit"
+        class="bg-cyan-500 text-white font-bold py-3 px-6 rounded-md hover:bg-cyan-600 transition-colors shadow-lg hover:shadow-cyan-500/50 whitespace-nowrap"
       >
         Liitu
       </button>
     </form>
+    <p data-form-status class="text-sm mt-3 hidden"></p>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('subscription-form');
+    if (!form) return;
+    var status = form.parentElement.querySelector('[data-form-status]');
+    var btn = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      if (form.company && form.company.value) return;
+      btn.disabled = true;
+      var original = btn.textContent;
+      btn.textContent = 'Saadan…';
+      status.className = 'text-sm mt-3 text-slate-300';
+      status.textContent = '';
+
+      try {
+        var res = await fetch('/api/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ formType: 'subscription', email: form.email.value }),
+        });
+        if (!res.ok) throw new Error('fail');
+        form.reset();
+        status.className = 'text-sm mt-3 text-emerald-400';
+        status.textContent = 'Aitäh! Oled uudiskirjaga liitunud.';
+      } catch (err) {
+        status.className = 'text-sm mt-3 text-rose-400';
+        status.textContent = 'Liitumine ebaõnnestus. Proovi hiljem uuesti.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
+    });
+  })();
+</script>
