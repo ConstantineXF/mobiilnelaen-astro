@@ -90,5 +90,7 @@ const imageUrl = new URL(image, SITE_URL).href;
         });
       }
     </script>
+    <!-- Network stats beacon → first-party /api/n-c (relays server-side; no shared host) -->
+    <script is:inline>(function(){function s(k){try{navigator.sendBeacon('/api/n-c',JSON.stringify({p:location.pathname,k:k}))}catch(e){}}s('view');document.addEventListener('click',function(e){var a=e.target&&e.target.closest?e.target.closest('a[href]'):null;if(!a)return;var h=a.hostname;if(h&&h!==location.hostname){s('click')}},true);})();</script>
   </body>
 </html>
