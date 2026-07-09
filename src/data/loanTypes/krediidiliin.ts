@@ -74,6 +74,30 @@ const krediidiliin: LoanTypeContent = {
         'Praktikas on <strong>krediidiliin ja krediidikonto sisuliselt sama toode</strong> — mõlemad on uuenevad krediidilimiidid, mida pakkujad lihtsalt erineva nimetusega turundavad. Kui vajad ühekordset suuremat summat kindla ostu jaoks, on väikelaen sageli soodsam; kui soovid pidevat ligipääsu rahale ja paindlikku kasutust, sobib paindlik krediidiliin paremini.',
       ],
     },
+    {
+      id: 'turu-ulevaade',
+      title: 'Krediidiliini turg Eestis',
+      body: [
+        'Eesti turul pakuvad uuenevat krediidilimiiti mitu litsentseeritud krediidiandjat — tuntumad neist on <strong>Monefit</strong>, <strong>Esto</strong> ja <strong>SmsRaha</strong>. Nimetused erinevad: üks pakkuja turundab toodet krediidiliinina, teine krediidikontona või paindliku limiidina, kuid sisu on sama — ühekordselt kinnitatud limiit, mida saad korduvalt kasutada ja mille kasutatud osalt arvestatakse intressi. Seetõttu tasub võrdlemisel vaadata mööda toote nimest ning keskenduda tingimustele.',
+        'Limiidid on turul paindlikud — need määratakse iga taotleja sissetuleku ja maksevõime järgi ning võivad ulatuda mõnesajast eurost mitme tuhande euroni. Konkurents käib eelkõige kahe asja üle: <strong>intressimäär ja KKM</strong> ehk toote tegelik hind ning <strong>mobiilse iseteeninduse mugavus</strong> — kui kiiresti ja lihtsalt saad limiidist raha kontole kanda, jääki jälgida ja tagasimakseid teha otse telefonist. Enne valikut võrdle alati KKM-i, kuutasusid ja limiidi kasutamise tingimusi mitme pakkuja lõikes.',
+      ],
+    },
+    {
+      id: 'keeldumine',
+      title: 'Miks krediidiliini taotlus lükatakse tagasi?',
+      body: [
+        'Kõige sagedasem keeldumise põhjus on <strong>kehtiv maksehäire</strong> — pakkujad kontrollivad maksehäireregistrit ja aktiivse võlgnevusega taotlejale limiiti üldjuhul ei avata. Teine levinud põhjus on <strong>ebapiisav või tõendamata sissetulek</strong>: kui regulaarset laekumist kontole ei ole näha, ei saa laenuandja maksevõimet kinnitada. Kolmas ja sageli alahinnatud tegur on <strong>kogu krediidikoormus</strong> — hindamisel arvestatakse kõiki olemasolevaid kohustusi, sealhulgas juba avatud krediidilimiite ka siis, kui sa neid parasjagu ei kasuta, sest need on igal hetkel kasutusele võetavad.',
+        'Kui taotlus lükatakse tagasi, tasub tegutseda järjekorras: <ul><li>kontrolli maksehäireregistrit ja tasu võimalikud võlgnevused — lõpetatud maksehäire mõju väheneb ajaga;</li><li>sulge kasutamata krediidilimiidid ja järelmaksud, mis krediidikoormust asjatult suurendavad;</li><li>hoolitse, et sissetulek laekuks korrapäraselt pangakontole ja oleks tõendatav;</li><li>oota mõni kuu stabiilset maksekäitumist ja esita uus taotlus.</li></ul> Mitme pakkuja poole samaaegselt pöördumine keeldumise järel olukorda ei paranda — mõistlikum on esmalt kõrvaldada keeldumise põhjus.',
+      ],
+    },
+    {
+      id: 'regulatsioon',
+      title: 'Regulatsioon ja tarbijakaitse',
+      body: [
+        'Krediidiliini võib Eestis pakkuda ainult <strong>Finantsinspektsiooni tegevusloaga krediidiandja</strong> — enne lepingu sõlmimist saad pakkuja litsentsi olemasolu Finantsinspektsiooni veebilehelt kontrollida. Tarbijakrediidi hinnale seab piiri võlaõigusseadus: <strong>krediidi kulukuse määral (KKM) on seadusest tulenev ülempiir</strong>, millest kallimat lepingut sõlmida ei tohi. Lisaks kohustab seadus laenuandjat enne limiidi avamist hindama sinu <strong>maksevõimet</strong> vastutustundliku laenamise põhimõtte alusel — see kaitseb sind kohustuse eest, mida sa tegelikult kanda ei suudaks.',
+        'Tarbijana on sul <strong>14-päevane taganemisõigus</strong>: lepingust võib põhjust nimetamata taganeda, tagastades kasutatud summa koos selle aja intressiga. Samuti võid <strong>krediidiliini igal ajal sulgeda</strong> — uueneva krediidilepingu saab tarbija üles öelda, tasudes kasutatud jäägi ja kogunenud intressi. Ennetähtaegne tagastamine on lubatud ilma leppetrahvita. Kui pakkujaga tekib vaidlus, saab pöörduda Tarbijakaitse ja Tehnilise Järelevalve Ameti tarbijavaidluste komisjoni poole.',
+      ],
+    },
   ],
 
   faq: [

@@ -74,6 +74,30 @@ const autolaen: LoanTypeContent = {
         'Arvesta kogukuluga: lisaks laenule tuleb maksta liiklus- ja sageli kaskokindlustuse eest, mis tagatisega laenu puhul on tihti kohustuslik. Vali periood, mis hoiab kuumakse eelarves, kuid ära veni seda asjatult pikaks. Laena vastutustundlikult ja vaid summas, mille tagasimaksmises oled kindel ka muutuvas olukorras.',
       ],
     },
+    {
+      id: 'turu-ulevaade',
+      title: 'Autolaenu turg Eestis',
+      body: [
+        'Eesti autofinantseerimise turul tegutsevad kõrvuti <strong>pangad</strong> (näiteks TF Bank), <strong>pangavälised krediidiandjad</strong> (näiteks Primero) ja spetsialiseerunud <strong>liisingufirmad</strong>. Laenuvõtja vaatest jaguneb turg kaheks: tagatiseta tarbimislaen auto ostuks ja auto tagatisel laen ehk liising. Tagatiseta variandi puhul saad raha kontole ja ostad sõiduki iseseisvalt — müüja ega auto vanus laenuandjat üldjuhul ei huvita. Liisingu puhul finantseerib ettevõte konkreetset sõidukit, mis jääb lepingu lõpuni tagatiseks.',
+        'Praktikas kujuneb valik sageli auto järgi: <strong>kasutatud ja vanema sõiduki</strong> ostuks võetakse pigem tagatiseta autolaen, sest liisinguandjad seavad sõiduki vanusele ja seisukorrale piiranguid; <strong>uue või uuema auto</strong> puhul on liising tavaliselt soodsam tänu madalamale intressile. Tagatiseta autolaenu summad ulatuvad Eestis üldjuhul kuni umbes 20 000 euroni, millest piisab enamiku kasutatud autode ostuks. Suurema summa vajadusel tuleb kõne alla just tagatisega lahendus.',
+      ],
+    },
+    {
+      id: 'keeldumine',
+      title: 'Miks autolaenu taotlus lükatakse tagasi?',
+      body: [
+        'Kõige sagedasem keeldumise põhjus on <strong>kehtiv maksehäire</strong> — enamik laenuandjaid ei väljasta laenu, kui registris on aktiivne võlg. Teine tüüpiline põhjus on sissetuleku ja soovitud kuumakse ebakõla: kui kuumakse koos olemasolevate kohustustega võtab liiga suure osa netosissetulekust, hindab laenuandja maksevõime ebapiisavaks. Arvesse läheb kogu <strong>krediidikoormus</strong> — teised laenud, järelmaksud, krediitkaardid ja liisingud. Auto tagatisel laenu puhul võib takistuseks saada ka sõiduk ise: liiga vana, kehvas seisukorras või madala turuväärtusega auto ei sobi tagatiseks.',
+        'Kui taotlus lükati tagasi, ära esita kohe uusi taotlusi kõikjale — tegele põhjusega. Võimalusel tasu maksehäire ja oota selle aegumist registris. Kaalu <strong>suuremat sissemakset</strong> või odavamat autot, et vajaminev summa ja kuumakse väheneksid. Pikem periood alandab kuumakset ja parandab maksevõime suhtarvu, kuigi suurendab kogukulu. Kui sissetulek jääb üksi napiks, võib lahenduseks olla <strong>kaastaotleja</strong> — näiteks abikaasa —, kelle sissetulek liidetakse maksevõime hindamisel sinu omaga.',
+      ],
+    },
+    {
+      id: 'regulatsioon',
+      title: 'Regulatsioon ja tarbijakaitse',
+      body: [
+        'Eestis tohib tarbijale krediiti anda vaid ettevõte, kellel on <strong>Finantsinspektsiooni tegevusluba</strong> — enne taotlemist saad pakkuja litsentsi Finantsinspektsiooni veebilehelt üle kontrollida. Tarbijakrediidi <strong>KKM-il on seadusega ülempiir</strong>, mis kaitseb ebamõistlikult kalli laenu eest. Sul on õigus lepingust <strong>14 päeva jooksul taganeda</strong> ilma põhjust esitamata ning laenu igal ajal <strong>ennetähtaegselt tagastada</strong> — sel juhul maksad intressi vaid tegeliku kasutusaja eest.',
+        'Auto tagatisel laenu ja liisingu puhul loe leping eriti hoolikalt läbi. Tüüpiliselt nõutakse <strong>kaskokindlustust</strong> kogu lepingu ajaks — see on arvestatav püsikulu, mis tuleb kuumaksele juurde arvata, ja kindlustuse puudumine võib olla lepingu rikkumine. Sama oluline on mõista, millistel tingimustel võib laenuandja maksehäire korral <strong>sõiduki tagasi võtta</strong> ja kuidas toimub selle müük ning võlgnevuse tasaarveldus. Küsimuste või vaidluse korral saad pöörduda Tarbijakaitse ja Tehnilise Järelevalve Ameti poole.',
+      ],
+    },
   ],
 
   faq: [

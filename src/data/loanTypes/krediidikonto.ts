@@ -74,6 +74,30 @@ const krediidikonto: LoanTypeContent = {
         'Võrreldes <strong>krediitkaardiga</strong> on krediidikonto põhiloogika sarnane (uuendatav limiit, intress kasutatult), kuid ilma füüsilise kaardita ja sageli internetipõhise haldusega. Krediitkaardil on lisaks ostude tegemise ja maksete mugavus, samas kui krediidikonto keskendub raha kontole kandmisele. Õige valik sõltub sellest, kas vajad pigem maksevahendit või paindlikku rahareservi.',
       ],
     },
+    {
+      id: 'turu-ulevaade',
+      title: 'Krediidikonto turg Eestis',
+      body: [
+        'Krediidikonto on Eestis kujunenud üheks populaarsemaks paindliku krediidi vormiks ning seda pakuvad mitmed litsentseeritud krediidiandjad, tuntumate seas <strong>Credit24, Monefit, SmsRaha ja Ferratum</strong>. Limiidid jäävad enamasti vahemikku <strong>500–10 000 €</strong>, kusjuures uuele kliendile kinnitatakse sageli esmalt väiksem limiit, mida korrektse maksekäitumise korral hiljem tõstetakse. Kuna intress jookseb ainult kasutatud summalt, kasutavad paljud inimesed krediidikontot <strong>varuplaanina</strong> — limiit on olemas ootamatuteks kuludeks, kuid seni, kuni seda ei kasutata, kulu ei teki.',
+        'Selge turutrend on krediidikonto haldamise kolimine <strong>mobiilirakendusse ja iseteenindusse</strong>: raha väljavõtmine, tagasimaksed, limiidi jälgimine ja lepingu muudatused käivad üha sagedamini otse nutitelefonist ilma kontorit külastamata. Pakkujate tingimused erinevad siiski märgatavalt — intressimäär, halduskuu- ja väljamaksetasud ning limiidi tõstmise põhimõtted varieeruvad, mistõttu tasub enne lepingu sõlmimist alati võrrelda <strong>KKM-i</strong>, mitte ainult reklaamitud intressi.',
+      ],
+    },
+    {
+      id: 'keeldumine',
+      title: 'Miks krediidikonto taotlus lükatakse tagasi?',
+      body: [
+        'Kõige sagedasem keeldumise põhjus on <strong>kehtiv maksehäire</strong> — pakkujad kontrollivad maksehäireregistrit ja aktiivse võlgnevusega taotlus lükatakse üldjuhul automaatselt tagasi. Teine levinud põhjus on <strong>ebapiisav või tõendamata sissetulek</strong>: kui regulaarne laekumine pangakontole puudub või seda ei saa kontoväljavõttega kinnitada, ei suuda krediidiandja maksevõimet hinnata. Kolmas põhjus on <strong>suur olemasolev krediidikoormus</strong> — kui sissetulekust läheb juba märkimisväärne osa laenude, järelmaksude ja limiitide teenindamiseks, ei mahu uus kohustus vastutustundliku laenamise raamidesse.',
+        'Keeldumise korral tasub esmalt üle vaadata oma kohustused. Abi võib olla järgmistest sammudest: <ul><li>taotle <strong>väiksemat limiiti</strong> — madalam limiit tähendab väiksemat hinnatavat kohustust;</li><li>maksa tagasi või sulge teised limiidid ja krediitkaardid — oluline on teada, et <strong>ka kasutamata krediidilimiit loetakse kohustuseks</strong>, sest selle saab igal hetkel kasutusele võtta;</li><li>korrasta maksekäitumine ja lase lõpetatud maksehäired registris sulgeda, sest värske negatiivne ajalugu mõjutab otsust veel mõnda aega.</li></ul> Mõne kuu pärast, kui koormus on väiksem ja sissetulek tõendatav, on uue taotluse õnnestumise tõenäosus oluliselt suurem.',
+      ],
+    },
+    {
+      id: 'regulatsioon',
+      title: 'Regulatsioon ja tarbijakaitse',
+      body: [
+        'Krediidikontot võib Eestis pakkuda ainult <strong>Finantsinspektsiooni tegevusloaga krediidiandja</strong>, kes peab järgima krediidiandjate ja -vahendajate seadust ning võlaõigusseaduse tarbijakrediidi reegleid. Tarbijakrediidi <strong>krediidi kulukuse määrale (KKM) kehtib seadusest tulenev ülempiir</strong>, mis kaitseb tarbijat ebamõistlikult kalli krediidi eest. Lisaks on krediidiandjal kohustus hinnata taotleja <strong>maksevõimet</strong> — ja seda mitte ainult konto avamisel, vaid ka iga kord, kui limiiti soovitakse <strong>tõsta</strong>. Automaatne limiiditõus ilma maksevõime kontrollita ei ole lubatud.',
+        'Tarbijal on lepingust <strong>14-päevane taganemisõigus</strong>: selle aja jooksul võib lepingust põhjust nimetamata taganeda, tagastades kasutatud summa koos kasutusaja intressiga. Samuti on sul õigus <strong>igal ajal limiiti vähendada või krediidikonto sulgeda ilma leppetrahvita</strong> — piisab kasutatud osa tagasimaksmisest ja pakkuja teavitamisest. Kui limiiti parasjagu ei vaja, on selle vähendamine või konto sulgemine mõistlik ka seetõttu, et kasutamata limiit arvestatakse tulevaste laenutaotluste juures kohustuste hulka.',
+      ],
+    },
   ],
 
   faq: [

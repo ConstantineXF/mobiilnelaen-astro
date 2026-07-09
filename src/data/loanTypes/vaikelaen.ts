@@ -74,6 +74,30 @@ const vaikelaen: LoanTypeContent = {
         'Kui vajad väikest summat kohe ja lühikeseks ajaks, sobib kiirlaen. Kui aga rahastad suuremat ostu, remonti või soovid mitu kallimat laenu ühte soodsamasse makse refinantseerida, on väikelaen reeglina mõistlikum ja odavam valik.',
       ],
     },
+    {
+      id: 'turu-ulevaade',
+      title: 'Väikelaenu turg Eestis',
+      body: [
+        'Eesti väikelaenuturul tegutsevad nii pangad kui ka spetsialiseerunud krediidiandjad. Pankadest pakuvad väikelaenu näiteks <strong>Coop Pank</strong> ja <strong>TF Bank</strong>, väljaspool pangandust on tuntud pakkuja muu hulgas <strong>Creditstar</strong>. Summad ulatuvad pakkujati kuni 10 000–20 000 euroni ja tagasimakseperiood kuni 72–84 kuuni, mistõttu leiab sobiva lahenduse nii väiksema remondi kui ka suurema ostu rahastamiseks.',
+        'Üldine muster on lihtne: <strong>pankade väikelaenud on tavaliselt madalama intressi ja KKM-iga</strong>, kuid taotluse menetlemine ja väljamakse võivad võtta rohkem aega ning nõuded taotlejale on rangemad. Pangavälised krediidiandjad teevad otsuse ja väljamakse sageli kiiremini ning on paindlikumad, kuid selle mugavuse hinnaks on üldjuhul kõrgem kulukus. Seetõttu tasub enne taotlemist võrrelda mõlema grupi pakkumisi KKM-i alusel ja valida oma olukorrale sobivaim tasakaal hinna ja kiiruse vahel.',
+      ],
+    },
+    {
+      id: 'keeldumine',
+      title: 'Miks väikelaenu taotlus lükatakse tagasi?',
+      body: [
+        'Kõige sagedasemad tagasilükkamise põhjused on <strong>kehtiv maksehäire</strong> maksehäireregistris, <strong>liiga madal sissetulek</strong> soovitud summa suhtes, <strong>suur olemasolev laenukoormus</strong> (mitu kehtivat laenu, liisingut või krediitkaarti) ning <strong>ebastabiilne töösuhe</strong> — näiteks katseaeg, tähtajaline leping või väga lühike tööstaaž. Laenuandja on kohustatud hindama sinu maksevõimet ning kui igakuised kohustused koos uue laenuga sööksid liiga suure osa sissetulekust, tuleb eitav otsus.',
+        'Kui taotlus lükati tagasi, on mitu mõistlikku sammu. Küsi väiksemat summat või vali pikem periood, et kuumakse väheneks. Maksa võimalusel ära väiksemad olemasolevad kohustused — näiteks kasutamata krediidilimiidid ja järelmaksud, mis koormavad maksevõime arvestust. Kehtiv maksehäire tasub esmalt lahendada ja lasta registris kustutada. Mõni pank võimaldab kaasata ka <strong>kaastaotleja</strong>, kelle sissetulek arvestatakse maksevõime hindamisel juurde ja mis suurendab positiivse otsuse tõenäosust.',
+      ],
+    },
+    {
+      id: 'regulatsioon',
+      title: 'Regulatsioon ja tarbijakaitse',
+      body: [
+        'Väikelaenu tohib Eestis pakkuda ainult ettevõte, kellel on <strong>Finantsinspektsiooni tegevusluba</strong> krediidiandjana või kes tegutseb pangana. Lisaks piirab võlaõigusseadus tarbijakrediidi <strong>krediidi kulukuse määra ülempiiri</strong> — seda ületav leping võib olla tühine. Kehtib ka <strong>vastutustundliku laenamise põhimõte</strong>: laenuandja on kohustatud enne lepingu sõlmimist hindama sinu maksevõimet ega tohi anda laenu, mille tagasimaksmine ei ole sinu sissetulekuid ja kohustusi arvestades realistlik.',
+        'Tarbijal on seadusest tulenevad kindlad õigused. Sul on <strong>14-päevane taganemisõigus</strong> — laenulepingust saab põhjust nimetamata taganeda, tagastades saadud summa koos kasutatud päevade intressiga. Samuti võid laenu igal ajal osaliselt või täielikult <strong>ennetähtaegselt tagastada ilma lisatasuta</strong>, misjuhul väheneb ka intressikulu. Enne allkirjastamist kontrolli alati, et pakkuja on kantud Finantsinspektsiooni tegevuslubade registrisse, ning loe leping ja Euroopa tarbijakrediidi standardinfo teabeleht tähelepanelikult läbi.',
+      ],
+    },
   ],
 
   faq: [

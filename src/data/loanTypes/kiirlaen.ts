@@ -72,6 +72,30 @@ const kiirlaen: LoanTypeContent = {
         'Kui vajad raha kohe ja väikest summat lühikeseks ajaks, sobib kiirlaen. Suurema ostu või remondi rahastamiseks on väikelaen üldjuhul soodsam valik.',
       ],
     },
+    {
+      id: 'turu-ulevaade',
+      title: 'Kiirlaenu turg Eestis',
+      body: [
+        'Eesti kiirlaenuturul tegutseb mitukümmend litsentseeritud krediidiandjat — tuntumate seas <strong>SmsRaha, Bondora, Creditstar</strong> ja teised. Tihe konkurents on tarbija jaoks hea uudis: pakkujad võistlevad soodsama intressi, madalamate tasude ja kiirema menetluse nimel, mistõttu tasub enne otsust alati mitut pakkumist võrrelda. Tüüpilised kiirlaenusummad jäävad üldjuhul vahemikku <strong>100–10 000 €</strong> ning tagasimakseperiood ulatub mõnest kuust mitme aastani.',
+        'Selge trend on kogu protsessi liikumine mobiili: taotluse esitamine, isiku tuvastamine <strong>Smart-ID</strong> või Mobiil-ID abil, lepingu allkirjastamine ja väljamakse jälgimine käivad tänapäeval otse telefonist, ilma kontorikülastuse või paberdokumentideta. See on muutnud kiirlaenu kättesaadavaks igal ajal ja igas kohas — samas jääb tarbija vastutus hinnata, kas laen on tõesti vajalik ja kuumakse jõukohane.',
+      ],
+    },
+    {
+      id: 'keeldumine',
+      title: 'Miks kiirlaenu taotlus lükatakse tagasi?',
+      body: [
+        'Levinumad keeldumise põhjused on: <ul><li><strong>kehtiv maksehäire</strong> — pakkujad kontrollivad maksehäireregistrit ja aktiivne võlg tähendab üldjuhul automaatset eitavat otsust;</li><li><strong>ebapiisav sissetulek</strong> — vastutustundliku laenamise nõuded kohustavad laenuandjat veenduma, et kuumakse on jõukohane;</li><li><strong>liiga suur olemasolev laenukoormus</strong> — kui suur osa sissetulekust läheb juba kohustuste teenindamiseks, uut laenu ei väljastata;</li><li><strong>vale või puudulik info taotluses</strong> — vastuolud andmetes vähendavad usaldusväärsust.</li></ul>',
+        'Kui said eitava otsuse, kontrolli esmalt oma seisu maksehäireregistris ja lahenda võimalikud võlgnevused. Seejärel proovi <strong>väiksemat summat või pikemat perioodi</strong>, et kuumakse mahuks paremini sinu eelarvesse, või maksa enne osa olemasolevatest kohustustest tagasi. Ära esita korraga palju taotlusi eri pakkujatele — parem on oodata, parandada maksekäitumist ja taotleda uuesti mõne kuu pärast tugevama profiiliga.',
+      ],
+    },
+    {
+      id: 'regulatsioon',
+      title: 'Regulatsioon ja tarbijakaitse',
+      body: [
+        'Eestis tohib kiirlaene väljastada ainult ettevõte, kellel on <strong>Finantsinspektsiooni krediidiandja tegevusluba</strong>. Litsents tähendab, et pakkuja peab järgima vastutustundliku laenamise põhimõtteid, hindama kliendi maksevõimet ja avaldama kõik tasud läbipaistvalt. Lisaks piirab <strong>võlaõigusseadus</strong> krediidi kulukuse määra — KKM-il on seadusega kehtestatud ülempiir, mis kaitseb tarbijat liigkasuvõtmise eest.',
+        'Tarbijal on seadusest tulenevalt <strong>14-päevane taganemisõigus</strong>: laenulepingust võib põhjust nimetamata taganeda, tagastades laenusumma ja kasutatud päevade intressi. Samuti on igal laenusaajal õigus laen <strong>tasuta ennetähtaegselt tagastada</strong> — sel juhul väheneb ka intressikulu. Enne lepingu sõlmimist kontrolli alati, et pakkuja on kantud Finantsinspektsiooni tegevuslubade registrisse aadressil <strong>fi.ee</strong>.',
+      ],
+    },
   ],
 
   faq: [

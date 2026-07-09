@@ -75,6 +75,30 @@ const smsLaen: LoanTypeContent = {
         'Kui vajad väikest summat vaid lühikeseks ajaks palgapäevani, sobib SMS-laen. Suurema kulu või pikema tähtaja korral tasub vaadata tavalist kiirlaenu või väikelaenu, mille KKM on tihti soodsam. Valiku tegemisel võrdle alati laenu tegelikku hinda KKM-i alusel.',
       ],
     },
+    {
+      id: 'turu-ulevaade',
+      title: 'SMS-laenu turg Eestis',
+      body: [
+        'SMS-laen jõudis Eestisse 2000. aastatel ja oli toona täpselt see, mida nimi lubab: väike laen, mida taotleti lühisõnumiga ja mille otsus tuli samuti telefoni. Toode muutus kiiresti populaarseks just lihtsuse tõttu, kuid samal ajal kasvasid ka probleemid — läbimõtlemata laenamine, kõrged kulud ja võlgnevused. Tänaseks on nimi jäänud, kuid sisu on täielikult muutunud: taotlemine käib laenuandja kodulehel, isik tuvastatakse <strong>Smart-ID või Mobiil-ID</strong> abil ja leping allkirjastatakse digitaalselt.',
+        'Ka turg ise näeb välja teistsugune kui algusaastatel. Regulatsiooni karmistamine — muu hulgas kiirlaenureklaami piirangud ja <strong>krediidi kulukuse määra ülempiir</strong> — sõelus turult välja vastutustundetumad tegijad ning alles jäid litsentseeritud pakkujad, kelle üle teeb järelevalvet Finantsinspektsioon. Väikelaenudele spetsialiseerunud pakkujaid, näiteks SmsRaha (Placet Group), iseloomustab tänapäeval sama loogika mis muid tarbimislaene: maksevõime hindamine, selged lepingutingimused ja avalik KKM. Summad on jäänud väikeseks — SMS-laen on endiselt lühiajaline väikelaen, mitte suurema ostu rahastamise tööriist.',
+      ],
+    },
+    {
+      id: 'keeldumine',
+      title: 'Miks SMS-laenu taotlus lükatakse tagasi?',
+      body: [
+        'Kõige sagedasemad keeldumise põhjused on: <ul><li><strong>kehtiv maksehäire</strong> — laenuandjad kontrollivad maksehäireregistrit ja aktiivse võlgnevusega taotlus lükatakse üldjuhul tagasi;</li><li><strong>tõendamata või ebapiisav sissetulek</strong> — kui pangakonto väljavõttelt ei paista regulaarset laekumist või kuumakse ei mahu maksevõime piiresse;</li><li><strong>palju hiljutisi laenutaotlusi</strong> — mitu taotlust lühikese aja jooksul viitab rahalisele survele ja tõstab riskihinnangut;</li><li>vigased või puudulikud andmed taotluses.</li></ul>',
+        'Kui said eitava otsuse, ära esita kohe uusi taotlusi teistele pakkujatele. Mõistlikum on põhjus kõrvaldada: lahenda maksehäire, lase sissetulekul kontole regulaarselt laekuda ja oota mõni kuu enne uut taotlust. Kui kõik litsentseeritud laenuandjad keelduvad, on see märk, et laen ei ole praegu sinu eelarvele jõukohane — <strong>ära pöördu litsentsita või eraisikust laenuandjate poole</strong>. Nende tingimused ei allu järelevalvele, kulud võivad olla röövellikud ja tarbijakaitse sind sellisel juhul ei kaitse.',
+      ],
+    },
+    {
+      id: 'regulatsioon',
+      title: 'Regulatsioon ja tarbijakaitse',
+      body: [
+        'Just SMS-laenude segment oli omal ajal peamine põhjus, miks Eesti kiirlaenuturgu hakati rangemalt reguleerima. Tänapäeval tohib tarbijakrediiti väljastada ainult <strong>Finantsinspektsiooni tegevusloaga</strong> krediidiandja, laenu tegelikku hinda piirab <strong>krediidi kulukuse määra ülempiir</strong> ning kiirlaenude reklaamile kehtivad ranged piirangud — reklaam ei tohi jätta muljet, et laenamine on muretu või kiire lahendus rahamurele. Lisaks peab laenuandja enne lepingu sõlmimist hindama taotleja maksevõimet.',
+        'Tarbijal on seadusest tulenevad õigused, mida ükski leping ära võtta ei saa: <strong>14-päevane taganemisõigus</strong> ehk võimalus lepingust põhjust nimetamata taganeda, ning õigus laen <strong>igal ajal ennetähtaegselt tagastada ilma leppetrahvita</strong>, mille korral väheneb ka intressikulu. Enne taotluse esitamist kontrolli alati, et pakkujal on kehtiv tegevusluba — litsentseeritud krediidiandjate nimekiri on avalik Finantsinspektsiooni lehel <strong>fi.ee</strong>. Kui pakkujat sealt ei leia, ära temaga lepingut sõlmi.',
+      ],
+    },
   ],
 
   faq: [

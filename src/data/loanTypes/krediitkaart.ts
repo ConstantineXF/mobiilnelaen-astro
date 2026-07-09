@@ -74,6 +74,30 @@ const krediitkaart: LoanTypeContent = {
         'Lihtsustatult: krediitkaart sobib igapäevasteks ostudeks ja õigeaegsel tasumisel intressivabaks kasutamiseks, krediidikonto aga paindliku rahapuhvrina, kus oluline on kiire ligipääs limiidile. Mõlema puhul tasub enne lepingut vaadata aastatasu, intressi ja KKM-i ning hinnata, kumb sinu kulumustriga paremini sobib.',
       ],
     },
+    {
+      id: 'turu-ulevaade',
+      title: 'Krediitkaartide turg Eestis',
+      body: [
+        'Eestis pakuvad krediitkaarte peamiselt pangad — näiteks <strong>Coop Pank, LHV, SEB ja Swedbank</strong>. Kuigi toote põhimõte on kõigil sarnane, erinevad pakkumised olulistes detailides: intressivaba perioodi pikkus, aastatasu suurus, sularaha väljavõtu tingimused ja pakutav krediidilimiit. Mõni pank seob krediitkaardi lisahüvedega, nagu reisikindlustus või ostude tagasimaksed, teine hoiab kaardi lihtsa ja väiksemate tasudega. Seetõttu ei tasu valida esimest ettejuhtuvat kaarti, vaid võrrelda tingimusi ja <strong>KKM-i</strong> mitme pakkuja vahel.',
+        'Turu selge trend on digitaalsus: üha rohkem kasutatakse <strong>virtuaalkaarte</strong> ja mobiilseid rahakotte nagu <strong>Apple Pay ja Google Pay</strong>, mis lasevad krediitkaardiga maksta otse telefonist või nutikellast. Ka taotlemine käib valdavalt veebis — tuvastad end ID-kaardi, Smart-ID või Mobiil-ID abil ning kaart on sageli virtuaalsel kujul kasutatav enne, kui füüsiline kaart postiga kohale jõuab. Nutiseadmest vormistamine muudab krediitkaardi kättesaadavaks ilma pangakontorisse minemata.',
+      ],
+    },
+    {
+      id: 'keeldumine',
+      title: 'Miks krediitkaardi taotlus lükatakse tagasi?',
+      body: [
+        'Levinuimad keeldumise põhjused on <strong>kehtiv maksehäire</strong>, ebapiisav või ebaregulaarne püsiv sissetulek, liiga lühike kontoajalugu pangas ning suur olemasolevate kohustuste koormus. Pank hindab taotlust tervikuna: kui sissetulekust jääb pärast laenumaksete, liisingute ja muude püsikulude mahaarvamist liiga vähe vaba raha, on soovitud limiidi andmine vastutustundetu ja taotlus lükatakse tagasi. Ka värskelt avatud konto, kuhu palk pole veel laekuma hakanud, ei anna pangale piisavat pilti sinu maksekäitumisest.',
+        'Keeldumine ei ole lõplik otsus. Esiteks võid taotleda <strong>väiksemat limiiti</strong> — see vähendab panga riski ja suurendab positiivse otsuse tõenäosust. Teiseks tasub pöörduda oma kodupanka, kuhu laekub palk ja kus on näha sinu tegelik rahavoog: tuttava kliendi maksevõimet on pangal lihtsam hinnata. Kolmandaks korrasta krediidiajalugu — tasu võlgnevused, lase maksehäire lõpetatuks märkida ja vähenda olemasolevaid kohustusi. Mõne kuu pärast stabiilse sissetuleku ja puhta maksekäitumisega on uus taotlus märksa tugevam.',
+      ],
+    },
+    {
+      id: 'regulatsioon',
+      title: 'Regulatsioon ja tarbijakaitse',
+      body: [
+        'Krediitkaart on juriidiliselt <strong>tarbijakrediit</strong>, mistõttu kehtivad sellele samad tarbijakaitse reeglid nagu teistele laenutoodetele. Pank on kohustatud enne limiidi andmist hindama sinu <strong>maksevõimet</strong> — sissetulekut, kohustusi ja maksekäitumist — ning ei tohi anda krediiti, mille teenindamisega sa tõenäoliselt hakkama ei saa. Lepingutingimustes peab olema selgelt välja toodud <strong>krediidi kulukuse määr (KKM)</strong>, mis koondab intressi ja tasud üheks võrreldavaks näitajaks. Lisaks kehtib sõlmitud lepingule <strong>14-päevane taganemisõigus</strong>, mille jooksul saad lepingust põhjust nimetamata taganeda.',
+        'Sul on igal ajal õigus lasta krediidilimiiti <strong>vähendada või kaart sulgeda</strong>, kui toode enam ei sobi või soovid kohustusi kärpida. Eraldi tähelepanu väärivad <strong>hilinemistasud</strong>: kui intressivaba periood ületatakse ja arve jääb tähtajaks tasumata, lisanduvad intressile ka viivis ja võimalikud meeldetuletustasud, mis kasvatavad kogukulu kiiresti. Loe lepingust läbi, millised tasud hilinemisel rakenduvad, ning sea vajadusel püsikorraldus või e-arve, et tähtaeg kogemata ei ununeks.',
+      ],
+    },
   ],
 
   faq: [
