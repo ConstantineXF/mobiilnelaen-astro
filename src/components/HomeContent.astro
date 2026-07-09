@@ -1,0 +1,104 @@
+---
+// Богатый SEO-контент главной под ВЧ «mobiilne laen» (глубина + внутренняя перелинковка).
+import ProsCons from './ProsCons.astro';
+
+const loanTypes = [
+  { slug: 'kiirlaen', label: 'Kiirlaen', desc: 'Kiire tagatiseta laen ootamatuteks kuludeks — vastus minutitega.' },
+  { slug: 'vaikelaen', label: 'Väikelaen', desc: 'Suurem tarbimislaen pikema tähtaja ja madalama KKM-iga.' },
+  { slug: 'krediidikonto', label: 'Krediidikonto', desc: 'Uuenev krediidilimiit — intress ainult kasutatud summalt.' },
+  { slug: 'krediidiliin', label: 'Krediidiliin', desc: 'Paindlik püsiv limiit, mis on alati käepärast.' },
+  { slug: 'sms-laen', label: 'SMS-laen', desc: 'Väike kiirlaen, mille taotled internetis mõne minutiga.' },
+  { slug: 'autolaen', label: 'Autolaen', desc: 'Laen auto ostuks — tagatiseta või auto tagatisel.' },
+  { slug: 'krediitkaart', label: 'Krediitkaart', desc: 'Püsiv limiit ja intressivaba periood igapäevasteks ostudeks.' },
+];
+
+const pros = [
+  'Kogu protsess käib mobiilis — taotlemine, allkirjastamine ja raha kättesaamine',
+  'Tuvastamine turvaliselt Smart-ID või Mobiil-ID-ga, paberivabalt',
+  'Pakkumiste võrdlus ühel lehel — intress, KKM, summa ja tähtaeg',
+  'Vastus taotlusele sageli minutitega, raha samal tööpäeval',
+  'Tagatist ega käendajat ei nõuta',
+];
+const cons = [
+  'Tagatiseta laenu intress ja KKM on kõrgem kui pangalaenul',
+  'Nõutav püsiv sissetulek ja korrektne maksekäitumine',
+  'Vastutustundetu laenamine võib viia võlgade kuhjumiseni',
+];
+---
+
+<div class="container mx-auto px-4 max-w-5xl space-y-12 py-4">
+
+  <section id="mis-on" class="scroll-mt-24">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">Mis on mobiilne laen?</h2>
+    <div class="prose prose-slate max-w-none">
+      <p><strong>Mobiilne laen</strong> on tagatiseta laen, mille saab taotleda täielikult internetis — otse nutitelefonist või tahvelarvutist, ilma pangakontorisse minemata ja ilma paberita. Kogu teekond, alates pakkumiste võrdlemisest kuni lepingu allkirjastamiseni, käib mugavalt sinu seadmes ning isik tuvastatakse turvaliselt Smart-ID või Mobiil-ID abil.</p>
+      <p><strong>MobiilneLaen.ee</strong> koondab Eesti mobiilse laenu pakkumised ühele lehele, et saaksid neid ausalt võrrelda ja valida endale soodsaima. Me ei ole laenuandja — oleme sõltumatu võrdlusportaal, mis aitab sul leida sobiva <a href="/kiirlaen">kiirlaenu</a>, <a href="/vaikelaen">väikelaenu</a>, <a href="/krediidikonto">krediidikonto</a> või <a href="/krediitkaart">krediitkaardi</a> parimatel tingimustel.</p>
+    </div>
+  </section>
+
+  <section id="tuubid" class="scroll-mt-24">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-2">Mobiilse laenu tüübid</h2>
+    <p class="text-slate-500 mb-6">Vali laenutüüp ja võrdle pakkujaid — kõik saab taotleda otse mobiilist.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {
+        loanTypes.map((t) => (
+          <a href={`/${t.slug}`} class="group bg-white border border-slate-200 rounded-xl p-5 hover:border-cyan-300 hover:shadow-md transition-all">
+            <h3 class="font-bold text-slate-800 group-hover:text-cyan-600 transition-colors flex items-center justify-between">
+              {t.label}
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-300 group-hover:text-cyan-500 transition-colors"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </h3>
+            <p class="text-sm text-slate-500 mt-1.5">{t.desc}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="kuidas-vorrelda" class="scroll-mt-24">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">Kuidas mobiilset laenu võrrelda?</h2>
+    <div class="prose prose-slate max-w-none">
+      <p>Kõige olulisem näitaja mobiilse laenu võrdlemisel on <strong>krediidi kulukuse määr (KKM)</strong> — see sisaldab nii intressi kui ka kõiki tasusid ja näitab laenu tegelikku aastast hinda. Madalaim kuumakse ei tähenda alati soodsaimat laenu: pikema perioodi korral maksad intressi kokku rohkem, kuigi kuumakse tundub väiksem.</p>
+      <p>Enne otsust võrdle kindlasti järgmist:</p>
+      <ul>
+        <li><strong>KKM</strong> — laenu tegelik aastane hind protsendina;</li>
+        <li><strong>Intressimäär</strong> ja selle fikseeritus kogu perioodiks;</li>
+        <li><strong>Lepingu- ja haldustasud</strong> ning tasuta ennetähtaegse tagastamise võimalus;</li>
+        <li><strong>Laenusumma ja tähtaeg</strong> — kas need vastavad sinu vajadusele;</li>
+        <li><strong>Väljamakse kiirus</strong> — kui ruttu raha kontole jõuab.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="plussid-miinused" class="scroll-mt-24">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6">Mobiilse laenu plussid ja miinused</h2>
+    <ProsCons pros={pros} cons={cons} />
+  </section>
+
+  <section id="nouded" class="scroll-mt-24">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">Nõuded mobiilse laenu saamiseks</h2>
+    <div class="prose prose-slate max-w-none">
+      <p>Mobiilse laenu tingimused on pakkujati sarnased. Üldjuhul pead vastama järgmistele nõuetele:</p>
+      <ul>
+        <li>vähemalt 18-aastane (mõnel pakkujal 21) Eesti kodanik või kehtiva elamisloaga isik;</li>
+        <li>regulaarne ja tõendatav sissetulek;</li>
+        <li>kehtivate maksehäirete puudumine;</li>
+        <li>Eesti pangakonto ning Smart-ID, Mobiil-ID või ID-kaart tuvastamiseks.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="krediidiskoor" class="scroll-mt-24">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">Krediidiskoor ja mobiilne laen</h2>
+    <div class="prose prose-slate max-w-none">
+      <p>Enne laenu andmist hindab pakkuja sinu maksevõimet ja krediidiskoori — numbrilist hinnangut varasema laenu- ja maksekäitumise põhjal. Positiivne maksekäitumine, olemasolevate kohustuste õigeaegne tasumine ja püsiv sissetulek suurendavad heakskiidu tõenäosust ja aitavad saada soodsama intressi. Kehtiv maksehäire teeb mobiilse laenu saamise üldjuhul võimatuks — sel juhul tasub esmalt häire lahendada.</p>
+    </div>
+  </section>
+
+  <section id="vastutustundlik" class="scroll-mt-24">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">Vastutustundlik laenamine</h2>
+    <div class="prose prose-slate max-w-none">
+      <p>Iga laen on finantskohustus. Võta mobiilset laenu ainult siis, kui oled veendunud oma tagasimaksevõimes, ja laena täpselt nii palju, kui tegelikult vajad. Võrdle pakkumisi KKM-i alusel, loe lepingutingimused hoolikalt läbi ja vajadusel pea nõu asjatundjaga. MobiilneLaen.ee pakub informatiivset võrdlust ega ole finantsnõustaja — lõpliku laenuotsuse teed sina koos valitud krediidiandjaga.</p>
+    </div>
+  </section>
+
+</div>

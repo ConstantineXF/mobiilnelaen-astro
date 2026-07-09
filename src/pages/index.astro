@@ -1,12 +1,12 @@
 ---
-// ПОЛНЫЙ КОД для файла: src/pages/index.astro
 import { client as sanityClient } from '../lib/sanity';
 import MainLayout from '../layouts/MainLayout.astro';
 import Card from '../components/Card.astro';
 import Hero from '../components/Hero.astro';
 import DeviceBadge from '../components/DeviceBadge.astro';
 import LoanFilter from '../components/LoanFilter.astro';
-import FaqSection from '../components/FaqSection.astro';
+import HomeContent from '../components/HomeContent.astro';
+import LoanFaq from '../components/LoanFaq.astro';
 import SmartCalculator from '../components/SmartCalculator.tsx';
 import ApplicationForm from '../components/ApplicationForm.astro';
 import SubscriptionForm from '../components/SubscriptionForm.astro';
@@ -18,11 +18,38 @@ import ApplySteps from '../components/ApplySteps.astro';
 import MobileCta from '../components/MobileCta.astro';
 
 const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
+
+const homeFaq = [
+  {
+    q: 'Mis on mobiilne laen?',
+    a: ['Mobiilne laen on tagatiseta laen, mille saab taotleda täielikult internetis otse nutiseadmest. Isik tuvastatakse Smart-ID või Mobiil-ID abil ja kogu protsess käib paberivabalt, ilma pangakontorisse minemata.'],
+  },
+  {
+    q: 'Kui kiiresti saan mobiilse laenu raha kätte?',
+    a: ['Enamik pakkujaid teeb otsuse mõne minutiga ja kannab raha kontole samal tööpäeval. Kui taotled pangapäeval, jõuab raha sageli mõne tunni jooksul.'],
+  },
+  {
+    q: 'Kas mobiilset laenu saab ilma pangakontorisse minemata?',
+    a: ['Jah. Kogu teekond — pakkumiste võrdlus, taotlus ja lepingu allkirjastamine — toimub sinu nutiseadmes Smart-ID või Mobiil-ID abil.'],
+  },
+  {
+    q: 'Kui palju mobiilne laen maksab?',
+    a: ['Laenu tegelikku hinda näitab krediidi kulukuse määr (KKM), mis sisaldab intressi ja kõiki tasusid. Võrdle pakkumisi alati KKM-i alusel — see on ainus aus võrdlusalus.'],
+  },
+  {
+    q: 'Kas mobiilset laenu saab maksehäirega?',
+    a: ['Kehtiva maksehäire korral on mobiilse laenu saamine üldjuhul võimatu, sest pakkujad kontrollivad maksehäireregistrit. Soovitame esmalt häire lahendada ja alles seejärel laenu taotleda.'],
+  },
+  {
+    q: 'Kas MobiilneLaen.ee on laenuandja?',
+    a: ['Ei. MobiilneLaen.ee on sõltumatu võrdlusportaal, mis aitab leida ja võrrelda Eesti laenupakkumisi. Lõpliku laenuotsuse teed sina koos valitud krediidiandjaga.'],
+  },
+];
 ---
 
 <MainLayout
-  title="Mobiilne laen — Eesti laenude võrdlus | MobiilneLaen.ee"
-  description="Mobiilne laen otse nutiseadmest: võrdle Eesti kiirlaene, väikelaene, krediidikontosid ja krediitkaarte ühel lehel. Vaata intresse, KKM-i ja tingimusi ning taotle telefonist."
+  title="Mobiilne laen — võrdle Eesti laene otse nutiseadmest | MobiilneLaen.ee"
+  description="Mobiilne laen otse telefonist: võrdle Eesti kiirlaene, väikelaene, krediidikontosid ja krediitkaarte ühel lehel. Vaata intresse, KKM-i ja tingimusi ning taotle Smart-ID-ga mõne minutiga."
 >
 
   <Hero />
@@ -32,38 +59,38 @@ const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, provide
     <TrustBadges />
   </div>
 
-  <div id="laenud" class="container mx-auto px-4 py-8 md:py-12">
+  <div id="laenud" class="container mx-auto px-4 py-8 md:py-12 max-w-5xl">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6 text-center">Mobiilse laenu pakkumised</h2>
     <LoanFilter />
 
-    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {allOffers.map(offer => (
         <Card offerData={offer} />
       ))}
     </div>
   </div>
 
-  <div class="container mx-auto px-4 pb-4">
+  <div class="container mx-auto px-4 pb-4 max-w-5xl">
     <ApplySteps />
   </div>
 
+  <HomeContent />
 
   <section class="py-16 bg-slate-100">
-    <div class="container mx-auto px-4">
-
-      <SmartCalculator client:load allOffers={allOffers} />
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6 text-center">Mobiilse laenu kalkulaator</h2>
+      <SmartCalculator client:visible allOffers={allOffers} />
     </div>
   </section>
-<LiveFeed />
-<Testimonials />
-  <FaqSection 
-    title="Korduma kippuvad küsimused" 
-    category="mobiilne-laen" 
-  />
+
+  <LiveFeed />
+  <Testimonials />
+
+  <LoanFaq title="Korduma kippuvad küsimused mobiilse laenu kohta" items={homeFaq} />
 
   <ApplicationForm />
   <SubscriptionForm />
-<Stats />
+  <Stats />
 
   <MobileCta href="#laenud" label="Vaata pakkumisi" />
 </MainLayout>
