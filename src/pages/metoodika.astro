@@ -1,0 +1,83 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { client as sanityClient } from '../lib/sanity';
+
+const offers = await sanityClient.fetch(
+  `*[_type == "loanOffer"]{_id, providerName, loanType}`
+);
+const offerCount = Array.isArray(offers) ? offers.length : 0;
+const typeCount = new Set((offers ?? []).map((o: any) => o.loanType).filter(Boolean)).size;
+
+const breadcrumbs = [
+  { name: 'Avaleht', href: '/' },
+  { name: 'Metoodika', href: '/metoodika' },
+];
+---
+
+<MainLayout
+  title="Metoodika — kuidas me pakkumisi võrdleme"
+  description="Kust pärinevad andmed, kui tihti neid uuendatakse, mille alusel pakkumisi järjestame ja kuidas tagame sõltumatuse."
+  breadcrumbs={breadcrumbs.map((b) => ({ name: b.name, url: b.href }))}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <section class="container mx-auto px-4 py-10 max-w-3xl">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-3">Metoodika</h1>
+    <p class="text-slate-500 text-sm mb-8">Viimati uuendatud: {new Date().toLocaleDateString('et-EE')}</p>
+
+    <div class="space-y-6 text-slate-700 leading-relaxed">
+      <p class="text-lg">
+        Selleks et võrdlust saaks kontrollida, kirjeldame avalikult, kust andmed tulevad, kuidas neid uuendame ja
+        mille alusel pakkumisi järjestame.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">1. Mida võrdleme</h2>
+      <p>
+        Andmebaasis on hetkel <strong>{offerCount}</strong> pakkumist {typeCount} laenutüübis: kiirlaen, sms-laen,
+        väikelaen, krediidikonto, krediidiliin, autolaen ja krediitkaart. Kaasamise tingimus on, et laenuandja
+        tegutseb Eestis seaduslikult ja tema tingimused on avalikult kontrollitavad. Kaasamine <strong>ei sõltu</strong>
+        sellest, kas meil on selle pakkujaga partnerlus.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">2. Andmete allikad</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Laenuandjate ametlikud veebilehed ja avalikud hinnakirjad.</li>
+        <li>Finantsinspektsiooni register — tegevusloa kontroll.</li>
+        <li>Vajadusel täpsustus laenuandja klienditoelt.</li>
+      </ul>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">3. Uuendamine</h2>
+      <p>
+        Tingimusi vaatame regulaarselt üle ja muudatuse korral uuendame andmebaasi. Laenuandjad võivad tingimusi muuta
+        ette teatamata, seega <strong>lõplikud tingimused kinnita alati laenuandja juures</strong>.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">4. Järjestuse põhimõtted</h2>
+      <p>
+        Vaikimisi järjestame pakkumisi laenutüübi sees tingimuste järgi (summa, periood, intress) ning kasutaja saab
+        järjestust ise muuta. Järjestust <strong>ei mõjuta</strong> partnerlus ega vahendustasu. Kui kasutame sõna
+        „parim", peame silmas konkreetset mõõdetavat tunnust, mitte üldist hinnangut.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">5. Mida tasub võrrelda</h2>
+      <p>
+        Kuuintress üksi ei näita laenu hinda. Vaata <strong>KKM-i (krediidi kulukuse määra)</strong> — see sisaldab
+        intressi ja kõiki tasusid aastas ning on ainus seaduslikult võrreldav näitaja. Arvesta ka lepingutasu,
+        haldustasu ja ennetähtaegse tagastamise tingimusi.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">6. Sõltumatus ja rahastus</h2>
+      <p>
+        Portaal teenib tulu partnerlinkidelt — see ei muuda kasutaja tingimusi ega mõjuta järjestust. Reklaamsisu on
+        vastavalt tähistatud. Vaata ka <a href="/meist" class="text-cyan-700 underline">Meist</a>.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">7. Vea parandamine</h2>
+      <p>
+        Leidsid ebatäpsuse? Kirjuta <a href="mailto:info@mobiilnelaen.ee" class="text-cyan-700 underline">info@mobiilnelaen.ee</a> —
+        kontrollime ja parandame.
+      </p>
+    </div>
+  </section>
+</MainLayout>

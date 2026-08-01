@@ -21,10 +21,21 @@
     <p class="text-sm text-slate-600">&copy; {new Date().getFullYear()} MobiilneLaen.ee. Kõik õigused kaitstud.</p>
 
     <div class="mt-6 flex flex-wrap justify-center gap-x-6 gap-y-2">
+      <a href="/meist" class="text-sm text-slate-500 hover:text-cyan-600 underline">Meist</a>
+      <a href="/metoodika" class="text-sm text-slate-500 hover:text-cyan-600 underline">Metoodika</a>
       <a href="/privaatsuspoliitika" class="text-sm text-slate-500 hover:text-cyan-600 underline">Privaatsuspoliitika</a>
       <a href="/kasutustingimused" class="text-sm text-slate-500 hover:text-cyan-600 underline">Kasutustingimused</a>
       <a href="/kontakt" class="text-sm text-slate-500 hover:text-cyan-600 underline">Kontakt</a>
     </div>
+
+    {/* Раскрытие рекламы + свежесть данных (§29 / прозрачность) */}
+    <p class="mt-6 mx-auto max-w-3xl text-xs text-slate-500 leading-relaxed">
+      <strong>Reklaam:</strong> osa linke on partnerlingid — kui jõuad meie kaudu laenuandjani ja sõlmid lepingu,
+      võime saada vahendustasu. See ei mõjuta sinu tingimusi ega pakkumiste järjestust
+      (<a href="/metoodika" class="underline hover:text-cyan-600">metoodika</a>).
+      Andmed on informatiivsed ja üle vaadatud {new Date().toLocaleDateString('et-EE', { month: '2-digit', year: 'numeric' })} —
+      lõplikud tingimused kinnita laenuandja juures. Laen on finantskohustus; võrdle KKM-i, mitte ainult intressi.
+    </p>
 
     <div class="mt-8 border-t border-slate-200 pt-8">
       <h4 class="font-bold text-lg text-slate-800">Kontakt</h4>

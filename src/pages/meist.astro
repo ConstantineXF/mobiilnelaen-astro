@@ -1,0 +1,64 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const breadcrumbs = [
+  { name: 'Avaleht', href: '/' },
+  { name: 'Meist', href: '/meist' },
+];
+---
+
+<MainLayout
+  title="Meist — sõltumatu laenude võrdlus"
+  description="Kes me oleme, kuidas MobiilneLaen.ee raha teenib ja miks meie võrdlus on sõltumatu. Me ei ole laenuandja ega krediidivahendaja."
+  breadcrumbs={breadcrumbs.map((b) => ({ name: b.name, url: b.href }))}
+>
+  <Breadcrumbs items={breadcrumbs} />
+
+  <section class="container mx-auto px-4 py-10 max-w-3xl">
+    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800 mb-3">Meist</h1>
+    <p class="text-slate-500 text-sm mb-8">Viimati uuendatud: {new Date().toLocaleDateString('et-EE')}</p>
+
+    <div class="space-y-6 text-slate-700 leading-relaxed">
+      <p class="text-lg">
+        <strong>MobiilneLaen.ee</strong> on sõltumatu võrdlusportaal, mis koondab Eesti laenupakkumised ühte kohta —
+        kiirlaen, sms-laen, väikelaen, krediidikonto, krediidiliin, autolaen ja krediitkaart. Meie eesmärk on lihtne:
+        et sa näeksid tingimusi kõrvuti ja saaksid teha teadliku otsuse otse nutiseadmest.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">Mida me EI tee</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Me <strong>ei ole laenuandja</strong> ega krediidivahendaja.</li>
+        <li>Me ei väljasta laene, ei sõlmi lepinguid ega tee krediidiotsuseid.</li>
+        <li>Me ei nõua sinu isikuandmeid võrdluse nägemiseks.</li>
+      </ul>
+      <p>
+        Taotluse esitad alati otse laenuandja veebilehel — seal kehtivad tema tingimused, hinnakiri ja
+        privaatsuspoliitika. Lõplikud tingimused sõltuvad laenuandja individuaalsest hinnangust.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">Kuidas me raha teenime</h2>
+      <p>
+        Portaal on kasutajale tasuta. Osa linke on <strong>partnerlingid</strong>: kui jõuad meie kaudu laenuandjani ja
+        sõlmid lepingu, võib laenuandja maksta meile vahendustasu. See <strong>ei muuda sinu jaoks tingimusi</strong> ega
+        mõjuta seda, millises järjekorras pakkumisi kuvame — järjestuse põhimõtted on kirjas
+        <a href="/metoodika" class="text-cyan-700 underline">metoodika lehel</a>.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">Vastutustundlikkus</h2>
+      <p>
+        Laen on finantskohustus. Enne taotlemist hinda ausalt oma tagasimaksevõimet ja võrdle
+        <strong>krediidi kulukuse määra (KKM)</strong>, mitte ainult kuuintressi. Eestis tegutsevad laenuandjad peavad
+        omama Finantsinspektsiooni tegevusluba — litsentsi saad kontrollida
+        <a href="https://www.fi.ee/" target="_blank" rel="noopener noreferrer" class="text-cyan-700 underline">fi.ee</a> registrist.
+      </p>
+
+      <h2 class="text-xl font-bold text-slate-800 pt-2">Kontakt</h2>
+      <p>
+        Küsimused, ettepanekud või ebatäpsus andmetes:
+        <a href="mailto:info@mobiilnelaen.ee" class="text-cyan-700 underline">info@mobiilnelaen.ee</a>.
+        Vaata ka <a href="/kontakt" class="text-cyan-700 underline">kontaktilehte</a>.
+      </p>
+    </div>
+  </section>
+</MainLayout>

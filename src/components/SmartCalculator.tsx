@@ -128,7 +128,7 @@ export default function SmartCalculator({ allOffers, defaultCategory = 'kiirlaen
                           <p className="font-bold">{offer.providerName}</p>
                           <p className="text-xs text-slate-500">{offer.loanType}</p>
                         </div>
-                        <a href={`/go/${offer.slug}`} target="_blank" rel="nofollow noopener noreferrer" className="bg-cyan-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-cyan-600">lähemalt..</a>
+                        <a href={`/go/${offer.slug}`} target="_blank" rel="sponsored nofollow noopener noreferrer" className="bg-cyan-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-cyan-600">lähemalt..</a>
                       </div>
                     ))}
                   </TabsContent>
@@ -138,7 +138,7 @@ export default function SmartCalculator({ allOffers, defaultCategory = 'kiirlaen
                       {results.filter(r => r.loanType === type).map(offer => (
                         <div key={offer._id} className="w-full flex justify-between items-center p-3 border rounded-md mb-2 bg-white">
                           <p className="font-bold">{offer.providerName}</p>
-                          <a href={`/go/${offer.slug}`} target="_blank" rel="nofollow noopener noreferrer" className="bg-cyan-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-cyan-600">lähemalt..</a>
+                          <a href={`/go/${offer.slug}`} target="_blank" rel="sponsored nofollow noopener noreferrer" className="bg-cyan-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-cyan-600">lähemalt..</a>
                         </div>
                       ))}
                     </TabsContent>
@@ -152,7 +152,7 @@ export default function SmartCalculator({ allOffers, defaultCategory = 'kiirlaen
                           <p className="font-bold">{offer.providerName}</p>
                           <p className="text-xs text-slate-500">{offer.loanType}</p>
                         </div>
-                        <a href={`/go/${offer.slug}`} target="_blank" rel="nofollow noopener noreferrer" className="bg-cyan-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-cyan-600">lähemalt..</a>
+                        <a href={`/go/${offer.slug}`} target="_blank" rel="sponsored nofollow noopener noreferrer" className="bg-cyan-500 text-white text-sm font-semibold py-1 px-3 rounded-md hover:bg-cyan-600">lähemalt..</a>
                       </div>
                     ))}
                 </div>
