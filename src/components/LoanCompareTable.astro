@@ -1,0 +1,95 @@
+---
+// Таблица сравнения типов кредита + контентная перелинковка.
+// Зачем: замер 01.08.2026 показал, что на всех 7 посадочных НЕТ ни одной
+// таблицы и НОЛЬ контентных ссылок в тексте (были только шапка/футер).
+// Эталон myf.ee в том же замере: 1 таблица и ~20 ссылок в теле.
+// Один компонент закрывает обе дыры сразу на всех страницах.
+import autolaen from '../data/loanTypes/autolaen';
+import kiirlaen from '../data/loanTypes/kiirlaen';
+import krediidikonto from '../data/loanTypes/krediidikonto';
+import krediidiliin from '../data/loanTypes/krediidiliin';
+import krediitkaart from '../data/loanTypes/krediitkaart';
+import smsLaen from '../data/loanTypes/sms-laen';
+import vaikelaen from '../data/loanTypes/vaikelaen';
+
+interface Props {
+  currentSlug: string;
+}
+const { currentSlug } = Astro.props;
+
+const ALL = [kiirlaen, smsLaen, vaikelaen, krediidikonto, krediidiliin, krediitkaart, autolaen];
+
+const pick = (c: any, key: string) =>
+  (c.conditions ?? []).find((x: any) => x.label?.toLowerCase().includes(key))?.value ?? '—';
+
+const rows = ALL.map((c) => ({
+  slug: c.slug,
+  name: c.navLabel,
+  summa: pick(c, 'summa'),
+  periood: pick(c, 'periood'),
+  intress: pick(c, 'intress'),
+  current: c.slug === currentSlug,
+}));
+
+const current = rows.find((r) => r.current);
+const others = rows.filter((r) => !r.current);
+---
+
+<section id="vordlus" class="scroll-mt-24">
+  <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">
+    Kuidas {current?.name.toLowerCase()} teiste laenuliikide kõrval välja näeb
+  </h2>
+
+  <p class="text-slate-700 leading-relaxed mb-4">
+    Sama raha saab laenata mitmel viisil ja vahe ei ole ainult intressis — erineb ka see, kas
+    limiit uueneb, kui pikaks ajaks raha võetakse ja mille eest intressi arvestatakse. Allolev
+    tabel paneb liigid kõrvuti, et valik oleks tehtud teadlikult, mitte esimese pakkumise järgi.
+  </p>
+
+  <div class="overflow-x-auto -mx-4 sm:mx-0 my-6">
+    <table class="w-full min-w-[560px] text-sm border-collapse">
+      <caption class="text-left text-xs text-slate-500 mb-2">
+        Laenuliikide võrdlus — summa, periood ja intress
+      </caption>
+      <thead>
+        <tr class="bg-slate-50 text-left">
+          <th class="border border-slate-200 p-2 font-semibold">Laenuliik</th>
+          <th class="border border-slate-200 p-2 font-semibold">Summa</th>
+          <th class="border border-slate-200 p-2 font-semibold">Periood</th>
+          <th class="border border-slate-200 p-2 font-semibold">Intress</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => (
+          <tr class={r.current ? 'bg-sky-50' : ''}>
+            <td class="border border-slate-200 p-2 font-medium">
+              {r.current
+                ? <span class="text-slate-900">{r.name} <span class="text-xs text-sky-700">(see leht)</span></span>
+                : <a href={`/${r.slug}`} class="text-sky-700 underline">{r.name}</a>}
+            </td>
+            <td class="border border-slate-200 p-2 font-mono whitespace-nowrap text-slate-700">{r.summa}</td>
+            <td class="border border-slate-200 p-2 font-mono whitespace-nowrap text-slate-700">{r.periood}</td>
+            <td class="border border-slate-200 p-2 font-mono whitespace-nowrap text-slate-700">{r.intress}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="text-xl font-bold text-slate-800 mt-8 mb-3">Millal tasub kaaluda mõnda teist liiki</h3>
+  <ul class="space-y-2 text-slate-700">
+    {others.slice(0, 4).map((r) => (
+      <li>
+        Kui vajadus on korduv või summa muutub, vaata <a href={`/${r.slug}`} class="text-sky-700 underline">{r.name.toLowerCase()}</a> tingimusi
+        ({r.summa}, {r.periood}) — need sobivad teistsuguse kasutusmustri jaoks.
+      </li>
+    ))}
+  </ul>
+
+  <p class="text-slate-700 leading-relaxed mt-4">
+    Enne otsust arvuta läbi kogukulu, mitte ainult kuumakse: pikem periood teeb kuumakse
+    väiksemaks, aga lõppsumma suuremaks. Meie <a href="/metoodika" class="text-sky-700 underline">metoodika</a> selgitab,
+    mille alusel pakkumisi kõrvutame, ja <a href="/kontakt" class="text-sky-700 underline">kontaktilehel</a> saab
+    ebatäpsusest teada anda.
+  </p>
+</section>
