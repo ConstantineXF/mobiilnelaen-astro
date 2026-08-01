@@ -76,15 +76,19 @@ const krediidikonto: LoanTypeContent = {
     },
     {
       id: 'turu-ulevaade',
-      title: 'Krediidikonto turg Eestis',
+      title: 'Kes Eestis krediidikontot pakuvad',
       body: [
+        '<h3>Turg numbrites</h3>',
+        'Eesti Panga finantssektori statistika järgi ületab majapidamiste tarbimislaenude jääk <strong>1,1 miljardit eurot</strong> (allikas: Eesti Pank, finantssektori statistika, 2026. aasta I kvartal) ning uuenevad limiidid — krediidikontod, krediidiliinid ja krediitkaardid — moodustavad sellest märkimisväärse osa. Finantsinspektsiooni krediidiandjate ja -vahendajate registris on 2026. aasta alguse seisuga ligikaudu <strong>50 tegevusloaga krediidiandjat</strong> (allikas: fi.ee register, jaanuar 2026), kellest osa pakub just uuenevat limiiti.',
+        'Tüüpiline heakskiidetav krediidikonto limiit jääb <strong>500 ja 5000 euro</strong> vahele ning kasutusaktiivsus on ebaühtlane: paljud kliendid hoiavad limiiti puhvrina ja kasutavad seda paar korda aastas. Just sellises mustris on uuenev limiit odavam kui rida üksikuid <a href="/kiirlaen">kiirlaene</a>, sest iga uus laenuleping tähendaks uut lepingutasu.',
+        '<h3>Kes seda pakuvad</h3>',
         'Krediidikonto on Eestis kujunenud üheks populaarsemaks paindliku krediidi vormiks ning seda pakuvad mitmed litsentseeritud krediidiandjad, tuntumate seas <strong>Credit24, Monefit, SmsRaha ja Ferratum</strong>. Limiidid jäävad enamasti vahemikku <strong>500–10 000 €</strong>, kusjuures uuele kliendile kinnitatakse sageli esmalt väiksem limiit, mida korrektse maksekäitumise korral hiljem tõstetakse. Kuna intress jookseb ainult kasutatud summalt, kasutavad paljud inimesed krediidikontot <strong>varuplaanina</strong> — limiit on olemas ootamatuteks kuludeks, kuid seni, kuni seda ei kasutata, kulu ei teki.',
         'Selge turutrend on krediidikonto haldamise kolimine <strong>mobiilirakendusse ja iseteenindusse</strong>: raha väljavõtmine, tagasimaksed, limiidi jälgimine ja lepingu muudatused käivad üha sagedamini otse nutitelefonist ilma kontorit külastamata. Pakkujate tingimused erinevad siiski märgatavalt — intressimäär, halduskuu- ja väljamaksetasud ning limiidi tõstmise põhimõtted varieeruvad, mistõttu tasub enne lepingu sõlmimist alati võrrelda <strong>KKM-i</strong>, mitte ainult reklaamitud intressi.',
       ],
     },
     {
       id: 'keeldumine',
-      title: 'Miks krediidikonto taotlus lükatakse tagasi?',
+      title: 'Levinumad põhjused, miks limiiti ei anta',
       body: [
         'Kõige sagedasem keeldumise põhjus on <strong>kehtiv maksehäire</strong> — pakkujad kontrollivad maksehäireregistrit ja aktiivse võlgnevusega taotlus lükatakse üldjuhul automaatselt tagasi. Teine levinud põhjus on <strong>ebapiisav või tõendamata sissetulek</strong>: kui regulaarne laekumine pangakontole puudub või seda ei saa kontoväljavõttega kinnitada, ei suuda krediidiandja maksevõimet hinnata. Kolmas põhjus on <strong>suur olemasolev krediidikoormus</strong> — kui sissetulekust läheb juba märkimisväärne osa laenude, järelmaksude ja limiitide teenindamiseks, ei mahu uus kohustus vastutustundliku laenamise raamidesse.',
         'Keeldumise korral tasub esmalt üle vaadata oma kohustused. Abi võib olla järgmistest sammudest: <ul><li>taotle <strong>väiksemat limiiti</strong> — madalam limiit tähendab väiksemat hinnatavat kohustust;</li><li>maksa tagasi või sulge teised limiidid ja krediitkaardid — oluline on teada, et <strong>ka kasutamata krediidilimiit loetakse kohustuseks</strong>, sest selle saab igal hetkel kasutusele võtta;</li><li>korrasta maksekäitumine ja lase lõpetatud maksehäired registris sulgeda, sest värske negatiivne ajalugu mõjutab otsust veel mõnda aega.</li></ul> Mõne kuu pärast, kui koormus on väiksem ja sissetulek tõendatav, on uue taotluse õnnestumise tõenäosus oluliselt suurem.',
@@ -92,13 +96,69 @@ const krediidikonto: LoanTypeContent = {
     },
     {
       id: 'regulatsioon',
-      title: 'Regulatsioon ja tarbijakaitse',
+      title: 'Millised seadused krediidikontot puudutavad',
       body: [
         'Krediidikontot võib Eestis pakkuda ainult <strong>Finantsinspektsiooni tegevusloaga krediidiandja</strong>, kes peab järgima krediidiandjate ja -vahendajate seadust ning võlaõigusseaduse tarbijakrediidi reegleid. Tarbijakrediidi <strong>krediidi kulukuse määrale (KKM) kehtib seadusest tulenev ülempiir</strong>, mis kaitseb tarbijat ebamõistlikult kalli krediidi eest. Lisaks on krediidiandjal kohustus hinnata taotleja <strong>maksevõimet</strong> — ja seda mitte ainult konto avamisel, vaid ka iga kord, kui limiiti soovitakse <strong>tõsta</strong>. Automaatne limiiditõus ilma maksevõime kontrollita ei ole lubatud.',
         'Tarbijal on lepingust <strong>14-päevane taganemisõigus</strong>: selle aja jooksul võib lepingust põhjust nimetamata taganeda, tagastades kasutatud summa koos kasutusaja intressiga. Samuti on sul õigus <strong>igal ajal limiiti vähendada või krediidikonto sulgeda ilma leppetrahvita</strong> — piisab kasutatud osa tagasimaksmisest ja pakkuja teavitamisest. Kui limiiti parasjagu ei vaja, on selle vähendamine või konto sulgemine mõistlik ka seetõttu, et kasutamata limiit arvestatakse tulevaste laenutaotluste juures kohustuste hulka.',
       ],
     },
+    {
+      id: 'mida-limiit-maksab',
+      title: 'Mida uuenev limiit tegelikult maksab?',
+      body: [
+        'Krediidikonto hinda on raskem hinnata kui tavalise laenu oma, sest kulu tekib ainult siis ja täpselt nii kaua, kui raha kasutad. Sama 3000-eurose limiidi juures võib aastane kulu olla null või mitusada eurot — vahe teeb ainult kasutusmuster.',
+        '<table><caption>Kulude näide: 3000 € limiit, intress ~20% aastas kasutatud osalt</caption><thead><tr><th>Kasutusmuster</th><th>Keskmine kasutatud summa</th><th>Kestus</th><th>Ligikaudne intressikulu</th></tr></thead><tbody><tr><td>Limiit puutumata</td><td>0 €</td><td>12 kuud</td><td>0 €</td></tr><tr><td>Ühekordne kasutus, kiire tagastus</td><td>1000 €</td><td>1 kuu</td><td>~17 €</td></tr><tr><td>Hooajaline kasutus</td><td>1500 €</td><td>3 kuud</td><td>~75 €</td></tr><tr><td>Pidev osaline kasutus</td><td>2000 €</td><td>12 kuud</td><td>~400 €</td></tr><tr><td>Limiit pidevalt täis</td><td>3000 €</td><td>12 kuud</td><td>~600 €</td></tr></tbody></table>',
+        'Näide on illustratiivne ja ei sisalda võimalikke haldus- või kuutasusid, mis mõne pakkuja juures lisanduvad ka kasutamata limiidile. Just neid tasub lepingust esimesena otsida: kuutasu muudab „tasuta puhvri“ igakuiseks kuluks ja tõstab KKM-i tuntavalt.',
+        'Praktiline järeldus: krediidikonto on odav lühikeste kasutuste puhul ja kallis siis, kui limiit on aasta läbi täis. Viimasel juhul on tegemist varjatud pikaajalise laenuga ja soodsam lahendus on jääk refinantseerida <a href="/vaikelaen">väikelaenu</a> alla, kus KKM on madalam ja graafik lõpeb kindla kuupäevaga. Ühekordse suurema kulu jaoks tasub kõrvutada ka <a href="/kiirlaen">kiirlaenu</a> tingimusi ning meie <a href="/metoodika">võrdlusmetoodikat</a>.',
+      ],
+    },
+    {
+      id: 'limiidi-haldamine',
+      title: 'Limiidi haldamine ilma võlga kasvatamata',
+      body: [
+        '<h3>Sea endale reegel enne esimest kasutust</h3>',
+        'Uuenev limiit erineb laenust ühe olulise asja poolest: sellel ei ole lõppkuupäeva. Tavalisel laenul on graafik, mis viib saldo nulli ilma sinu osaluseta. Krediidikonto saldo läheb nulli ainult siis, kui sa selle sinna viid. Seepärast on mõistlik kokku leppida iseendaga tagasimaksetempo juba enne esimest väljavõtmist — näiteks „iga kasutus tagasi kolme kuuga“.',
+        '<h3>Minimaalne makse ei ole eesmärk</h3>',
+        'Miinimummakse katab tavaliselt intressi ja väikese osa põhiosast. Ainult miinimumi tasudes püsib võlg aastaid ja kogukulu kasvab vaikselt. Kui saldo ei ole kolme kuuga vähenenud, on see märk, et limiit toimib laenuna, mitte puhvrina.',
+        '<h3>Limiidi tõstmine ja alandamine</h3>',
+        'Pakkujad pakuvad limiidi tõstmist sageli ise, sest see on neile kasulik. Enne nõustumist küsi endalt, kas vajadus on päriselt kasvanud. Limiidi saab ka alandada — see vähendab kiusatust ja mõjub soodsalt tulevastele laenutaotlustele, sest maksevõime hindamisel arvestatakse kogu limiiti, mitte ainult kasutatud osa. Sama loogika kehtib <a href="/krediitkaart">krediitkaardi</a> ja <a href="/krediidiliin">krediidiliini</a> puhul.',
+        'Kui kasutad limiiti korduvalt ja saldo ei lange, on aeg vaadata alternatiive: kindla graafikuga laen on kallim kuumakse poolest, aga odavam kogukulu poolest ja lõpeb päriselt ära.',
+      ],
+    },
+    {
+      id: 'kellele-sobib',
+      title: 'Kellele krediidikonto sobib',
+      body: [
+        'Krediidikonto lahendab kindlat tüüpi probleemi: <strong>ettearvamatu ajastusega, korduv ja piiritletud rahavajadus</strong>. Kui see kirjeldus ei kattu sinu olukorraga, on tõenäoliselt olemas odavam tööriist.',
+        '<ul><li><strong>Sobib hästi</strong> — ebaregulaarse sissetulekuga inimesele, kes vajab puhvrit kuude vahel; kodus ettetulevate ootamatute kulude katteks; väiksemate hooajaliste väljaminekute silumiseks.</li><li><strong>Sobib tinglikult</strong> — planeeritud ühekordse ostu jaoks, kui summa on väike ja tagastamine kiire; suurema ostu puhul on <a href="/vaikelaen">väikelaen</a> madalama KKM-iga.</li><li><strong>Ei sobi</strong> — igakuise eelarvepuudujäägi katmiseks; teiste kohustuste tasumiseks; pikaajaliseks rahastuseks, kus limiit jääb aastateks täis.</li></ul>',
+        'Eraldi tasub mõelda, mitu uuenevat limiiti korraga hoida. Kui sul on juba krediitkaart, siis krediidikonto lisamine kahekordistab kättesaadava krediidi ja seda kogusummat arvestatakse iga järgmise laenutaotluse puhul kohustusena — ka siis, kui saldo on null. See võib tähendada, et suurema laenu, näiteks <a href="/autolaen">autolaenu</a> taotlemisel jääb heakskiidetud summa oodatust väiksemaks.',
+        'Kõige praktilisem test on lihtne: kui suudad nimetada konkreetse kuu, mil limiit saab tagasi nulli, on krediidikonto sobiv lahendus. Kui ei suuda, on tegemist laenuvajadusega ja seda on odavam katta kindla graafikuga tootega. Ebatäpsusest meie andmetes anna teada <a href="/kontakt">kontaktilehel</a>.',
+      ],
+    },
+    {
+      id: 'avamine-ja-sulgemine',
+      title: 'Konto avamine, kasutamine ja sulgemine',
+      body: [
+        '<h3>Avamine</h3>',
+        'Taotlus täidetakse pakkuja iseteeninduses ja isik tuvastatakse Smart-ID või Mobiil-ID abil. Küsitakse sissetulekut, olemasolevaid kohustusi ja leibkonna suurust; andmed peavad ühtima kontoväljavõttega, mida krediidiandja näeb. Otsus tuleb tavaliselt minutitega ja koos sellega heakskiidetud limiit, mis võib olla soovitust väiksem. Enne allkirjastamist saad Euroopa tarbijakrediidi standardinfo teabelehe — sealt otsi üles KKM, kuutasu ja miinimummakse suurus.',
+        '<h3>Kasutamine</h3>',
+        'Raha kantakse limiidist sinu arvelduskontole soovitud summas. Intress hakkab jooksma väljakandmise hetkest ja ainult kasutatud osalt. Praktiline soovitus: võta korraga täpselt vajalik summa, mitte kogu limiit — vahe tekib kohe intressikulus. Jälgi saldot igakuiselt ja sea eesmärgiks selle vähenemine, mitte püsimine.',
+        '<h3>Sulgemine</h3>',
+        'Lepingu saab lõpetada, kui saldo on nullis. See on mõttekas kahel juhul: kui limiiti ei kasuta ja pakkujal on kuutasu, ning enne suurema laenu taotlemist. Maksevõime hindamisel arvestatakse kogu heakskiidetud limiiti kohustusena, seega kasutamata konto vähendab summat, mille saad <a href="/vaikelaen">väikelaenuna</a> või <a href="/autolaen">autolaenuna</a>. Küsi sulgemise kohta kirjalik kinnitus ja kontrolli, et leping päriselt lõppes, mitte ei jäänud nullsaldoga avatuks.',
+        'Kui sama pakkuja pakub hiljem limiidi taasavamist ühe klikiga, tasub meeles pidada, et tegemist on uue krediidiotsusega ja vanad tingimused ei pruugi kehtida. Alternatiivide kõrvutamiseks vaata <a href="/krediidiliin">krediidiliini</a> ja <a href="/krediitkaart">krediitkaardi</a> tingimusi ning <a href="/metoodika">meie metoodikat</a>.',
+      ],
+    },
   ],
+
+  example: {
+    amount: '3000 € limiit, kasutatud 1500 €',
+    period: '12 kuud',
+    interest: '19,9% (kasutatud osalt)',
+    apr: '23,1%',
+    monthly: '~139 €',
+    total: '~1668 €',
+    note: 'Näide eeldab, et kasutatud 1500 eurot makstakse tagasi 12 kuu jooksul võrdsete maksetena, ja sisaldab kuutasu 0 €. Kasutamata limiidilt intressi ei arvestata. Tegelikud tingimused sõltuvad krediidiandja otsusest.',
+  },
 
   faq: [
     {
@@ -137,6 +197,24 @@ const krediidikonto: LoanTypeContent = {
       q: 'Kas maksehäirega saab krediidikonto avada?',
       a: [
         'Kehtiva maksehäire korral on krediidikonto avamine üldjuhul võimatu, sest pakkujad kontrollivad maksehäireregistrit ja hindavad maksevõimet vastutustundliku laenamise nõuete kohaselt. Soovitame esmalt häire lahendada ja alles seejärel krediiti taotleda.',
+      ],
+    },
+    {
+      q: 'Kas kasutamata krediidilimiit maksab midagi?',
+      a: [
+        'Intressi kasutamata osalt reeglina ei arvestata, kuid osa pakkujaid võtab kuu- või haldustasu ka siis, kui limiiti ei kasuta. See tasu tuleb lepingust üles otsida — just see muudab „tasuta puhvri“ igakuiseks kuluks ja tõstab KKM-i.',
+      ],
+    },
+    {
+      q: 'Kas krediidikonto vähendab minu võimalust saada suuremat laenu?',
+      a: [
+        'Jah, kaudselt. Maksevõime hindamisel arvestatakse kogu heakskiidetud limiiti võimaliku kohustusena, ka siis, kui saldo on null. Kui plaanid taotleda suuremat laenu, tasub kasutamata limiit enne seda sulgeda või seda alandada.',
+      ],
+    },
+    {
+      q: 'Mis vahe on miinimummaksel ja tegelikul tagasimaksel?',
+      a: [
+        'Miinimummakse katab intressi ja väikese osa põhiosast — ainult seda tasudes püsib võlg pikka aega ja kogukulu kasvab. Kui soovid limiidi tõesti vabastada, tuleb maksta rohkem kui miinimum ja jälgida, et saldo iga kuu väheneks.',
       ],
     },
   ],

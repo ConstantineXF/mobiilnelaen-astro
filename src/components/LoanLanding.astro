@@ -13,6 +13,11 @@ import SmartCalculator from './SmartCalculator.tsx';
 import Voting from './Voting.tsx';
 import type { LoanTypeContent } from '../data/loanTypes/types';
 import LoanCompareTable from './LoanCompareTable.astro';
+import RepresentativeExample from './RepresentativeExample.astro';
+
+// Тело секции может быть как абзацем, так и блочной разметкой (ul/table/h3).
+// Оборачивать <table> или <ul> в <p> нельзя — парсер закрывает абзац раньше.
+const BLOCK = /^\s*<(ul|ol|table|h3|h4|div|figure|blockquote|p)\b/i;
 
 interface Props {
   content: LoanTypeContent;
@@ -76,6 +81,11 @@ const breadcrumbs = [
           </p>
         )
       }
+      {content.example && (
+        <div class="mt-6">
+          <RepresentativeExample example={content.example} productLabel={content.navLabel} />
+        </div>
+      )}
     </section>
 
     {/* Как подать заявку — мобильный процесс */}
@@ -111,7 +121,7 @@ const breadcrumbs = [
         <section id={s.id} class="scroll-mt-24">
           <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">{s.title}</h2>
           <div class="prose prose-slate max-w-none">
-            {s.body.map((p) => <p set:html={p} />)}
+            {s.body.map((p) => (BLOCK.test(p) ? <Fragment set:html={p} /> : <p set:html={p} />))}
           </div>
         </section>
       ))

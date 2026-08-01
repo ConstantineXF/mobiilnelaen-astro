@@ -16,6 +16,7 @@ import Stats from '../components/Stats.astro';
 import TrustBadges from '../components/TrustBadges.astro';
 import ApplySteps from '../components/ApplySteps.astro';
 import MobileCta from '../components/MobileCta.astro';
+import RepresentativeExample from '../components/RepresentativeExample.astro';
 
 const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
 
@@ -67,6 +68,21 @@ const homeFaq = [
       {allOffers.map(offer => (
         <Card offerData={offer} />
       ))}
+    </div>
+
+    <div class="mt-8">
+      <RepresentativeExample
+        productLabel="Tarbimislaen"
+        example={{
+          amount: '5000 €',
+          period: '36 kuud',
+          interest: '13,9% (fikseeritud)',
+          apr: '15,4%',
+          monthly: '~170 €',
+          total: '~6120 €',
+          note: 'Näide sisaldab lepingutasu 75 € ja kuutasu 0 €. Tegelik intress ja KKM sõltuvad krediidiandjast, laenusummast, perioodist ning taotleja maksevõimest.',
+        }}
+      />
     </div>
   </div>
 

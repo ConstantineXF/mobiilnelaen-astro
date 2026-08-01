@@ -20,6 +20,27 @@ export interface ConditionRow {
   value: string;
 }
 
+/**
+ * Tüüpnäide reklaamiseaduse § 29 mõttes: kus näidatakse krediidipakkumist,
+ * peab olema esitatud KKM ja representatiivne näide koos kogusummaga.
+ */
+export interface RepresentativeExample {
+  /** Laenusumma näites, nt '2000 €'. */
+  amount: string;
+  /** Periood, nt '24 kuud'. */
+  period: string;
+  /** Fikseeritud intress aastas, nt '19,9%'. */
+  interest: string;
+  /** Krediidi kulukuse määr aastas, nt '24,6%'. */
+  apr: string;
+  /** Igakuine makse, nt '101,50 €'. */
+  monthly: string;
+  /** Tagasimakstav kogusumma, nt '2436 €'. */
+  total: string;
+  /** Lisamärkus (lepingutasu, kindlustus jms) — vaba tekst. */
+  note?: string;
+}
+
 export interface LoanTypeContent {
   /** ASCII-слаг маршрута (совпадает с именем .astro-страницы). */
   slug: string;
@@ -52,4 +73,6 @@ export interface LoanTypeContent {
   /** Дополнительные H2-секции (идут в TOC). */
   sections: ContentSection[];
   faq: FaqEntry[];
+  /** Тип-пример по §29 (показывается рядом с офферами). */
+  example?: RepresentativeExample;
 }

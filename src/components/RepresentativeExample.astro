@@ -1,0 +1,57 @@
+---
+// Тип-пример по reklaamiseadus §29 + võlaõigusseadus § 4031.
+// Показывается прямо под блоком офферов: KKM и представительный пример
+// с общей суммой обязательны везде, где демонстрируется кредитное предложение.
+import type { RepresentativeExample } from '../data/loanTypes/types';
+
+interface Props {
+  example: RepresentativeExample;
+  productLabel: string;
+}
+const { example: ex, productLabel } = Astro.props as Props;
+---
+
+<aside class="border border-slate-200 bg-slate-50 rounded-xl p-5 md:p-6">
+  <h3 class="text-lg font-bold text-slate-800 mb-2">Tüüpnäide ja krediidi kulukuse määr</h3>
+  <p class="text-sm text-slate-600 mb-4">
+    Reklaamiseaduse nõuete kohaselt esitame representatiivse näite. Tegelikud tingimused sõltuvad
+    krediidiandja otsusest ja sinu maksevõimest — vaata alati konkreetse pakkuja lepingueelset teavet
+    ning meie <a href="/metoodika" class="text-sky-700 underline">võrdlusmetoodikat</a>.
+  </p>
+
+  <div class="overflow-x-auto -mx-1">
+    <table class="w-full min-w-[480px] text-sm border-collapse">
+      <caption class="text-left text-xs text-slate-500 mb-2">
+        {productLabel} — representatiivne näide (illustratiivne, ei ole pakkumine)
+      </caption>
+      <tbody>
+        <tr>
+          <th scope="row" class="border border-slate-200 p-2 text-left font-medium bg-white">Laenusumma</th>
+          <td class="border border-slate-200 p-2 font-mono bg-white">{ex.amount}</td>
+          <th scope="row" class="border border-slate-200 p-2 text-left font-medium bg-white">Periood</th>
+          <td class="border border-slate-200 p-2 font-mono bg-white">{ex.period}</td>
+        </tr>
+        <tr>
+          <th scope="row" class="border border-slate-200 p-2 text-left font-medium bg-white">Fikseeritud intress</th>
+          <td class="border border-slate-200 p-2 font-mono bg-white">{ex.interest}</td>
+          <th scope="row" class="border border-slate-200 p-2 text-left font-medium bg-white">KKM aastas</th>
+          <td class="border border-slate-200 p-2 font-mono bg-white font-semibold">{ex.apr}</td>
+        </tr>
+        <tr>
+          <th scope="row" class="border border-slate-200 p-2 text-left font-medium bg-white">Igakuine makse</th>
+          <td class="border border-slate-200 p-2 font-mono bg-white">{ex.monthly}</td>
+          <th scope="row" class="border border-slate-200 p-2 text-left font-medium bg-white">Tagasimakstav kokku</th>
+          <td class="border border-slate-200 p-2 font-mono bg-white font-semibold">{ex.total}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {ex.note && <p class="text-xs text-slate-500 mt-3">{ex.note}</p>}
+
+  <p class="text-xs text-slate-500 mt-2">
+    MobiilneLaen.ee ei ole krediidiandja ega krediidivahendaja ning ei tee laenuotsuseid. Laen on
+    finantskohustus — kaalu enne laenamist oma võimalusi. Enne lepingu sõlmimist tutvu tingimustega
+    ja vajaduse korral konsulteeri asjatundjaga.
+  </p>
+</aside>

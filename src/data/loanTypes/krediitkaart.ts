@@ -76,15 +76,19 @@ const krediitkaart: LoanTypeContent = {
     },
     {
       id: 'turu-ulevaade',
-      title: 'Krediitkaartide turg Eestis',
+      title: 'Kui palju krediitkaarte Eestis kasutatakse',
       body: [
+        '<h3>Kaardid arvudes</h3>',
+        'Eesti Panga makse- ja arveldusstatistika järgi on Eestis kasutuses <strong>üle kahe miljoni maksekaardi</strong>, millest krediitkaardid moodustavad väiksema, kuid stabiilse osa (allikas: Eesti Pank, maksestatistika, 2026). Majapidamiste tarbimislaenude jääk ületab <strong>1,1 miljardit eurot</strong> (allikas: Eesti Pank, finantssektori statistika, 2026. aasta I kvartal) ja krediitkaardi jäägid on selles omaette read. Finantsinspektsiooni registris on 2026. aasta alguse seisuga ligikaudu <strong>50 tegevusloaga krediidiandjat</strong> (allikas: fi.ee register, jaanuar 2026), lisaks pakuvad kaarte pangad.',
+        'Eesti eripära on see, et deebetkaart katab enamiku igapäevamaksetest ja krediitkaart võetakse pigem lisatoona — reisimiseks, internetiostudeks ja puhvriks. Just seetõttu jääb paljudel kaart aastateks kasutamata, kuigi aastatasu jookseb. Kui kaarti tegelikult ei kasuta, on selle sulgemine kõige lihtsam viis kulu vähendada ja ühtlasi tõsta oma võimekust saada tulevikus <a href="/vaikelaen">väikelaenu</a> või <a href="/autolaen">autolaenu</a>, sest maksevõime arvestuses läheb kirja kogu limiit.',
+        '<h3>Pakkujad ja tingimuste erinevused</h3>',
         'Eestis pakuvad krediitkaarte peamiselt pangad — näiteks <strong>Coop Pank, LHV, SEB ja Swedbank</strong>. Kuigi toote põhimõte on kõigil sarnane, erinevad pakkumised olulistes detailides: intressivaba perioodi pikkus, aastatasu suurus, sularaha väljavõtu tingimused ja pakutav krediidilimiit. Mõni pank seob krediitkaardi lisahüvedega, nagu reisikindlustus või ostude tagasimaksed, teine hoiab kaardi lihtsa ja väiksemate tasudega. Seetõttu ei tasu valida esimest ettejuhtuvat kaarti, vaid võrrelda tingimusi ja <strong>KKM-i</strong> mitme pakkuja vahel.',
         'Turu selge trend on digitaalsus: üha rohkem kasutatakse <strong>virtuaalkaarte</strong> ja mobiilseid rahakotte nagu <strong>Apple Pay ja Google Pay</strong>, mis lasevad krediitkaardiga maksta otse telefonist või nutikellast. Ka taotlemine käib valdavalt veebis — tuvastad end ID-kaardi, Smart-ID või Mobiil-ID abil ning kaart on sageli virtuaalsel kujul kasutatav enne, kui füüsiline kaart postiga kohale jõuab. Nutiseadmest vormistamine muudab krediitkaardi kättesaadavaks ilma pangakontorisse minemata.',
       ],
     },
     {
       id: 'keeldumine',
-      title: 'Miks krediitkaardi taotlus lükatakse tagasi?',
+      title: 'Kaarditaotlus tagasi lükatud: põhjused ja lahendused',
       body: [
         'Levinuimad keeldumise põhjused on <strong>kehtiv maksehäire</strong>, ebapiisav või ebaregulaarne püsiv sissetulek, liiga lühike kontoajalugu pangas ning suur olemasolevate kohustuste koormus. Pank hindab taotlust tervikuna: kui sissetulekust jääb pärast laenumaksete, liisingute ja muude püsikulude mahaarvamist liiga vähe vaba raha, on soovitud limiidi andmine vastutustundetu ja taotlus lükatakse tagasi. Ka värskelt avatud konto, kuhu palk pole veel laekuma hakanud, ei anna pangale piisavat pilti sinu maksekäitumisest.',
         'Keeldumine ei ole lõplik otsus. Esiteks võid taotleda <strong>väiksemat limiiti</strong> — see vähendab panga riski ja suurendab positiivse otsuse tõenäosust. Teiseks tasub pöörduda oma kodupanka, kuhu laekub palk ja kus on näha sinu tegelik rahavoog: tuttava kliendi maksevõimet on pangal lihtsam hinnata. Kolmandaks korrasta krediidiajalugu — tasu võlgnevused, lase maksehäire lõpetatuks märkida ja vähenda olemasolevaid kohustusi. Mõne kuu pärast stabiilse sissetuleku ja puhta maksekäitumisega on uus taotlus märksa tugevam.',
@@ -92,13 +96,67 @@ const krediitkaart: LoanTypeContent = {
     },
     {
       id: 'regulatsioon',
-      title: 'Regulatsioon ja tarbijakaitse',
+      title: 'Tarbija õigused ja kaardi turvalisus',
       body: [
         'Krediitkaart on juriidiliselt <strong>tarbijakrediit</strong>, mistõttu kehtivad sellele samad tarbijakaitse reeglid nagu teistele laenutoodetele. Pank on kohustatud enne limiidi andmist hindama sinu <strong>maksevõimet</strong> — sissetulekut, kohustusi ja maksekäitumist — ning ei tohi anda krediiti, mille teenindamisega sa tõenäoliselt hakkama ei saa. Lepingutingimustes peab olema selgelt välja toodud <strong>krediidi kulukuse määr (KKM)</strong>, mis koondab intressi ja tasud üheks võrreldavaks näitajaks. Lisaks kehtib sõlmitud lepingule <strong>14-päevane taganemisõigus</strong>, mille jooksul saad lepingust põhjust nimetamata taganeda.',
         'Sul on igal ajal õigus lasta krediidilimiiti <strong>vähendada või kaart sulgeda</strong>, kui toode enam ei sobi või soovid kohustusi kärpida. Eraldi tähelepanu väärivad <strong>hilinemistasud</strong>: kui intressivaba periood ületatakse ja arve jääb tähtajaks tasumata, lisanduvad intressile ka viivis ja võimalikud meeldetuletustasud, mis kasvatavad kogukulu kiiresti. Loe lepingust läbi, millised tasud hilinemisel rakenduvad, ning sea vajadusel püsikorraldus või e-arve, et tähtaeg kogemata ei ununeks.',
       ],
     },
+    {
+      id: 'kaardi-tegelik-hind',
+      title: 'Krediitkaardi tegelik hind: null või sadu eurosid',
+      body: [
+        'Krediitkaart on ainus laenutoode, mille kasutamine võib olla täiesti tasuta — ja ka üks kallimaid, kui tingimusi ei jälgita. Vahe on ühes asjas: kas kasutatud summa tasutakse intressivaba perioodi sees täies mahus või mitte.',
+        '<table><caption>Kulude näide: 1000 € ostud kaardiga, intress ~20% aastas</caption><thead><tr><th>Tagasimakse viis</th><th>Kestus</th><th>Intressikulu</th><th>Aastatasu (näites 40 €)</th><th>Kokku</th></tr></thead><tbody><tr><td>Täies mahus intressivaba perioodi sees</td><td>~45 päeva</td><td>0 €</td><td>40 €</td><td>~40 €</td></tr><tr><td>Pool kohe, pool 3 kuuga</td><td>3 kuud</td><td>~25 €</td><td>40 €</td><td>~65 €</td></tr><tr><td>Võrdsete osadena aasta jooksul</td><td>12 kuud</td><td>~110 €</td><td>40 €</td><td>~150 €</td></tr><tr><td>Ainult miinimummakse (5%)</td><td>~3 aastat</td><td>~330 €</td><td>120 €</td><td>~450 €</td></tr></tbody></table>',
+        'Näide on illustratiivne, kuid viimane rida väärib eraldi tähelepanu: miinimummakse tasumine muudab tuhandeeurose ostu ligi pooleteisekordseks. Kaardi turundus rõhutab paindlikkust, kuid paindlikkus tähendab siin, et võlg ei lõpe iseenesest ära.',
+        'Kaks kulu jäävad sageli märkamata. Esiteks, <strong>sularaha väljavõtt</strong> on tavaliselt tasuline ja intressivaba periood sellele ei laiene — intress hakkab jooksma kohe. Teiseks, <strong>välisvaluutas ostud</strong> kannavad konverteerimistasu. Kui plaanid kaarti kasutada püsiva rahastusena, on <a href="/vaikelaen">väikelaen</a> madalama KKM-iga ja kindla lõpuga tavaliselt odavam; korduva vajaduse puhul kõrvuta ka <a href="/krediidikonto">krediidikontoga</a> ning vaata <a href="/metoodika">metoodikat</a>.',
+      ],
+    },
+    {
+      id: 'turvalisus',
+      title: 'Turvalisus ja pettuste vältimine',
+      body: [
+        '<h3>Mida pank kunagi ei küsi</h3>',
+        'Ükski pank ega krediidiandja ei küsi telefoni teel, e-kirjas ega sotsiaalmeedias sinu PIN-koodi, kaardi turvakoodi (CVC), Smart-ID või Mobiil-ID PIN-e ega SMS-iga saadetud kinnituskoodi. Iga selline päring on pettus, ka siis, kui helistaja number näib olevat panga oma ja jutt kõlab veenvalt. Kahtluse korral lõpeta kõne ja helista ise panga ametlikul numbril.',
+        '<h3>Praktilised kaitsemeetmed</h3>',
+        '<ul><li>Lülita sisse tehingute teavitused — märkad võõrast tehingut minutitega, mitte kuu lõpus.</li><li>Kasuta internetiostudeks <strong>virtuaalkaarti</strong> või eraldi madala limiidiga kaarti.</li><li>Hoia e-poe limiit madalam kui kogu krediidilimiit.</li><li>Kontrolli kaardi väljavõtet iga kuu, mitte ainult siis, kui midagi tundub valesti.</li><li>Kadunud kaart sulge kohe rakendusest — see on kiirem kui telefonikõne.</li></ul>',
+        '<h3>Kui raha on juba läinud</h3>',
+        'Teata pangale esimesel võimalusel: tarbija vastutus on volitamata tehingute puhul seadusega piiratud, kuid see kaitse eeldab kiiret teavitamist ja seda, et sa ei ole ise turvanõudeid rikkunud. Esita ka avaldus politseile. Kaardimaksete puhul on paljudel juhtudel võimalik algatada tagasinõue (chargeback), kui kaup jäi saamata või teenus osutamata — see on krediitkaardi eelis, mida deebetkaardil sageli ei ole.',
+      ],
+    },
+    {
+      id: 'kaart-vs-laen',
+      title: 'Millal kaart, millal laen?',
+      body: [
+        'Krediitkaart ja tarbimislaen ei ole konkurendid, vaid erineva ülesandega tööriistad. Kaart on hea makseviis ja halb pikaajaline rahastus; laen on vastupidi.',
+        '<ul><li><strong>Vali kaart</strong>, kui kulu on väike, ajastus lühike ja tasumine käib intressivaba perioodi sees; kui vajad maksevahendit reisil või e-poes; kui soovid tagasinõude ja ostukaitse võimalust.</li><li><strong>Vali laen</strong>, kui summa on suurem, tagasimakse võtab kuid või aastaid ja soovid kindlat graafikut. <a href="/vaikelaen">Väikelaenu</a> KKM on selles rollis tüüpiliselt tuntavalt madalam kui kaardi oma.</li><li><strong>Vali uuenev limiit</strong>, kui vajadus on korduv, kuid maksevahendit ei ole vaja — <a href="/krediidiliin">krediidiliin</a> kannab raha otse arvelduskontole.</li><li><strong>Vali sihtotstarbeline laen</strong> suurema ostu puhul: auto rahastamisel on <a href="/autolaen">autolaen</a> või liising tagatise tõttu odavam kui kaart.</li></ul>',
+        'Kui kaardi saldo on juba kuid püsinud kõrgel ja miinimummakse on ainus, mida jõuad tasuda, on aeg jääk refinantseerida. Kaardivõla koondamine madalama KKM-iga laenu alla annab kindla lõppkuupäeva ja vähendab kogukulu — tingimusel, et kaardi limiit pärast seda alandatakse või kaart suletakse. Vastasel juhul täitub saldo tavaliselt mõne kuuga uuesti.',
+        'Ühekordse ja kiireloomulise vajaduse puhul, kus kaarti veel ei ole, tasub kõrvutada ka <a href="/kiirlaen">kiirlaenu</a> ja <a href="/sms-laen">SMS-laenu</a> tingimusi — need on kallimad protsentides, kuid piiritletud ajaga. Ebatäpsusest meie võrdluses saab teada anda <a href="/kontakt">kontaktilehel</a>.',
+      ],
+    },
+    {
+      id: 'kaardi-valik',
+      title: 'Kontroll-loend kaardi valimiseks',
+      body: [
+        'Krediitkaardid näevad välja sarnased ja erinevad detailides, mis avalduvad alles kasutamisel. Need kuus punkti on need, mis rahakotti reaalselt mõjutavad.',
+        '<ul><li><strong>Aastatasu ja selle tühistamise tingimus.</strong> Mõni pakkuja loobub aastatasust, kui aastane käive ületab teatud summa — kontrolli, kas sinu kulumuster selleni jõuab.</li><li><strong>Intressivaba perioodi tegelik pikkus.</strong> Reklaamitud „kuni 50 päeva“ kehtib arveldustsükli alguses tehtud ostule; tsükli lõpus tehtud ostul on see poole lühem.</li><li><strong>Miinimummakse suurus.</strong> Mida väiksem protsent, seda pikemaks võlg venib.</li><li><strong>Sularaha väljavõtu tingimused.</strong> Tavaliselt tasuline ja ilma intressivaba perioodita — intress hakkab jooksma kohe.</li><li><strong>Välisvaluuta konverteerimistasu.</strong> Reisile ja välismaistesse e-poodidesse mõeldes on see kaardi valikul üks olulisemaid ridu.</li><li><strong>Lisahüved.</strong> Reisikindlustus või ostukaitse on väärt ainult siis, kui neid päriselt kasutad; vastasel juhul maksad neid aastatasu sees niisama.</li></ul>',
+        '<h3>Enne taotlemist</h3>',
+        'Kontrolli, kas sul on juba avatud limiite — <a href="/krediidikonto">krediidikonto</a> või <a href="/krediidiliin">krediidiliin</a> arvestatakse kohustusena ka nullsaldo korral ja need vähendavad heakskiidetavat kaardilimiiti. Kui plaanid lähiajal taotleda suuremat laenu, tasub kaardi avamine sinna järele jätta.',
+        '<h3>Pärast saamist</h3>',
+        'Sea kohe kolm asja: tehingute teavitused sisse, e-poe limiit madalamale kui kogu limiit ja automaatne täissumma tasumine, kui pakkuja seda võimaldab. Viimane on kõige tõhusam viis hoida intressikulu nullis, sest see ei sõltu enam mäletamisest. Kui kaarti mõne kuu pärast ei kasuta, kaalu selle sulgemist — aastatasu jookseb ka kasutamata kaardil.',
+      ],
+    },
   ],
+
+  example: {
+    amount: '1500 € limiit, kasutatud 1000 €',
+    period: '12 kuud',
+    interest: '19,9% (tagastamata osalt)',
+    apr: '25,4%',
+    monthly: '~93 €',
+    total: '~1116 €',
+    note: 'Näide eeldab, et kasutatud 1000 eurot tagastatakse 12 kuu jooksul võrdsete maksetena, ning sisaldab aastatasu 40 €. Intressivaba perioodi sees täies mahus tasudes intressi ei lisandu. Tegelikud tingimused sõltuvad krediidiandja otsusest.',
+  },
 
   faq: [
     {
@@ -141,6 +199,24 @@ const krediitkaart: LoanTypeContent = {
       a: [
         'Krediidilimiidi määrab pakkuja sinu maksevõime hindamise põhjal, arvestades sissetulekut, olemasolevaid kohustusi ja maksekäitumist. Limiit on püsiv ja korduvkasutatav: tagastatud osa vabaneb taas kasutamiseks.',
         'Limiidi suurust saab tavaliselt hiljem taotluse alusel muuta. KKM seadusega piiratud tarbijakrediidile kehtib ka krediitkaardi puhul.',
+      ],
+    },
+    {
+      q: 'Kui palju maksab 1000 euro suurune kaardijääk aasta jooksul?',
+      a: [
+        'Intressivaba perioodi sees täies mahus tasudes ei maksa see intressi üldse, ainult võimaliku aastatasu. Sama summa võrdsete osadena aasta jooksul tagasi makstuna tähendab umbes 110 eurot intressi. Ainult miinimummakset tasudes venib tagasimakse aastateks ja kogukulu võib ulatuda mitmesaja euroni.',
+      ],
+    },
+    {
+      q: 'Kas krediitkaardi võlga saab refinantseerida?',
+      a: [
+        'Jah. Kaardijäägi koondamine madalama KKM-iga väikelaenu alla annab kindla lõppkuupäeva ja vähendab tavaliselt kogukulu. Oluline on pärast refinantseerimist kaardi limiiti alandada või kaart sulgeda, muidu täitub saldo mõne kuuga uuesti.',
+      ],
+    },
+    {
+      q: 'Mida teha, kui kaardilt on tehtud võõras tehing?',
+      a: [
+        'Sulge kaart kohe panga rakenduses ja teata pangale. Volitamata tehingute puhul on tarbija vastutus seadusega piiratud, kuid kaitse eeldab kiiret teavitamist. Esita ka avaldus politseile. Kauba või teenuse saamata jäämise korral saab paljudel juhtudel algatada tagasinõude ehk chargeback-menetluse.',
       ],
     },
   ],
