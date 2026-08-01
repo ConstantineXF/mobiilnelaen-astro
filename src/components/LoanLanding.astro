@@ -145,3 +145,20 @@ const breadcrumbs = [
   {/* Липкий мобильный CTA */}
   <MobileCta href="#pakkumised" label="Vaata pakkumisi" />
 </MainLayout>
+
+<style is:global>
+  /* Таблицы приходят сырым HTML из data-файлов секций и обёртки не получают.
+     Без этого на телефоне широкая таблица распирает страницу и появляется
+     горизонтальная прокрутка всего body. display:block + overflow-x:auto даёт
+     прокрутку внутри самой таблицы — тот же эффект, что обёртка div. */
+  .prose table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .prose table th,
+  .prose table td { white-space: nowrap; }
+  .prose table td:first-child,
+  .prose table th:first-child { white-space: normal; min-width: 12ch; }
+</style>
