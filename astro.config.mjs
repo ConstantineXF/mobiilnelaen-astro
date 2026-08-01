@@ -5,7 +5,9 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mobiilnelaen.ee',
+  // Хост совпадает с реально отдаваемым (non-www 307 → www),
+  // иначе sitemap и canonical ссылаются на редиректы.
+  site: 'https://www.mobiilnelaen.ee',
   integrations: [
     tailwind(),
     react(),

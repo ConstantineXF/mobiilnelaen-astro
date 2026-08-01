@@ -13,9 +13,16 @@ interface Props {
   canonical?: string;
   image?: string;
   noindex?: boolean;
+  /** Кредитный продукт страницы → schema LoanOrCredit */
+  loanProduct?: { name: string; loanType?: string; min?: number; max?: number };
+  /** Хлебные крошки → schema BreadcrumbList */
+  breadcrumbs?: { name: string; url: string }[];
 }
 
-const SITE_URL = 'https://mobiilnelaen.ee';
+// ВАЖНО: хост должен совпадать с тем, что реально отдаёт сервер.
+// Non-www 307-редиректится на www, поэтому canonical/og/sitemap = www,
+// иначе все canonical указывают на редирект и сигналы размазываются.
+const SITE_URL = 'https://www.mobiilnelaen.ee';
 
 const {
   title,
@@ -23,10 +30,73 @@ const {
   canonical,
   image = '/og-default.jpg',
   noindex = false,
+  loanProduct,
+  breadcrumbs,
 } = Astro.props;
 
 const canonicalUrl = new URL(canonical ?? Astro.url.pathname, SITE_URL).href;
 const imageUrl = new URL(image, SITE_URL).href;
+
+// ── Schema.org @graph: Organization + WebSite (+ LoanOrCredit / BreadcrumbList) ──
+const schemaGraph: Record<string, any> = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'MobiilneLaen.ee',
+      url: SITE_URL,
+      logo: `${SITE_URL}/icon.svg`,
+      description:
+        'Sõltumatu laenude võrdlusportaal Eestis: mobiilne laen, sms-laen, kiirlaen, väikelaen, krediidikonto ja krediidiliin.',
+      areaServed: { '@type': 'Country', name: 'Estonia' },
+      email: 'info@mobiilnelaen.ee',
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: 'MobiilneLaen.ee',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      inLanguage: 'et-EE',
+    },
+  ],
+};
+
+if (loanProduct) {
+  schemaGraph['@graph'].push({
+    '@type': 'LoanOrCredit',
+    '@id': `${canonicalUrl}#loan`,
+    name: loanProduct.name,
+    url: canonicalUrl,
+    loanType: loanProduct.loanType ?? loanProduct.name,
+    currency: 'EUR',
+    ...(loanProduct.min || loanProduct.max
+      ? {
+          amount: {
+            '@type': 'MonetaryAmount',
+            currency: 'EUR',
+            ...(loanProduct.min ? { minValue: loanProduct.min } : {}),
+            ...(loanProduct.max ? { maxValue: loanProduct.max } : {}),
+          },
+        }
+      : {}),
+    areaServed: { '@type': 'Country', name: 'Estonia' },
+    provider: { '@id': `${SITE_URL}/#organization` },
+  });
+}
+
+if (breadcrumbs?.length) {
+  schemaGraph['@graph'].push({
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((b, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: b.name,
+      item: new URL(b.url, SITE_URL).href,
+    })),
+  });
+}
 ---
 
 <!doctype html>
@@ -69,6 +139,9 @@ const imageUrl = new URL(image, SITE_URL).href;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
+
+    {/* Базовые схемы сайта: Organization + WebSite (+ LoanOrCredit/Breadcrumb по странице) */}
+    <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
 
     {/* Дополнительные теги/схемы из страниц */}
     <slot name="head" />

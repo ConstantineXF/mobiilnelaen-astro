@@ -8,7 +8,7 @@ const krediitkaart: LoanTypeContent = {
   seoText:
     'Otsid krediitkaarti intressivaba perioodiga, mille saaks vormistada otse telefonist? Võrdle Eesti krediitkaardi pakkumisi ühes kohas — vaata limiite, aastatasu ja KKM-i ning vali endale sobivaim krediitkaart mugavalt nutiseadmest.',
 
-  metaTitle: 'Krediitkaart 2026 — intressivaba periood ja limiit | MobiilneLaen.ee',
+  metaTitle: 'Krediitkaart 2026 — intressivaba periood ja limiit',
   metaDescription:
     'Krediitkaart püsiva limiidi ja intressivaba perioodiga: tasu ostud õigeaegselt ja väldi intressi. Vaata tingimusi, aastatasu, KKM-i ja võrdle pakkumisi.',
 

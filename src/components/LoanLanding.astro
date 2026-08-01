@@ -37,7 +37,12 @@ const breadcrumbs = [
 ];
 ---
 
-<MainLayout title={content.metaTitle} description={content.metaDescription}>
+<MainLayout
+  title={content.metaTitle}
+  description={content.metaDescription}
+  loanProduct={{ name: content.navLabel, loanType: content.loanType }}
+  breadcrumbs={breadcrumbs.map((b) => ({ name: b.name, url: b.href }))}
+>
   <Breadcrumbs items={breadcrumbs} />
 
   {/* Заголовок — простой стиль (как было), без хвостов в H1 */}

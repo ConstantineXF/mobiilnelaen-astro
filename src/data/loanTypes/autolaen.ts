@@ -8,7 +8,7 @@ const autolaen: LoanTypeContent = {
   seoText:
     'Plaanid autot osta ja otsid soodsat autolaenu? Võrdle Eesti autolaenu pakkumisi otse mobiilist — MobiilneLaen.ee aitab leida nii tagatiseta kui tagatisega autolaenu parima KKM-i ja sobiva kuumaksega.',
 
-  metaTitle: 'Autolaen 2026 — võrdle ja taotle soodsalt | MobiilneLaen.ee',
+  metaTitle: 'Autolaen 2026 — võrdle ja taotle soodsalt',
   metaDescription:
     'Osta auto autolaenuga: võrdle tagatiseta ja tagatisega pakkumisi ühel lehel. Summad kuni 20 000 €, periood kuni 84 kuud, kiire otsus. Vaata intresse ja KKM-i.',
 

@@ -8,7 +8,7 @@ const krediidikonto: LoanTypeContent = {
   seoText:
     'Soovid paindlikku krediidikontot, mille saaks avada otse nutitelefonist? Siit leiad Eesti krediidikonto pakkumised ühes kohas — võrdle limiite, intresse ja KKM-i mugavalt mobiilist ning vali endale paindlikem krediidikonto.',
 
-  metaTitle: 'Krediidikonto 2026 — paindlik krediidilimiit | MobiilneLaen.ee',
+  metaTitle: 'Krediidikonto 2026 — paindlik krediidilimiit',
   metaDescription:
     'Krediidikonto on uuendatav krediidilimiit, kus maksad intressi ainult kasutatud summa pealt. Võrdle pakkujaid, limiite ja KKM-i ning vali paindlikem lahendus.',
 
