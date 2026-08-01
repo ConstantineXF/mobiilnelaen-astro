@@ -60,7 +60,102 @@ function wrap(text, max) {
   return lines.slice(0, 3);
 }
 
-function svg({ kw, sub, data }) {
+function svgRich({ kw, sub, facts = [], data, eyebrow }) {
+  const pad = Math.round(W * 0.065);
+  const titleSize = Math.round(W / 16);
+  const subSize = Math.round(W / 36);
+  const eyebrowSize = Math.round(W / 62);
+  const chipText = Math.round(W / 58);
+  const footSize = Math.round(W / 60);
+
+  const centered = LAYOUT === 'center';
+  const anchor = centered ? 'middle' : 'start';
+  const x = centered ? W / 2 : LAYOUT === 'split' ? pad + Math.round(W * 0.04) : pad;
+
+  // Фон: глубокий градиент + световое пятно + мягкая сетка — читаемо и «дороже» на вид
+  const defs = `<defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="${C.dark}"/>
+      <stop offset="100%" stop-color="#0a3b4d"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="${C.mid}" stop-opacity="0.42"/>
+      <stop offset="100%" stop-color="${C.mid}" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
+      <path d="M46 0H0V46" fill="none" stroke="${C.mid}" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>`;
+
+  const glowX = BG === 'diagonal' ? Math.round(W * 0.12) : Math.round(W * 0.86);
+  const glowY = BG === 'gradient' ? Math.round(H * 0.78) : Math.round(H * 0.2);
+
+  const bg = `${defs}
+    <rect width="${W}" height="${H}" fill="url(#bg)"/>
+    <rect width="${W}" height="${H}" fill="url(#grid)"/>
+    <circle cx="${glowX}" cy="${glowY}" r="${Math.round(W * 0.33)}" fill="url(#glow)"/>
+    ${BG === 'diagonal'
+      ? `<polygon points="0,${H} ${W},${Math.round(H * 0.42)} ${W},${H}" fill="${C.mid}" opacity="0.10"/>`
+      : ''}
+    <rect x="0" y="${H - 8}" width="${W}" height="8" fill="${C.mid}" opacity="0.85"/>`;
+
+  const sideBar =
+    LAYOUT === 'split' ? `<rect x="0" y="0" width="${Math.round(W * 0.028)}" height="${H}" fill="${C.mid}"/>` : '';
+
+  // ── вертикальная раскладка: надзаголовок → title → sub → чипы → подвал ──
+  let y = Math.round(H * 0.20);
+
+  const eyebrowEl = eyebrow
+    ? `<text x="${x}" y="${y}" font-family="DejaVu Sans, Verdana, sans-serif" font-size="${eyebrowSize}" font-weight="bold" letter-spacing="3" fill="${C.mid}" text-anchor="${anchor}">${esc(eyebrow.toUpperCase())}</text>`
+    : '';
+  y += Math.round(titleSize * 0.95);
+
+  const lines = wrap(kw, 24);
+  const titleEl = lines
+    .map((l, i) =>
+      `<text x="${x}" y="${y + i * titleSize * 1.1}" font-family="DejaVu Sans, Verdana, sans-serif" font-size="${titleSize}" font-weight="bold" fill="${C.white}" text-anchor="${anchor}">${esc(l)}</text>`
+    )
+    .join('');
+  y += lines.length * titleSize * 1.1 + Math.round(subSize * 0.5);
+
+  const subEl = sub
+    ? `<text x="${x}" y="${y}" font-family="DejaVu Sans, Verdana, sans-serif" font-size="${subSize}" fill="${C.light}" opacity="0.92" text-anchor="${anchor}">${esc(sub)}</text>`
+    : '';
+  y += Math.round(subSize * 1.6);
+
+  // Чипы с фактами — дополнительный ключевой текст (OCR) и заполнение площади
+  let chipsEl = '';
+  if (facts.length) {
+    const chipH = Math.round(chipText * 2.5);
+    const gap = Math.round(W * 0.018);
+    const widths = facts.map((f) => Math.round(f.length * chipText * 0.62) + chipText * 2);
+    const totalW = widths.reduce((a, b) => a + b, 0) + gap * (facts.length - 1);
+    let cx = centered ? Math.round((W - totalW) / 2) : x;
+    chipsEl = facts
+      .map((f, i) => {
+        const wgt = widths[i];
+        const el = `<g>
+        <rect x="${cx}" y="${y}" rx="${Math.round(chipH / 2)}" width="${wgt}" height="${chipH}" fill="${C.mid}" opacity="0.16"/>
+        <text x="${cx + wgt / 2}" y="${y + chipH * 0.68}" font-family="DejaVu Sans, Verdana, sans-serif" font-size="${chipText}" fill="${C.light}" text-anchor="middle">${esc(f)}</text>
+      </g>`;
+        cx += wgt + gap;
+        return el;
+      })
+      .join('');
+  }
+
+  // Подвал: дата + домен (бренд-метка всегда видна)
+  const footY = H - Math.round(pad * 0.75);
+  const footEl = `
+    <line x1="${pad}" y1="${footY - footSize * 1.9}" x2="${W - pad}" y2="${footY - footSize * 1.9}" stroke="${C.mid}" stroke-opacity="0.25" stroke-width="2"/>
+    <text x="${pad}" y="${footY}" font-family="DejaVu Sans, Verdana, sans-serif" font-size="${footSize}" fill="${C.mid}">${esc(DOMAIN)}</text>
+    ${data ? `<text x="${W - pad}" y="${footY}" font-family="DejaVu Sans, Verdana, sans-serif" font-size="${footSize}" fill="${C.light}" opacity="0.7" text-anchor="end">${esc(data)}</text>` : ''}`;
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${bg}${sideBar}${eyebrowEl}${titleEl}${subEl}${chipsEl}${footEl}</svg>`;
+}
+
+function svgOld({ kw, sub, data }) {
   const titleSize = Math.round(W / 18);
   const subSize = Math.round(W / 38);
   const dataSize = Math.round(W / 52);
@@ -121,20 +216,35 @@ function svg({ kw, sub, data }) {
 const now = new Date();
 const stamp = `uuendatud ${String(now.getMonth() + 1).padStart(2, '0')}.${now.getFullYear()}`;
 
+// eyebrow — надзаголовок, facts — чипы (доп. ключевой текст для OCR + конверсионные аргументы)
+const EYEBROW = 'Sõltumatu laenuvõrdlus';
 const PAGES = [
-  { slug: 'index', kw: 'Mobiilne laen', sub: 'võrdle laene otse nutiseadmest' },
-  { slug: 'sms-laen', kw: 'SMS-laen', sub: 'väike kiirlaen kohe' },
-  { slug: 'kiirlaen', kw: 'Kiirlaen', sub: 'võrdle kiirlaene ja KKM-i' },
-  { slug: 'vaikelaen', kw: 'Väikelaen', sub: 'võrdle ja taotle soodsalt' },
-  { slug: 'krediidikonto', kw: 'Krediidikonto', sub: 'paindlik krediidilimiit' },
-  { slug: 'krediidiliin', kw: 'Krediidiliin', sub: 'kasuta osade kaupa' },
-  { slug: 'autolaen', kw: 'Autolaen', sub: 'võrdle autolaenu pakkumisi' },
-  { slug: 'krediitkaart', kw: 'Krediitkaart', sub: 'intressivaba periood' },
-  { slug: 'meist', kw: 'Meist', sub: 'sõltumatu laenude võrdlus' },
-  { slug: 'metoodika', kw: 'Metoodika', sub: 'kuidas me võrdleme' },
-  { slug: 'kontakt', kw: 'Kontakt', sub: 'võta meiega ühendust' },
-  { slug: 'privaatsuspoliitika', kw: 'Privaatsuspoliitika', sub: 'andmete töötlemine' },
-  { slug: 'kasutustingimused', kw: 'Kasutustingimused', sub: 'portaali kasutamine' },
+  { slug: 'index', kw: 'Mobiilne laen', sub: 'Võrdle Eesti laene otse nutiseadmest',
+    facts: ['Tasuta võrdlus', 'Võrdle KKM-i', 'Taotle 2 minutiga'] },
+  { slug: 'sms-laen', kw: 'SMS-laen', sub: 'Väike kiirlaen kohe, ilma paberita',
+    facts: ['Alates ~50 €', 'Otsus ~5 min', 'Smart-ID'] },
+  { slug: 'kiirlaen', kw: 'Kiirlaen', sub: 'Võrdle kiirlaene ja krediidi kulukuse määra',
+    facts: ['Kiire otsus', 'Võrdle KKM-i', 'Tagatiseta'] },
+  { slug: 'vaikelaen', kw: 'Väikelaen', sub: 'Võrdle väikelaene ja taotle soodsalt',
+    facts: ['Suurem summa', 'Pikem periood', 'Madalam intress'] },
+  { slug: 'krediidikonto', kw: 'Krediidikonto', sub: 'Uuenev krediidilimiit vajaduse järgi',
+    facts: ['Korduvkasutus', 'Intress vaid kasutatult', 'Paindlik'] },
+  { slug: 'krediidiliin', kw: 'Krediidiliin', sub: 'Kasuta limiiti osade kaupa',
+    facts: ['Raha käepärast', 'Maksa kasutatult', 'Uueneb'] },
+  { slug: 'autolaen', kw: 'Autolaen', sub: 'Võrdle autolaenu ja liisingu pakkumisi',
+    facts: ['Sõiduki ost', 'Pikk periood', 'Võrdle KKM-i'] },
+  { slug: 'krediitkaart', kw: 'Krediitkaart', sub: 'Intressivaba periood ja krediidilimiit',
+    facts: ['Intressivaba periood', 'Igapäevaostud', 'Limiit'] },
+  { slug: 'meist', kw: 'Meist', sub: 'Sõltumatu portaal, mitte laenuandja',
+    facts: ['Ei ole laenuandja', 'Tasuta kasutajale', 'Läbipaistev'] },
+  { slug: 'metoodika', kw: 'Metoodika', sub: 'Kuidas me pakkumisi kogume ja järjestame',
+    facts: ['Avalikud allikad', 'Regulaarne uuendus', 'Sõltumatu järjestus'] },
+  { slug: 'kontakt', kw: 'Kontakt', sub: 'Võta meiega ühendust',
+    facts: ['info@mobiilnelaen.ee', 'Vastame tööpäeviti'] },
+  { slug: 'privaatsuspoliitika', kw: 'Privaatsuspoliitika', sub: 'Kuidas töötleme andmeid (GDPR)',
+    facts: ['GDPR', 'Sinu õigused', 'Küpsised'] },
+  { slug: 'kasutustingimused', kw: 'Kasutustingimused', sub: 'Portaali kasutamise reeglid',
+    facts: ['Informatiivne portaal', 'Partnerlingid', 'Vastutus'] },
 ];
 
 await mkdir(OUT, { recursive: true });
@@ -142,7 +252,9 @@ console.log(`OG formula → domain=${DOMAIN} seed=${SEED}`);
 console.log(`  layout=${LAYOUT} bg=${BG} logo=${LOGO} size=${W}x${H}`);
 
 for (const p of PAGES) {
-  const buf = Buffer.from(svg({ kw: p.kw, sub: p.sub, data: stamp }));
+  const buf = Buffer.from(
+    svgRich({ kw: p.kw, sub: p.sub, facts: p.facts ?? [], data: stamp, eyebrow: EYEBROW })
+  );
   const png = await sharp(buf).png({ compressionLevel: 9 }).toBuffer();
   await writeFile(path.join(OUT, `${p.slug}.png`), png);
   console.log(`  ✓ /og/${p.slug}.png (${Math.round(png.length / 1024)} KB)`);
