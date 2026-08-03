@@ -3,4 +3,5 @@ User-agent: *
 Allow: /
 Disallow: /go/
 
-Sitemap: https://mobiilnelaen.ee/sitemap-index.xml
+Sitemap: https://www.mobiilnelaen.ee/sitemap-index.xml
+Sitemap: https://www.mobiilnelaen.ee/sitemap-images.xml

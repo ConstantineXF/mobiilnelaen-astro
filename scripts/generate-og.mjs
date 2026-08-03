@@ -15,6 +15,8 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import sharp from 'sharp';
+// Правило именования карточек — общее с MainLayout (см. scripts/og-slug.mjs).
+import { ogFileName, LEGACY_FILE } from './og-slug.mjs';
 
 const DOMAIN = process.env.OG_DOMAIN ?? 'www.mobiilnelaen.ee';
 const OUT = process.env.OG_OUT ?? path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public', 'og');
@@ -308,6 +310,11 @@ console.log(`  композиция=${COMP}  фон=${BGOBJ}  палитра=#${
 
 for (const p of PAGES) {
   const png = await sharp(Buffer.from(render(p))).png({ compressionLevel: 9 }).toBuffer();
-  await writeFile(path.join(OUT, `${p.slug}.png`), png);
+  const file = ogFileName(p.slug);
+  await writeFile(path.join(OUT, `${file}.png`), png);
+  // Копия под прежним именем (index.png): карточка могла попасть в индекс до
+  // переименования, а 404 на проиндексированном ресурсе хуже дубля.
+  const legacy = LEGACY_FILE[file];
+  if (legacy) await writeFile(path.join(OUT, `${legacy}.png`), png);
 }
-console.log(`  ✓ ${PAGES.length} картинок`);
+console.log(`  ✓ ${PAGES.length} картинок (главная — с ключом в имени)`);

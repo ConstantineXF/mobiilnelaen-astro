@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const EXEMPT = /^(go\/.*|metoodika|meist|kontakt|kasutustingimused|privaatsuspoliitika|404)$/;
-const NORM = { w: 2600, h2: 14, h3: 6, t: 1, links: 20 };
+const NORM = { w: 2600, h2: 14, h3: 6, t: 1, links: 20 };   // МИНИМУМ по мастер-гиду (беат: 3400/18/12/2/28)
 
 function walk(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => {
@@ -25,6 +25,10 @@ for (const f of walk('dist')) {
   if (EXEMPT.test(seg)) continue;
 
   const html = fs.readFileSync(f, 'utf8');
+  // ⛔ Пропускать редирект-заглушки и noindex: это не трафиковые страницы.
+  // Без этого замер считал ~70 стабов Astro-редиректов и давал 152 страницы
+  // вместо реальных 82.
+  if (/http-equiv=["']refresh["']/i.test(html) || /name=["']robots["'][^>]*noindex/i.test(html)) continue;
   const main = (html.match(/<main[\s\S]*?<\/main>/) || [html])[0];
   const count = (s, re) => (s.match(re) || []).length;
   const words = main.replace(/<script[\s\S]*?<\/script>/g, ' ')

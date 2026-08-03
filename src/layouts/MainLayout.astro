@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import InstallPwa from '../components/InstallPwa.astro';
 import QrOpen from '../components/QrOpen.astro';
+import { ogFileFor } from '../../scripts/og-slug.mjs';
 
 interface Props {
   title: string;
@@ -38,15 +39,20 @@ const canonicalUrl = new URL(canonical ?? Astro.url.pathname, SITE_URL).href;
 
 // OG-картинка по формуле: своя на страницу, генерится scripts/generate-og.mjs.
 // Имя файла и alt несут ключи (см. память: reference_og_image_formula).
-const ogSlug = (Astro.url.pathname.replace(/^\/|\/$/g, '') || 'index').split('/')[0];
-const ogPages = [
-  'index', 'sms-laen', 'kiirlaen', 'vaikelaen', 'krediidikonto', 'krediidiliin',
-  'autolaen', 'krediitkaart', 'meist', 'metoodika', 'kontakt',
-  'privaatsuspoliitika', 'kasutustingimused',
-];
-const autoOg = ogPages.includes(ogSlug) ? `/og/${ogSlug}.png` : '/og/index.png';
+// ⭐ 03.08.2026: правило именования и список страниц переехали в общий модуль
+// scripts/og-slug.mjs — им пользуется и генератор. Главная теперь отдаёт
+// /og/mobiilne-laen.png вместо index.png: og:image индексируется поиском по
+// картинкам как самостоятельный ресурс, и имя файла работает как ключ.
+const autoOg = ogFileFor(Astro.url.pathname);
 const imageUrl = new URL(image ?? autoOg, SITE_URL).href;
 const imageAlt = `${title.split('—')[0].trim()} — MobiilneLaen.ee`;
+
+// ⭐ Ту же карточку дублируем ВИДИМЫМ <img> в конце страницы: og:image
+// индексируется и сам по себе (у sesok.ee картинка в выдаче есть при нуле
+// тегов <img>), но <img> — основной канал обнаружения для Google Images, и alt
+// там реально влияет, тогда как og:image:alt читают только соцсети и
+// скринридеры. ⛔ Прятать картинку CSS-ом нельзя: только видимый элемент.
+const ogFigureAlt = `${title.split('—')[0].trim()} — laenutingimuste ja KKM-i võrdlus nutiseadmes`;
 
 // ── Schema.org @graph: Organization + WebSite (+ LoanOrCredit / BreadcrumbList) ──
 const schemaGraph: Record<string, any> = {
@@ -165,6 +171,18 @@ if (breadcrumbs?.length) {
     <Header />
     <main>
       <slot />
+      <figure class="mx-auto max-w-2xl px-4 pb-12 pt-6">
+        <img
+          src={imageUrl}
+          alt={ogFigureAlt}
+          width="1200"
+          height="628"
+          loading="lazy"
+          decoding="async"
+          class="w-full h-auto rounded-2xl border border-slate-200 bg-white"
+        />
+        <figcaption class="mt-2 text-center text-xs text-slate-500">{imageAlt}</figcaption>
+      </figure>
     </main>
     <Footer />
     <CookieConsent />
