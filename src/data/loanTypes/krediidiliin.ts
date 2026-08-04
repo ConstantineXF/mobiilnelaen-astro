@@ -8,7 +8,7 @@ const krediidiliin: LoanTypeContent = {
   seoText:
     'Otsid krediidiliini, mis on alati käepärast otse telefonis? MobiilneLaen.ee koondab Eesti krediidiliini pakkumised, et saaksid nutiseadmest võrrelda limiite, intresse ja KKM-i ning valida endale sobivaima paindliku krediidiliini.',
 
-  metaTitle: 'Krediidiliin 2026 — paindlik krediidilimiit',
+  metaTitle: 'Krediidiliin 2026 — paindlik krediidilimiit ilma tähtajata',
   metaDescription:
     'Krediidiliin annab püsiva krediidilimiidi, millest võtad raha vajaduse järgi ja maksad intressi vaid kasutatud osalt. Võrdle pakkujaid, intresse ja KKM-i.',
 
@@ -92,6 +92,10 @@ const krediidiliin: LoanTypeContent = {
       body: [
         'Kõige sagedasem keeldumise põhjus on <strong>kehtiv maksehäire</strong> — pakkujad kontrollivad maksehäireregistrit ja aktiivse võlgnevusega taotlejale limiiti üldjuhul ei avata. Teine levinud põhjus on <strong>ebapiisav või tõendamata sissetulek</strong>: kui regulaarset laekumist kontole ei ole näha, ei saa laenuandja maksevõimet kinnitada. Kolmas ja sageli alahinnatud tegur on <strong>kogu krediidikoormus</strong> — hindamisel arvestatakse kõiki olemasolevaid kohustusi, sealhulgas juba avatud krediidilimiite ka siis, kui sa neid parasjagu ei kasuta, sest need on igal hetkel kasutusele võetavad.',
         'Kui taotlus lükatakse tagasi, tasub tegutseda järjekorras: <ul><li>kontrolli maksehäireregistrit ja tasu võimalikud võlgnevused — lõpetatud maksehäire mõju väheneb ajaga;</li><li>sulge kasutamata krediidilimiidid ja järelmaksud, mis krediidikoormust asjatult suurendavad;</li><li>hoolitse, et sissetulek laekuks korrapäraselt pangakontole ja oleks tõendatav;</li><li>oota mõni kuu stabiilset maksekäitumist ja esita uus taotlus.</li></ul> Mitme pakkuja poole samaaegselt pöördumine keeldumise järel olukorda ei paranda — mõistlikum on esmalt kõrvaldada keeldumise põhjus.',
+        '<h3>Kui keeldumine kordub või limiit võetakse ära</h3>',
+        'Krediidiliini juures on kaks olukorda, mida tasub eristada. Esimene on <strong>avamisest keeldumine</strong>. Siin on esimene samm põhjuse väljaküsimine: kui otsus tugines andmekogu päringule, tuleb sulle tasuta teatada, millist registrit kasutati ja mis oli tulemus. Enda kohta käivate andmete koopia on samuti tasuta, nii et vale kirje saab välja selgitada ja parandada, mitte lihtsalt uut pakkujat otsida.',
+        'Teine olukord on <strong>olemasoleva limiidi vähendamine või sulgemine</strong> pakkuja algatusel. Uueneva krediidi puhul on see lepinguga lubatud ja tuleb tavaliselt siis, kui maksekäitumine on muutunud või jääk on kuude kaupa täis. Sel juhul ei aita uue liini otsimine: mõistlik on kokku leppida tagasimaksegraafik olemasolevale jäägile ja vabastada limiit järk-järgult. Krediidiandjaga kokkuleppe otsimine enne makse hilinemist on tasuta ja hoiab ära maksehäire tekke.',
+        'Kui limiiti ei kinnitata ühegi tegevusloaga pakkuja juures, on õige järeldus, et püsiv puhver ei ole praegu jõukohane. Ühekordse vajaduse katab kindla graafikuga <a href="/vaikelaen">väikelaen</a> odavamalt, korduva ja väikese vajaduse <a href="/krediidikonto">krediidikonto</a> väiksema limiidiga. Pakkuja tegevusluba saab alati üle kontrollida <a href="https://www.fi.ee/et" target="_blank" rel="noopener noreferrer">Finantsinspektsiooni</a> registrist — litsentsita pakkuja pakkumine ei ole soodsam, vaid järelevalveta.',
       ],
     },
     {

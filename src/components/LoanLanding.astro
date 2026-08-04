@@ -10,7 +10,6 @@ import TrustBadges from './TrustBadges.astro';
 import ApplySteps from './ApplySteps.astro';
 import MobileCta from './MobileCta.astro';
 import SmartCalculator from './SmartCalculator.tsx';
-import Voting from './Voting.tsx';
 import type { LoanTypeContent } from '../data/loanTypes/types';
 import LoanCompareTable from './LoanCompareTable.astro';
 import RepresentativeExample from './RepresentativeExample.astro';
@@ -135,8 +134,9 @@ const breadcrumbs = [
       <SmartCalculator client:visible allOffers={allOffers} defaultCategory={content.loanType} />
     </section>
 
-    {/* Голосование */}
-    <Voting client:visible voteId={`${content.slug}-votes`} />
+    {/* Здесь был виджет голосования: счётчик стартовал с выдуманных 127 голосов
+        и жил в localStorage — то есть показывал число, которого не существует.
+        Убран как выдуманный счётчик. */}
   </div>
 
   {/* FAQ */}

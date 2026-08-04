@@ -1,0 +1,77 @@
+---
+// Файл: src/components/TypicalCases.astro
+//
+// Заменяет прежние блоки Testimonials (отзывы со звёздами из Sanity) и LiveFeed
+// («свежие заявки по Эстонии» — выдуманная лента активности). Отзывов у портала
+// нет, платформа заявок не принимает, поэтому и то и другое было вымыслом:
+// запрещено политикой (Omnibus / TTJA) и спам-политикой Google.
+// Здесь — обезличенные типовые ситуации: без имён, дат, городов и оценок,
+// с честной строкой о том, что это не отзывы.
+
+const cases = [
+  {
+    title: 'Auto jäi teele enne palgapäeva',
+    body: 'Remondiarve tuleb tasuda kohe, palgani on kaks nädalat. Summa on teada ja ühekordne, seega loeb kiirus ja lühike periood.',
+    link: { href: '/kiirlaen', label: 'Vaata kiirlaenu tingimusi' },
+  },
+  {
+    title: 'Külmik või pesumasin läks katki',
+    body: 'Kodumasin tuleb asendada samal nädalal. Summa on väike ja tagasimakse allikas teada — pikk periood teeks sellise ostu asjatult kalliks.',
+    link: { href: '/sms-laen', label: 'Väikesed summad lühikeseks ajaks' },
+  },
+  {
+    title: 'Mitu järelmaksu ja kohustust korraga',
+    body: 'Kuumaksed on laiali eri kuupäevadel ja kokku maksavad rohkem, kui tundub. Siin on küsimus koondamises, mitte uues kiires laenus.',
+    link: { href: '/vaikelaen', label: 'Väikelaen ja refinantseerimine' },
+  },
+  {
+    title: 'Sissetulek laekub ebaühtlaselt',
+    body: 'Käsundus- või ettevõtlustulu tuleb ebakorrapäraselt ning mõnel kuul on puhvrit vaja, mõnel mitte. Uuenev limiit maksab ainult kasutatud osalt.',
+    link: { href: '/krediidiliin', label: 'Kuidas püsiv limiit toimib' },
+  },
+  {
+    title: 'Sõiduki ost kasutatud autode turult',
+    body: 'Müüja ootab kogu summat korraga, ostja soovib jagada selle kuumakseteks. Valik käib tagatisega ja tagatiseta variandi vahel.',
+    link: { href: '/autolaen', label: 'Autolaenu variandid' },
+  },
+  {
+    title: 'Reis, e-pood ja igapäevased ostud',
+    body: 'Vaja on maksevahendit broneeringuteks ja välismaal, mitte laenu. Intressivaba periood teeb kaardi tasuta, kui jääk tasutakse tähtajaks.',
+    link: { href: '/krediitkaart', label: 'Krediitkaardi loogika' },
+  },
+];
+---
+
+<section class="bg-white py-16">
+  <div class="container mx-auto px-4 max-w-5xl">
+    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-3 text-center">
+      Tüüpilised olukorrad, kus laenuliike võrreldakse
+    </h2>
+    <p class="text-slate-500 text-center max-w-2xl mx-auto mb-10">
+      Allpool on üldistatud olukorrad, mis aitavad valida sobivat laenuliiki.
+      <strong>Need ei ole kasutajate arvustused ega tagasiside</strong> — MobiilneLaen.ee ei kogu
+      hinnanguid ega vahenda taotlusi, vaid võrdleb pakkumiste tingimusi.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        cases.map((c) => (
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 flex flex-col">
+            <h3 class="font-bold text-slate-800">{c.title}</h3>
+            <p class="text-sm text-slate-600 mt-2 flex-grow">{c.body}</p>
+            <p class="mt-4 text-sm">
+              <a href={c.link.href} class="text-cyan-700 font-semibold underline hover:text-cyan-800">
+                {c.link.label}
+              </a>
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-center text-xs text-slate-500 max-w-3xl mx-auto">
+      Sobiva laenuliigi valik sõltub summast, perioodist ja sellest, kas vajadus on ühekordne või korduv.
+      Enne otsust võrdle KKM-i ja tagasimakstavat kogusummat ning vajadusel pea nõu asjatundjaga.
+    </p>
+  </div>
+</section>

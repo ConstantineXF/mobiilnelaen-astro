@@ -1,4 +1,4 @@
-// MobiilneLaen.ee — минимальный service worker (PWA + офлайн-фолбэк)
+// MobiilneLaen.ee — minimal service worker (PWA + offline fallback)
 const CACHE = 'ml-v1';
 const PRECACHE = ['/', '/favicon.svg', '/icon.svg', '/manifest.webmanifest'];
 
@@ -21,8 +21,8 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
-  if (url.origin !== location.origin) return;      // не трогаем сторонние домены
-  if (url.pathname.startsWith('/go/')) return;     // партнёрские редиректы — всегда сеть
+  if (url.origin !== location.origin) return;      // never touch third-party origins
+  if (url.pathname.startsWith('/go/')) return;     // affiliate redirects always go to network
 
   event.respondWith(
     caches.match(req).then((cached) =>

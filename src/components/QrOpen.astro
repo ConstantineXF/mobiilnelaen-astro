@@ -29,7 +29,7 @@ const qrSvg = await QRCode.toString(url, {
     var box = document.getElementById('qr-open');
     var close = document.getElementById('qr-close');
     if (!box || !close) return;
-    // CSS уже показывает блок только на десктопе (hidden lg:flex); прячем при dismiss инлайном
+    // CSS already limits the block to desktop (hidden lg:flex); dismiss hides it inline
     if (sessionStorage.getItem('qr-dismissed') === '1') box.style.display = 'none';
     close.addEventListener('click', function () {
       sessionStorage.setItem('qr-dismissed', '1');

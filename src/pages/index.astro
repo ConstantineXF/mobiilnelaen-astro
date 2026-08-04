@@ -10,9 +10,7 @@ import LoanFaq from '../components/LoanFaq.astro';
 import SmartCalculator from '../components/SmartCalculator.tsx';
 import ApplicationForm from '../components/ApplicationForm.astro';
 import SubscriptionForm from '../components/SubscriptionForm.astro';
-import Testimonials from '../components/Testimonials.astro';
-import LiveFeed from '../components/LiveFeed.astro';
-import Stats from '../components/Stats.astro';
+import TypicalCases from '../components/TypicalCases.astro';
 import TrustBadges from '../components/TrustBadges.astro';
 import ApplySteps from '../components/ApplySteps.astro';
 import MobileCta from '../components/MobileCta.astro';
@@ -50,7 +48,7 @@ const homeFaq = [
 
 <MainLayout
   title="Mobiilne laen — võrdle Eesti laene otse nutiseadmest"
-  description="Mobiilne laen otse telefonist: võrdle Eesti kiirlaene, väikelaene, krediidikontosid ja krediitkaarte ühel lehel. Vaata intresse, KKM-i ja tingimusi ning taotle Smart-ID-ga mõne minutiga."
+  description="Mobiilne laen otse telefonist: võrdle Eesti kiirlaene, väikelaene, krediidikontosid ja krediitkaarte ühel lehel — intressid, KKM ja tingimused korraga."
 >
 
   <Hero />
@@ -99,14 +97,15 @@ const homeFaq = [
     </div>
   </section>
 
-  <LiveFeed />
-  <Testimonials />
+  {/* Прежде здесь были LiveFeed («свежие заявки») и Testimonials (отзывы со
+      звёздами из Sanity) — выдуманная активность и выдуманные отзывы. Заменены
+      обезличенными типовыми ситуациями. */}
+  <TypicalCases />
 
   <LoanFaq title="Korduma kippuvad küsimused mobiilse laenu kohta" items={homeFaq} />
 
   <ApplicationForm />
   <SubscriptionForm />
-  <Stats />
 
   <MobileCta href="#laenud" label="Vaata pakkumisi" />
 </MainLayout>

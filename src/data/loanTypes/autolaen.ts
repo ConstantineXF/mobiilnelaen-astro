@@ -8,7 +8,7 @@ const autolaen: LoanTypeContent = {
   seoText:
     'Plaanid autot osta ja otsid soodsat autolaenu? Võrdle Eesti autolaenu pakkumisi otse mobiilist — MobiilneLaen.ee aitab leida nii tagatiseta kui tagatisega autolaenu parima KKM-i ja sobiva kuumaksega.',
 
-  metaTitle: 'Autolaen 2026 — võrdle ja taotle soodsalt',
+  metaTitle: 'Autolaen 2026 — võrdle ja taotle soodsalt, KKM ja kuumakse',
   metaDescription:
     'Osta auto autolaenuga: võrdle tagatiseta ja tagatisega pakkumisi ühel lehel. Summad kuni 20 000 €, periood kuni 84 kuud, kiire otsus. Vaata intresse ja KKM-i.',
 
@@ -92,6 +92,10 @@ const autolaen: LoanTypeContent = {
       body: [
         'Kõige sagedasem keeldumise põhjus on <strong>kehtiv maksehäire</strong> — enamik laenuandjaid ei väljasta laenu, kui registris on aktiivne võlg. Teine tüüpiline põhjus on sissetuleku ja soovitud kuumakse ebakõla: kui kuumakse koos olemasolevate kohustustega võtab liiga suure osa netosissetulekust, hindab laenuandja maksevõime ebapiisavaks. Arvesse läheb kogu <strong>krediidikoormus</strong> — teised laenud, järelmaksud, krediitkaardid ja liisingud. Auto tagatisel laenu puhul võib takistuseks saada ka sõiduk ise: liiga vana, kehvas seisukorras või madala turuväärtusega auto ei sobi tagatiseks.',
         'Kui taotlus lükati tagasi, ära esita kohe uusi taotlusi kõikjale — tegele põhjusega. Võimalusel tasu maksehäire ja oota selle aegumist registris. Kaalu <strong>suuremat sissemakset</strong> või odavamat autot, et vajaminev summa ja kuumakse väheneksid. Pikem periood alandab kuumakset ja parandab maksevõime suhtarvu, kuigi suurendab kogukulu. Kui sissetulek jääb üksi napiks, võib lahenduseks olla <strong>kaastaotleja</strong> — näiteks abikaasa —, kelle sissetulek liidetakse maksevõime hindamisel sinu omaga.',
+        '<h3>Mida teha keeldumise järel — ja mida mitte</h3>',
+        'Autolaenu puhul on kaks eraldi küsimust: kas keelduti <em>sinust</em> või <em>autost</em>. Esimene samm on see vahe välja selgitada, sest lahendused on täiesti erinevad. Küsi krediidiandjalt põhjus — kui otsus tehti andmekogu päringu alusel, tuleb sulle tasuta öelda, millisest registrist päring tehti ja mida see näitas. Oma andmetega tutvumine on samuti tasuta ja tasub ära, kui kahtlustad vana või vale kirjet.',
+        'Kui takistus on taotlejas, aitab aeg ja koormuse vähendamine: paar kuud korrapärast maksekäitumist, kasutamata limiitide sulgemine ja alles seejärel uus taotlus. Kui takistus on sõidukis — liiga vana auto, ebaselge päritolu või madal turuväärtus —, siis ükski ooteaeg ei aita: muutuma peab auto. Sel juhul on valikuteks suurem sissemakse, odavam sõiduk või tagatiseta <a href="/vaikelaen">väikelaen</a>, mille puhul auto ei ole lepingu osa ja müüjale ei ole vahet, kust raha tuleb.',
+        'Mida mitte teha: esitada sama nädala jooksul taotlusi mitmele pakkujale, võtta autot järelmaksuga ilma kogukulu välja arvutamata või katta sissemakset <a href="/kiirlaen">kiirlaenuga</a> — siis maksad kahe lepingu intressi korraga. Tarbija õigused, sealhulgas 14-päevane taganemisõigus ja tasuta ennetähtaegne tagastamine, on kirjas <a href="https://www.riigiteataja.ee/akt/961235?leiaKehtiv" target="_blank" rel="noopener noreferrer">võlaõigusseaduses</a>; need kehtivad ka siis, kui leping sai alla kirjutatud autosalongis.',
       ],
     },
     {

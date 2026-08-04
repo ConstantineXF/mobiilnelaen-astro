@@ -20,32 +20,32 @@
     const acceptBtn = document.getElementById('accept-cookies-btn');
     const declineBtn = document.getElementById('decline-cookies-btn');
 
-    // Проверяем, есть ли уже cookie
+    // Consent cookie already set?
     if (document.cookie.includes(COOKIE_NAME)) {
-      return; // Если есть, ничего не делаем
+      return; // yes — nothing to do
     }
 
-    // Если cookie нет, показываем баннер
+    // no cookie yet — show the banner
     if (banner) {
       banner.style.display = 'block';
     }
 
-    // Функция для установки cookie
+    // store the choice for a year
     function setCookie(value) {
       const expires = new Date();
-      expires.setFullYear(expires.getFullYear() + 1); // Срок действия - 1 год
+      expires.setFullYear(expires.getFullYear() + 1);
       document.cookie = `${COOKIE_NAME}=${value}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
       if (banner) {
         banner.style.display = 'none';
       }
     }
 
-    // Назначаем события на кнопки
+    // wire up the buttons
     acceptBtn?.addEventListener('click', () => setCookie('accepted'));
     declineBtn?.addEventListener('click', () => setCookie('declined'));
   }
 
-  // Запускаем при загрузке и переходах
+  // run on first load and on client-side navigation
   document.addEventListener('astro:page-load', runCookieBanner);
-  runCookieBanner(); // Запускаем также при первой загрузке
+  runCookieBanner();
 </script>

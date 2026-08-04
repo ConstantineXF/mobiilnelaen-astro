@@ -8,7 +8,7 @@ const krediidikonto: LoanTypeContent = {
   seoText:
     'Soovid paindlikku krediidikontot, mille saaks avada otse nutitelefonist? Siit leiad Eesti krediidikonto pakkumised ühes kohas — võrdle limiite, intresse ja KKM-i mugavalt mobiilist ning vali endale paindlikem krediidikonto.',
 
-  metaTitle: 'Krediidikonto 2026 — paindlik krediidilimiit',
+  metaTitle: 'Krediidikonto 2026 — paindlik krediidilimiit ja intress',
   metaDescription:
     'Krediidikonto on uuendatav krediidilimiit, kus maksad intressi ainult kasutatud summa pealt. Võrdle pakkujaid, limiite ja KKM-i ning vali paindlikem lahendus.',
 
@@ -92,6 +92,10 @@ const krediidikonto: LoanTypeContent = {
       body: [
         'Kõige sagedasem keeldumise põhjus on <strong>kehtiv maksehäire</strong> — pakkujad kontrollivad maksehäireregistrit ja aktiivse võlgnevusega taotlus lükatakse üldjuhul automaatselt tagasi. Teine levinud põhjus on <strong>ebapiisav või tõendamata sissetulek</strong>: kui regulaarne laekumine pangakontole puudub või seda ei saa kontoväljavõttega kinnitada, ei suuda krediidiandja maksevõimet hinnata. Kolmas põhjus on <strong>suur olemasolev krediidikoormus</strong> — kui sissetulekust läheb juba märkimisväärne osa laenude, järelmaksude ja limiitide teenindamiseks, ei mahu uus kohustus vastutustundliku laenamise raamidesse.',
         'Keeldumise korral tasub esmalt üle vaadata oma kohustused. Abi võib olla järgmistest sammudest: <ul><li>taotle <strong>väiksemat limiiti</strong> — madalam limiit tähendab väiksemat hinnatavat kohustust;</li><li>maksa tagasi või sulge teised limiidid ja krediitkaardid — oluline on teada, et <strong>ka kasutamata krediidilimiit loetakse kohustuseks</strong>, sest selle saab igal hetkel kasutusele võtta;</li><li>korrasta maksekäitumine ja lase lõpetatud maksehäired registris sulgeda, sest värske negatiivne ajalugu mõjutab otsust veel mõnda aega.</li></ul> Mõne kuu pärast, kui koormus on väiksem ja sissetulek tõendatav, on uue taotluse õnnestumise tõenäosus oluliselt suurem.',
+        '<h3>Keeldumine ei ole lõpp-punkt: tegevuskava</h3>',
+        'Uueneva limiidi puhul on otsus peaaegu alati automaatne, seega on ka põhjus konkreetne. Alusta põhjuse väljaküsimisest: kui otsus tugines andmekogu päringule, on krediidiandja kohustatud sulle tasuta teatama, millisest registrist päring tehti ja mis oli tulemus. Enda kohta käivate andmete koopia on tasuta ka registripidajalt — <a href="https://creditinfo.ee/" target="_blank" rel="noopener noreferrer">Creditinfo</a> peab Eestis maksehäireregistrit ja vananenud või vale kirje saab lasta parandada.',
+        'Edasi on kolm reaalset hooba. Esiteks <strong>limiidi suurus</strong>: 5000 euro asemel 1000 on hoopis teine kohustus ja sageli piisav. Teiseks <strong>olemasolevad limiidid</strong>: kasutamata krediitkaart või teine konto arvestatakse kohustuseks ka nullsaldo korral, seega tasub ülearused sulgeda enne uut taotlust, mitte pärast. Kolmandaks <strong>aeg</strong>: kaks-kolm kuud korrapärast sissetulekut samale kontole muudab pilti rohkem kui uus taotlus järgmisel päeval.',
+        'Kui vajadus on ühekordne ja summa teada, ei ole uuenev limiit üldse õige toode — kindla graafikuga <a href="/vaikelaen">väikelaen</a> on sel juhul odavam ja ka otsus tuleb teistel alustel. Kui aga ka väikest limiiti ei kinnitata, on see märk, et eelarves ei ole praegu vaba raha; tasuta võlanõustamine omavalitsuse sotsiaalosakonna kaudu on siin kasulikum kui järgmine taotlus.',
       ],
     },
     {

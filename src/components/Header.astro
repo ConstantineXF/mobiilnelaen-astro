@@ -77,7 +77,7 @@
     overlay?.addEventListener('click', closeMenu);
   }
 
-  // Запускаем при загрузке и переходах
+  // run on first load and on client-side navigation
   document.addEventListener('astro:page-load', initMobileMenu);
-  initMobileMenu(); // Запускаем также при первой загрузке
+  initMobileMenu();
 </script>

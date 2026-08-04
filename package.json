@@ -7,7 +7,9 @@
     "build": "astro build && node scripts/generate-image-sitemap.mjs",
     "preview": "astro preview",
     "astro": "astro",
-    "og": "node scripts/generate-og.mjs"
+    "og": "node scripts/generate-og.mjs",
+    "audit": "node scripts/seo-full-audit.mjs dist",
+    "skeleton": "node scripts/seo-skeleton.mjs dist"
   },
   "dependencies": {
     "@astrojs/react": "^4.3.0",

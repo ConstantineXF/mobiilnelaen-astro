@@ -8,7 +8,7 @@ const smsLaen: LoanTypeContent = {
   seoText:
     'Vajad SMS-laenu kohe ja otse mobiilist? Võrdle Eesti SMS-laenu pakkujaid ühel lehel — MobiilneLaen.ee näitab summad, tingimused ja KKM-i, et leiaksid kiire SMS-laenu otse nutiseadmest mõne minutiga.',
 
-  metaTitle: 'SMS-laen 2026 — kiire väikelaen kohe',
+  metaTitle: 'SMS-laen 2026 — kiire väikelaen kohe, võrdle KKM-i',
   metaDescription:
     'SMS-laen on väike kiirlaen, mille taotled tänapäeval internetis Smart-ID-ga mõne minutiga. Võrdle tingimusi, summasid ja KKM-i ning laena vastutustundlikult.',
 
@@ -93,6 +93,11 @@ const smsLaen: LoanTypeContent = {
       body: [
         'Kõige sagedasemad keeldumise põhjused on: <ul><li><strong>kehtiv maksehäire</strong> — laenuandjad kontrollivad maksehäireregistrit ja aktiivse võlgnevusega taotlus lükatakse üldjuhul tagasi;</li><li><strong>tõendamata või ebapiisav sissetulek</strong> — kui pangakonto väljavõttelt ei paista regulaarset laekumist või kuumakse ei mahu maksevõime piiresse;</li><li><strong>palju hiljutisi laenutaotlusi</strong> — mitu taotlust lühikese aja jooksul viitab rahalisele survele ja tõstab riskihinnangut;</li><li>vigased või puudulikud andmed taotluses.</li></ul>',
         'Kui said eitava otsuse, ära esita kohe uusi taotlusi teistele pakkujatele. Mõistlikum on põhjus kõrvaldada: lahenda maksehäire, lase sissetulekul kontole regulaarselt laekuda ja oota mõni kuu enne uut taotlust. Kui kõik litsentseeritud laenuandjad keelduvad, on see märk, et laen ei ole praegu sinu eelarvele jõukohane — <strong>ära pöördu litsentsita või eraisikust laenuandjate poole</strong>. Nende tingimused ei allu järelevalvele, kulud võivad olla röövellikud ja tarbijakaitse sind sellisel juhul ei kaitse.',
+        '<h3>Kolm sammu keeldumise järel</h3>',
+        '<strong>1. Küsi põhjus, mitte uut pakkujat.</strong> Kui otsus tugines andmekogu päringule, pead saama tasuta teada, millisest registrist päring tehti ja mis oli tulemus. Enda kohta käivate andmete koopia on samuti tasuta — sellega saab kontrollida, kas kirje on ikka õige ja ajakohane.',
+        '<strong>2. Anna ajale aega.</strong> SMS-laenu summad on väikesed, seega on ka otsus enamasti automaatne ja tugineb värsketele andmetele. Kui sama nädala jooksul esitada veel viis taotlust, muutub pilt halvemaks, mitte paremaks. Mõistlik paus on paar kuud, mille sees palk laekub korrapäraselt samale kontole ja lõpetatud maksehäired saavad registris kinnitatud.',
+        '<strong>3. Vali teine tee, kui vastus kordub.</strong> Kui ka väikese summa puhul tuleb ei, ei ole probleem pakkujas. Tasuta võlanõustamine kohalikus omavalitsuses, arve tähtaja pikendamine müüjaga või olemasoleva <a href="/krediitkaart">krediitkaardi</a> intressivaba periood lahendavad sama vajaduse ilma uue kohustuseta. Suurema ja pikema vajaduse puhul on <a href="/vaikelaen">väikelaen</a> odavam kui korduvad väikelaenud üksteise otsa.',
+        'Vaidluse korral pakkujaga saab pöörduda <a href="https://ttja.ee/" target="_blank" rel="noopener noreferrer">Tarbijakaitse ja Tehnilise Järelevalve Ameti</a> poole, kelle juures töötab tarbijavaidluste komisjon. Ükski meie võrdluses olev pakkuja ei saa sind kohustada uut taotlust esitama ja ühegi keeldumise eest ei tohi küsida tasu.',
       ],
     },
     {

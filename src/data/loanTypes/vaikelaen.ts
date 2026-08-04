@@ -8,7 +8,7 @@ const vaikelaen: LoanTypeContent = {
   seoText:
     'Vajad väikelaenu suurema ostu, remondi või reisi jaoks? Võrdle Eesti väikelaene otse mobiilist — MobiilneLaen.ee aitab leida soodsaima väikelaenu madalaima KKM-i ja kindla kuumaksega, ilma et peaksid arvuti taha istuma.',
 
-  metaTitle: 'Väikelaen 2026 — võrdle ja taotle soodsalt',
+  metaTitle: 'Väikelaen 2026 — võrdle ja taotle soodsalt, intress ja KKM',
   metaDescription:
     'Väikelaen suuremateks plaanideks: summad kuni 20 000 €, periood kuni 84 kuud, tagatiseta. Võrdle pakkujaid KKM-i alusel ja leia kindla kuumaksega laen.',
 
@@ -92,6 +92,10 @@ const vaikelaen: LoanTypeContent = {
       body: [
         'Kõige sagedasemad tagasilükkamise põhjused on <strong>kehtiv maksehäire</strong> maksehäireregistris, <strong>liiga madal sissetulek</strong> soovitud summa suhtes, <strong>suur olemasolev laenukoormus</strong> (mitu kehtivat laenu, liisingut või krediitkaarti) ning <strong>ebastabiilne töösuhe</strong> — näiteks katseaeg, tähtajaline leping või väga lühike tööstaaž. Laenuandja on kohustatud hindama sinu maksevõimet ning kui igakuised kohustused koos uue laenuga sööksid liiga suure osa sissetulekust, tuleb eitav otsus.',
         'Kui taotlus lükati tagasi, on mitu mõistlikku sammu. Küsi väiksemat summat või vali pikem periood, et kuumakse väheneks. Maksa võimalusel ära väiksemad olemasolevad kohustused — näiteks kasutamata krediidilimiidid ja järelmaksud, mis koormavad maksevõime arvestust. Kehtiv maksehäire tasub esmalt lahendada ja lasta registris kustutada. Mõni pank võimaldab kaasata ka <strong>kaastaotleja</strong>, kelle sissetulek arvestatakse maksevõime hindamisel juurde ja mis suurendab positiivse otsuse tõenäosust.',
+        '<h3>Keeldumise järel: mida päriselt teha</h3>',
+        'Väikelaenu taotlus on pikem ja põhjalikum kui kiirlaenul, seega on ka eitava otsuse põhjus tavaliselt konkreetne ja kõrvaldatav. Alusta sellest, et küsid põhjuse välja. Kui otsus tehti andmekogu päringu põhjal, on krediidiandja kohustatud sulle tasuta ütlema, millist registrit ta kasutas ja mida see näitas. Sinu enda andmetega tutvumine on samuti tasuta — nii saad kontrollida, kas registris on vana või vale kirje, mille parandamiseks piisab avaldusest.',
+        'Järgmise taotluseni tasub jätta aega. Kaks kuni kolm kuud stabiilset maksekäitumist muudab profiili rohkem kui uue pakkuja otsimine samal nädalal, sest iga värske päring on teistele nähtav. Selle aja sees on mõttekas kärpida kohustusi (kasutamata limiidid, järelmaksud), vähendada soovitud summat või pikendada perioodi ühe astme võrra ning vajadusel kaasata kaastaotleja. Kui vajadus on korduv, mitte ühekordne, vaata pigem <a href="/krediidikonto">krediidikonto</a> loogikat, kus intressi arvestatakse ainult kasutatud osalt.',
+        'Kui ükski tegevusloaga krediidiandja laenu ei anna, on see maksevõime signaal, mitte formaalsus. Sel juhul aitab tasuta võlanõustamine omavalitsuse sotsiaalosakonnas ja olemasolevate graafikute ümbertegemine. Nõuded krediidiandjale ja tarbija kaitse on kirjas <a href="https://www.riigiteataja.ee/akt/119032015004?leiaKehtiv" target="_blank" rel="noopener noreferrer">krediidiandjate ja -vahendajate seaduses</a> — sealt on näha, mida pakkuja tohib ja mida ei tohi küsida.',
       ],
     },
     {
@@ -186,9 +190,9 @@ const vaikelaen: LoanTypeContent = {
       ],
     },
     {
-      q: 'Mis on KKM ja miks see oluline on?',
+      q: 'Kuidas võrrelda väikelaenu KKM-i panga ja krediidiandja vahel?',
       a: [
-        'KKM ehk krediidi kulukuse määr näitab laenu tegelikku aastast hinda protsendina — see sisaldab intressi ja kõiki tasusid. KKM-i alusel saad erinevaid pakkumisi ausalt võrrelda. Eestis on tarbijakrediidi KKM seadusega piiratud.',
+        'Võrdle sama summa ja sama perioodi juures, sest KKM sõltub mõlemast. Panga pakkumises on intress sageli madalam, kuid lisandub lepingutasu; krediidiandja juures võib intress olla kõrgem, aga menetlus kiirem. Otsustab tagasimakstav kogusumma, mis on kirjas Euroopa tarbijakrediidi standardinfo teabelehel — küsi see enne allkirjastamist mõlemalt pakkujalt ja võrdle kahte numbrit, mitte kahte reklaami.',
       ],
     },
     {
