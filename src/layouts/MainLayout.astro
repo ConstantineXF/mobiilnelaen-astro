@@ -47,7 +47,6 @@ const autoOg = ogFileFor(Astro.url.pathname);
 const imageUrl = new URL(image ?? autoOg, SITE_URL).href;
 const imageAlt = `${title.split('—')[0].trim()} — MobiilneLaen.ee`;
 
-// ⭐ Ту же карточку дублируем ВИДИМЫМ <img> в конце страницы: og:image
 // индексируется и сам по себе (у sesok.ee картинка в выдаче есть при нуле
 // тегов <img>), но <img> — основной канал обнаружения для Google Images, и alt
 // там реально влияет, тогда как og:image:alt читают только соцсети и
@@ -171,18 +170,7 @@ if (breadcrumbs?.length) {
     <Header />
     <main>
       <slot />
-      <figure class="mx-auto max-w-2xl px-4 pb-12 pt-6">
-        <img
-          src={imageUrl}
-          alt={ogFigureAlt}
-          width="1200"
-          height="628"
-          loading="lazy"
-          decoding="async"
-          class="w-full h-auto rounded-2xl border border-slate-200 bg-white"
-        />
-        <figcaption class="mt-2 text-center text-xs text-slate-500">{imageAlt}</figcaption>
-      </figure>
+      
     </main>
     <Footer />
     <CookieConsent />
