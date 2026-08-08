@@ -176,7 +176,8 @@ for (const p of pages) {
   if (!p.viewport) add(t, 'адаптив', 'нет viewport');
   if (p.t > p.tablesWrapped) add(t, 'адаптив', `таблиц ${p.t}, обёрток ${p.tablesWrapped}`);
   if (p.imgsNoAlt > 0) add(t, 'адаптив', `картинок без alt: ${p.imgsNoAlt}`);
-  if (!p.service && p.imgs === 0) add(t, 'адаптив', 'нет ни одной картинки');
+  // ⛔ Требование картинки на странице снято: приём в том, что карточка
+  // объявлена только в og:image, а тегов <img> на странице нет.
   // 7. Силос
   if (!p.service && p.url !== '/') {
     if ((inbound.get(p.url) ?? 0) === 0) add(t, 'силос', 'сирота: нет входящих контентных ссылок');
@@ -219,6 +220,65 @@ for (const p of pages) {
 }
 
 // ── Отчёт ──
+
+/* ── ПРОВЕРКИ ПОКРЫТИЯ (SEO-COVERAGE.md) ─────────────────────────────────
+   Каждая выросла из реального пропуска, а не из теории. */
+const FAKE_SOCIAL = [
+  [/"@type"\s*:\s*"(Review|AggregateRating)"|aggregateRating/i, 'схема Review/AggregateRating'],
+  // ⛔ Звёзды сами по себе не улика: на доске это реальные оценки из БД.
+  // Ругаемся, только если рядом схема отзывов или захардкоженный набор имён.
+  [/(★|&#9733;|&#x2605;)[\s\S]{0,4000}?(("@type"\s*:\s*"Review")|(name:\s*['\"][^'\"]{2,40}['\"][\s\S]{0,80}?rating:\s*\d))/i,
+   'звёзды рядом с отзывами/захардкоженными именами'],
+  [/getRandomInt|Math\.random\(\)\s*\*\s*\d+/, 'случайные числа в контенте (счётчики)'],
+];
+const HAS_RANKING = /\b(top\s*-?\s*\d|топ\s*-?\s*\d|parim(ad)?\s+\d|labākie\s+\d|parhaat\s+\d)/i;
+// ⛔ Стеммы, а не словоформы: «järjekorras» не совпадает с «järjekord»,
+// «порядке» — с «порядок». На этом проверка дважды дала ложную тревогу.
+const ORDER_DISCLOSED = /(järjestu|järjekor|reastat|sorteeri|порядк|порядок|поряде|kārtīb|sakārto|järjesty|sortiro|ranking|the order|editorial pick|paid placement|tasuline paigutus|рекламное размещение|toimetuse oma|редакционн|redakcij|по дате|по цене|по ставке|по сумме|по рейтингу|järgi|mukaan|pēc |sorted by|by price|by rate|by date|põhineb|reitingu alus|kriteerium|perustuu|balstās|pamatā|основан|основыва|based on|kriteeri|kritērij|uusim|viimas|последних|последней оплат|оплат[аы]|makset|maksete|ordered by|by most recent|most recent payment|mukaan|järjestys)/i;
+const FOREIGN_BRANDS = (process.env.FOREIGN_BRANDS || '').split(',').map((x) => x.trim()).filter(Boolean);
+const WORK_COMMENT = /<!--\s*(?!\[if)[\s\S]{0,160}?(TODO|FIXME|HACK|Section:|Шаг |блок |Block:|временно|debug|тест )[\s\S]{0,160}?-->/i;
+const HEAVY_CDN = /cdn\.tailwindcss\.com|unpkg\.com|cdn\.jsdelivr\.net\/npm\/(vue|react|jquery)/i;
+
+for (const p of pages) {
+  let html = p._html || '';
+  if (!html && p.file) { try { html = fs.readFileSync(p.file, 'utf8'); } catch { html = ''; } }
+  if (!html) continue;
+  const t = p.url;
+  const bodyText = ((p._body || (html.match(/<main[\s\S]*?<\/main>/) || [html])[0]))
+    .replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ')
+    .replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ');
+
+  for (const [re, label] of FAKE_SOCIAL) if (re.test(html)) add(t, 'фейки', label);
+  /* Критерий ищем РЯДОМ с упоминанием топа (±400 знаков), а не по всей
+     странице, и принимаем обычные формулировки «по дате/по ставке/järgi/
+     mukaan/pēc», а не только слово «порядок». Две ложные тревоги подряд
+     были именно из-за узкого словаря. */
+  /* Проверяем ВСЕ упоминания топа: страница считается раскрытой, если хотя бы
+     у одного из них рядом назван критерий. Проверка по первому совпадению
+     давала ложную тревогу — на прайсе первое «Top-3» было в перечне тарифов,
+     а объяснение стояло у второго. */
+  const rankAll = [...bodyText.matchAll(new RegExp(HAS_RANKING.source, 'gi'))];
+  if (rankAll.length) {
+    const disclosed = rankAll.some((m) => {
+      const at = m.index ?? 0;
+      return ORDER_DISCLOSED.test(bodyText.slice(Math.max(0, at - 400), at + 400));
+    });
+    if (!disclosed) add(t, 'прозрачность', 'есть топ/рейтинг, критерий порядка не назван');
+  }
+  for (const b of FOREIGN_BRANDS) {
+    if (new RegExp(b.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i').test(html)) {
+      add(t, 'следы донора', `чужой бренд/домен: ${b}`);
+    }
+  }
+  const wc = html.match(WORK_COMMENT);
+  if (wc) add(t, 'мусор', `рабочий комментарий: ${wc[0].slice(0, 55).replace(/\s+/g, ' ')}`);
+  const ext = [...html.matchAll(/<(script|link)[^>]+(?:src|href)="https?:\/\/([^/"]+)[^"]*"/g)].map((m) => m[2]);
+  const uniq = [...new Set(ext)];
+  const heavy = uniq.filter((h) => HEAVY_CDN.test(h));
+  if (heavy.length) add(t, 'внешние ресурсы', `рантайм-CDN вместо сборки: ${heavy.join(', ')}`);
+  if (uniq.length > 5) add(t, 'внешние ресурсы', `подключено доменов: ${uniq.length}`);
+}
+
 const byGroup = {};
 for (const i of issues) (byGroup[i.group] ??= []).push(i);
 const affected = new Set(issues.map((i) => i.url)).size;
