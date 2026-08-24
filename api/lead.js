@@ -8,6 +8,27 @@
 const TO = process.env.LEAD_TO_EMAIL || 'Info@mobiilnelaen.ee';
 const SENDER = process.env.SENDER_EMAIL || 'Info@mobiilnelaen.ee';
 
+const ALLOWED_ORIGINS = ['https://www.mobiilnelaen.ee', 'https://mobiilnelaen.ee'];
+
+// Запрос действительно пришёл с нашего сайта? (боты, дёргающие API напрямую, отсекаются)
+function fromSite(req) {
+  const o = req.headers.origin || '';
+  if (o) {
+    try {
+      const host = new URL(o).host;
+      return ALLOWED_ORIGINS.includes(o) || host.endsWith('.vercel.app');
+    } catch (_) { return false; }
+  }
+  const r = req.headers.referer || '';
+  if (r) return ALLOWED_ORIGINS.some((a) => r.startsWith(a)) || /:\/\/[^/]+\.vercel\.app\//.test(r);
+  return false; // ни Origin, ни Referer → почти наверняка бот
+}
+
+// Признаки ссылочного спама
+function hasLink(s) {
+  return /(https?:\/\/|www\.|\[url|<a\s|\bt\.me\/|\.ru\b|\.top\b|bit\.ly)/i.test(String(s || ''));
+}
+
 function esc(v) {
   return String(v == null ? '' : v).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
 }
@@ -44,13 +65,28 @@ export default async function handler(req, res) {
   }
   body = body || {};
 
-  // Honeypot
-  if (body.company) return res.status(200).json({ ok: true });
+  // Тихо «принимаем», но НЕ шлём письмо — чтобы бот не подстраивался
+  const drop = () => res.status(200).json({ ok: true });
+
+  // 1. Honeypot заполнен → бот
+  if (body.company) return drop();
+  // 2. Запрос не с нашего сайта → бот, бьющий по API напрямую
+  if (!fromSite(req)) return drop();
 
   const type = body.formType || 'contact';
   const email = String(body.email || '').trim();
   if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return res.status(400).json({ error: 'Vigane e-posti aadress' });
+  }
+
+  // 3. Валидация по типу формы + фильтр ссылочного спама
+  const name = String(body.name || '').trim();
+  const message = String(body.message || '').trim();
+  if (type === 'application') {
+    if (!String(body.amount || '').trim() || !String(body.income || '').trim()) return drop();
+  } else if (type === 'contact') {
+    if (!name || message.length < 3) return drop();
+    if (hasLink(name) || hasLink(email) || hasLink(message)) return drop();
   }
 
   let subject = 'MobiilneLaen — uus sõnum';
