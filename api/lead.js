@@ -29,6 +29,17 @@ function hasLink(s) {
   return /(https?:\/\/|www\.|\[url|<a\s|\bt\.me\/|\.ru\b|\.top\b|bit\.ly)/i.test(String(s || ''));
 }
 
+// Боты форм, которые доходили до почты (11.11.2026; те же, что на kiirarve и itp):
+// случайный набор латинских букв в имени и тексте («xowvYTuijOfABhjfeQSXK») и
+// «если не дозвонитесь, напишите в мессенджер/вацап» + российский мобильный 8/+7 9xx.
+// Эстонскому кредитному порталу клиенты с российским номером не пишут.
+function isFormSpam(name, message) {
+  const junk = (s) => /^[A-Za-z]{12,200}$/.test(s) && (s.match(/[A-Z]/g) || []).length >= 4;
+  if (junk(name) && junk(message)) return true;
+  return /(ва[цт]с?ап|вотсап|whats\s?app|телеграм|telegram|мес+ен?д?жер)/iu.test(message)
+    && /(?<!\d)(\+?7|8)[\s-]?\(?9\d{2}\)?[\s-]?\d{3}[\s-]?\d{2}[\s-]?\d{2}(?!\d)/.test(message);
+}
+
 function esc(v) {
   return String(v == null ? '' : v).replace(/[<>&]/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
 }
@@ -87,6 +98,7 @@ export default async function handler(req, res) {
   } else if (type === 'contact') {
     if (!name || message.length < 3) return drop();
     if (hasLink(name) || hasLink(email) || hasLink(message)) return drop();
+    if (isFormSpam(name, message)) return drop();
   }
 
   let subject = 'MobiilneLaen — uus sõnum';
