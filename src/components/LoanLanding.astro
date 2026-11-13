@@ -6,6 +6,7 @@ import ProsCons from './ProsCons.astro';
 import LoanFacts from './LoanFacts.astro';
 import LoanFaq from './LoanFaq.astro';
 import Card from './Card.astro';
+import AdNotice from './AdNotice.astro';
 import TrustBadges from './TrustBadges.astro';
 import ApplySteps from './ApplySteps.astro';
 import MobileCta from './MobileCta.astro';
@@ -71,9 +72,12 @@ const breadcrumbs = [
       <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mb-6">Laenupakkumised</h2>
       {
         offers.length > 0 ? (
+          <>
+          <AdNotice />
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {offers.map((offer) => <Card offerData={offer} />)}
           </div>
+          </>
         ) : (
           <p class="bg-blue-50 text-blue-800 p-4 rounded-lg">
             Sellele tüübile vastavaid laenupakkumisi hetkel ei leitud.

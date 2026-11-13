@@ -112,7 +112,8 @@ export default function SmartCalculator({ allOffers, defaultCategory = 'kiirlaen
           
           {results.length > 0 ? (
             <div className="w-full">
-              <p className="text-sm font-bold my-4 text-center">Nende andmete põhjal sobivad sulle järgmised pakkumised:</p>
+              <p className="text-sm font-bold my-4 text-center">Pakkumised, mille tingimustes valitud summa ja periood on lubatud:</p>
+              <p className="mb-4 rounded-lg border border-cyan-100 bg-cyan-50 px-4 py-3 text-sm text-slate-700"><strong>Reklaam.</strong> Krediidiandjate pakkumised, järjekord sõltub reklaamikoostöö tingimustest. <strong>Hoiatus! Laenuvõtmise eest tuleb maksta.</strong> Tutvu tingimustega ja vajadusel konsulteeri asjatundjaga.</p>
               
               {resultCategories.length > 1 ? (
                 <Tabs defaultValue={defaultCategory && resultCategories.includes(defaultCategory) ? defaultCategory : "koik"} className="w-full">
