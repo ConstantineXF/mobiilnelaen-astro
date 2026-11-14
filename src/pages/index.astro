@@ -9,8 +9,8 @@ import LoanFilter from '../components/LoanFilter.astro';
 import HomeContent from '../components/HomeContent.astro';
 import LoanFaq from '../components/LoanFaq.astro';
 import SmartCalculator from '../components/SmartCalculator.tsx';
-import ApplicationForm from '../components/ApplicationForm.astro';
-import SubscriptionForm from '../components/SubscriptionForm.astro';
+// import ApplicationForm from '../components/ApplicationForm.astro'; // снята 14.11.2026
+// import SubscriptionForm from '../components/SubscriptionForm.astro'; // снята 14.11.2026
 import TypicalCases from '../components/TypicalCases.astro';
 import TrustBadges from '../components/TrustBadges.astro';
 import ApplySteps from '../components/ApplySteps.astro';
@@ -109,8 +109,9 @@ const homeFaq = [
 
   <LoanFaq title="Korduma kippuvad küsimused mobiilse laenu kohta" items={homeFaq} />
 
-  <ApplicationForm />
-  <SubscriptionForm />
+  {/* 14.11.2026 владелец: сняты анкета «персональное предложение» и подписка на рассылку
+      (сайт не подбирает кредит под человека и не шлёт подборки). Компоненты сохранены;
+      адреса, уже собранные в Brevo, не удаляются. */}
 
   <MobileCta href="#laenud" label="Vaata pakkumisi" />
 </MainLayout>
