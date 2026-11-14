@@ -17,7 +17,10 @@ import ApplySteps from '../components/ApplySteps.astro';
 import MobileCta from '../components/MobileCta.astro';
 import RepresentativeExample from '../components/RepresentativeExample.astro';
 
-const allOffers = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
+// Monefit — в конец (владелец 14.11.2026: уменьшить его видимость в сети); остальной порядок прежний
+const monefitLast = (xs: any[]) => [...xs].sort((a, b) => Number(/monefit/i.test(a?.providerName || '')) - Number(/monefit/i.test(b?.providerName || '')));
+const allOffersRaw = await sanityClient.fetch(`*[_type == "loanOffer"]{_id, providerName, loanType, maxAmount, maxTerm, interestRate, "slug": slug.current, offerUrl} | order(providerName asc)`);
+const allOffers = monefitLast(allOffersRaw);
 
 const homeFaq = [
   {

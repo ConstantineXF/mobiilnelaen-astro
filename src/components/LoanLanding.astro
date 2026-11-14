@@ -24,7 +24,11 @@ interface Props {
   offers: any[];
   allOffers: any[];
 }
-const { content, offers, allOffers } = Astro.props as Props;
+// Monefit — в конец (владелец 14.11.2026: уменьшить его видимость в сети); остальной порядок прежний
+const monefitLast = (xs: any[]) => [...xs].sort((a, b) => Number(/monefit/i.test(a?.providerName || '')) - Number(/monefit/i.test(b?.providerName || '')));
+const { content } = Astro.props as Props;
+const offers = monefitLast((Astro.props as Props).offers || []);
+const allOffers = monefitLast((Astro.props as Props).allOffers || []);
 
 // Оглавление: фиксированные секции + динамические H2
 const toc = [
